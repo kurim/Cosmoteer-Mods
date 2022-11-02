@@ -1,0 +1,21 @@
+__Name = "Deutsch"
+__DebugOnly = false
+
+
+Parts
+{
+	CrewQuarters3x3 = "Crewquartiere 3x3"
+	CrewQuarters3x3Icon = "Quartiere 3x3"
+	CrewQuarters3x3Desc = "Bietet Betten für 16 Crewmitglieder."
+}
+Techs
+{
+	NewTech = "Neue Technologien"
+	NewTechIcon = "Neue Tech"
+	NewTechDesc = "Schaltet neue Technologien frei"
+
+}
+EditorGroups
+{
+	Science = "Forschung"
+}

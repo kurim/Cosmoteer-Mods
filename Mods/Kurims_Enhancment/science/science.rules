@@ -1,0 +1,16 @@
+Science
+{
+	NameKey = "Techs/NewTech"
+    IconNameKey = "Techs/NewTechIcon"
+	DescriptionKey = "Techs/NewTechDesc"
+    EditorGroup = "Science"
+    EditorIcon
+	{
+		Texture
+		{
+			File = "logo.png"
+			SampleMode = Linear
+		}
+		Size = [64, 64]
+	}
+}
