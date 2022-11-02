@@ -1,0 +1,10 @@
+__Name = "English"
+__DebugOnly = false
+
+
+Parts
+{
+	CrewQuarters3x3 = "Crewquartiere 3x3"
+	CrewQuarters3x3Icon = "Quartiere 3x3"
+	CrewQuarters3x3Desc = "Bietet Betten für 16 Crewmitglieder."
+}
