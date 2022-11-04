@@ -1,8 +1,8 @@
-ID = "kurim.techtree"
+ID = "kurim.!techtree"
 Name = "Kurim's TechTree"
 Version = 1.0.0
 Author = "Kurim"
-CompatibleGameVersions = ["0.20.14]
+CompatibleGameVersions = ["0.20.14"]
 Description = "Adds Techtree"
 ModifiesMultiplayer = true
 StringsFolder = "strings"
