@@ -1,0 +1,26 @@
+Techs
+[
+	// Tier 1 Blueprints
+	{
+		ID = kurim.3x3crewquarters
+		NameKey = &<ships/crew_3x3/crew_3x3.rules>/Part/NameKey
+		DescriptionKey = &<ships/crew_3x3/crew_3x3.rules>/Part/DescriptionKey
+		Icon = &<ships/crew_3x3/crew_3x3.rules>/Part/EditorIcon
+		EditorGroup = &<ships/crew_3x3/crew_3x3.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/crew_3x3/crew_3x3.rules>/Part/ID]
+		Cost = 5000
+		Prerequisites = [kurim.techT1]
+	}
+
+	// Tier 2 Blueprints
+	{
+	ID = kurim.4x4crewquarters
+	NameKey = &<ships/crew_4x4/crew_4x4.rules>/Part/NameKey
+	DescriptionKey = &<ships/crew_4x4/crew_4x4.rules>/Part/DescriptionKey
+	Icon = &<ships/crew_4x4/crew_4x4.rules>/Part/EditorIcon
+	EditorGroup = &<ships/crew_4x4/crew_4x4.rules>/Part/EditorGroup
+	PartsUnlocked = [&<ships/crew_4x4/crew_4x4.rules>/Part/ID]
+	Cost = 7500
+	Prerequisites = [kurim.techT2]
+	}
+]

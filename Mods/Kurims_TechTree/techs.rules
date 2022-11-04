@@ -1,0 +1,24 @@
+Techs
+[
+	// Techtree
+	{
+		ID = kurim.techT1
+		NameKey = &<science/science.rules>/Science/0/NameKey
+		DescriptionKey = &<science/science.rules>/Science/0/DescriptionKey
+		Icon = &<science/science.rules>/Science/0/EditorIcon
+		EditorGroup = &<science/science.rules>/Science/0/EditorGroup
+		PartsUnlocked = []
+		Cost = 10000
+		Prerequisites = [cosmoteer.control_room_med]
+	}
+	{
+		ID = kurim.techT2
+		NameKey = &<science/science.rules>/Science/1/NameKey
+		DescriptionKey = &<science/science.rules>/Science/1/DescriptionKey
+		Icon = &<science/science.rules>/Science/1/EditorIcon
+		EditorGroup = &<science/science.rules>/Science/1/EditorGroup
+		PartsUnlocked = []
+		Cost = 15000
+		Prerequisites = [kurim.techT1, cosmoteer.control_room_large]
+	}
+]

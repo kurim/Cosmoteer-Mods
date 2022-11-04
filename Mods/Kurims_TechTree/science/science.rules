@@ -1,0 +1,33 @@
+Science
+[
+	{
+		NameKey = "Techs/ScienceT1"
+		IconNameKey = "Techs/ScienceT1Icon"
+		DescriptionKey = "Techs/ScienceT1Desc"
+		EditorGroup = "Science"
+		EditorIcon
+		{
+			Texture
+			{
+				File = "t1.png"
+				SampleMode = Linear
+			}
+			Size = [64, 64]
+		}
+	}
+	{
+		NameKey = "Techs/ScienceT2"
+		IconNameKey = "Techs/ScienceT2Icon"
+		DescriptionKey = "Techs/ScienceT2Desc"
+		EditorGroup = "Science"
+		EditorIcon
+		{
+			Texture
+			{
+				File = "t2.png"
+				SampleMode = Linear
+			}
+			Size = [64, 64]
+		}
+	}
+]

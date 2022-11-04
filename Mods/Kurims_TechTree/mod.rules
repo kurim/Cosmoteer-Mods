@@ -1,22 +1,14 @@
-ID = "kurim.enhancments"
-Name = "Kurim's Enhancments"
+ID = "kurim.techtree"
+Name = "Kurim's TechTree"
 Version = 1.0.0
 Author = "Kurim"
-CompatibleGameVersions = ["0.20.7", "0.20.9", "0.20.10", "0.20.11"]
-Description = "Adds new Crew Quarters"
+CompatibleGameVersions = ["0.20.14]
+Description = "Adds Techtree"
 ModifiesMultiplayer = true
 StringsFolder = "strings"
 Logo = "logo.png"
 Actions
 [
-	{
-		Action = AddMany
-		AddTo = "<ships/terran/terran.rules>/Terran/Parts"
-		ManyToAdd = 
-		[
-			&<ships/crew_3x3/crew_3x3.rules>/Part
-		]
-	}
 	{
 		Action = AddMany
 		AddTo = "<modes/career/techs.rules>/Techs"

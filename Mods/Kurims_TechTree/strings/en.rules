@@ -1,0 +1,16 @@
+__Name = "English"
+__DebugOnly = false
+
+Techs
+{
+	ScienceT1 = "Tier 1 Science"
+	ScienceT1Icon = "New Tech"
+	ScienceT1Desc = "Unlock new technology"
+	ScienceT2 = "Tier 2 Science"
+	ScienceT2Icon = "New Tech"
+	ScienceT2Desc = "Unlock new technology"
+}
+EditorGroups
+{
+	Science = "Science"
+}

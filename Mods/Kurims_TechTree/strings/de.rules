@@ -1,0 +1,16 @@
+__Name = "Deutsch"
+__DebugOnly = false
+
+Techs
+{
+	ScienceT1 = "Tier 1 Forschung"
+	ScienceT1Icon = "Neue Tech"
+	ScienceT1Desc = "Schaltet neue Technologien frei"
+	ScienceT2 = "Tier 2 Forschung"
+	ScienceT2Icon = "Neue Tech"
+	ScienceT2Desc = "Schaltet neue Technologien frei"
+}
+EditorGroups
+{
+	Science = "Forschung"
+} 
