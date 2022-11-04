@@ -1,9 +1,11 @@
 ID = "kurim.crewquarters"
 Name = "Bigger Crew Quarters"
-Version = 1.0.1
+Version = 1.1.0
 Author = "Kurim"
-CompatibleGameVersions = ["0.20.7", "0.20.8"]
-Description = "Adds new Crew Quarters"
+CompatibleGameVersions = ["0.20.7", "0.20.9", "0.20.10", "0.20.11", "0.20.12", "0.20.13"]
+Description = 	"Adds new Crew Quarters\n\n"\
+				"- 3x3 for 16 Crewmembers\n"\
+				"- 4x4 for 30 Crewmembers"
 ModifiesMultiplayer = true
 StringsFolder = "strings"
 Logo = "logo.png"
@@ -15,6 +17,7 @@ Actions
 		ManyToAdd = 
 		[
 			&<ships/crew_3x3/crew_3x3.rules>/Part
+			&<ships/crew_4x4/crew_4x4.rules>/Part
 		]
 	}
 	{

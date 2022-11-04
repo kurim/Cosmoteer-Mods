@@ -4,7 +4,10 @@ __DebugOnly = false
 
 Parts
 {
-	CrewQuarters3x3 = "Crewquartiere 3x3"
-	CrewQuarters3x3Icon = "Quartiere 3x3"
-	CrewQuarters3x3Desc = "Bietet Betten für 16 Crewmitglieder."
+	CrewQuarters3x3 = "Crew's Quarters 3x3"
+	CrewQuarters3x3Icon = "Quarters 3x3"
+	CrewQuarters3x3Desc = "Provides beds for 16 crew."
+	CrewQuarters4x4 = "Crew's Quarters 4x4"
+	CrewQuarters4x4Icon = "Quarters 4x4"
+	CrewQuarters4x4Desc = "Provides beds for 30 crew."
 }

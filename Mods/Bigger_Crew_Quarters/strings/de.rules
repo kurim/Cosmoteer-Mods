@@ -7,4 +7,7 @@ Parts
 	CrewQuarters3x3 = "Crewquartiere 3x3"
 	CrewQuarters3x3Icon = "Quartiere 3x3"
 	CrewQuarters3x3Desc = "Bietet Betten für 16 Crewmitglieder."
+	CrewQuarters4x4 = "Crewquartiere 4x4"
+	CrewQuarters4x4Icon = "Quartiere 4x4"
+	CrewQuarters4x4Desc = "Bietet Betten für 30 Crewmitglieder."	
 }
