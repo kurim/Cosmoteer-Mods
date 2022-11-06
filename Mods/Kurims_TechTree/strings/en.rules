@@ -9,6 +9,15 @@ Techs
 	ScienceT2 = "Tier 2 Science"
 	ScienceT2Icon = "New Tech"
 	ScienceT2Desc = "Unlock new technology"
+	ScienceT3 = "Tier 3 Science"
+	ScienceT3Icon = "New Tech"
+	ScienceT3Desc = "Unlock new technology"
+	ScienceT4 = "Tier 4 Science"
+	ScienceT4Icon = "New Tech"
+	ScienceT4Desc = "Unlock new technology"
+	ScienceT5 = "Tier 5 Science"
+	ScienceT5Icon = "New Tech"
+	ScienceT5Desc = "Unlock new technology"
 }
 EditorGroups
 {

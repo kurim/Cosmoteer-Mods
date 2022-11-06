@@ -1,0 +1,25 @@
+__Name = "Français"
+__DebugOnly = false
+
+Techs
+{
+	ScienceT1 = "Niveau 1 - Sciences"
+	ScienceT1Icon = "Nouvelle technologie"
+	ScienceT1Desc = "Déverrouiller les nouvelles technologies"
+	ScienceT2 = "Niveau 2 Sciences"
+	ScienceT2Icon = "Nouvelle technologie"
+	ScienceT2Desc = "Déverrouiller les nouvelles technologies"
+	ScienceT3 = "Niveau 3 Sciences"
+	ScienceT3Icon = "Nouvelle technologie"
+	ScienceT3Desc = "Déverrouiller les nouvelles technologies"
+	ScienceT4 = "Niveau 4 Sciences"
+	ScienceT4Icon = "Nouvelle technologie"
+	ScienceT4Desc = "Déverrouiller les nouvelles technologies"
+	ScienceT5 = "Niveau 5 Sciences"
+	ScienceT5Icon = "Nouvelle technologie"
+	ScienceT5Desc = "Déverrouiller les nouvelles technologies"
+}
+EditorGroups
+{
+	Science = "Sciences"
+}

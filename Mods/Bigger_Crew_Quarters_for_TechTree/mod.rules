@@ -2,7 +2,7 @@ ID = "kurim.crewquarters"
 Name = "Bigger Crew Quarters for TechMod"
 Version = 1.1.1
 Author = "Kurim"
-CompatibleGameVersions = ["0.20.14"]
+CompatibleGameVersions = ["0.20.15"]
 Description = 	"<red>This Version requieres Kurims TechTree</red>\n"\
 				"Adds new Crew Quarters\n\n"\
 				"- 3x3 for 16 Crewmembers\n"\

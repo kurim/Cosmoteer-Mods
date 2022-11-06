@@ -1,0 +1,25 @@
+__Name = "Español"
+__DebugOnly = false
+
+Techs
+{
+	ScienceT1 = "Nivel 1 de Ciencias"
+	ScienceT1Icon = "Nueva tecnología"
+	ScienceT1Desc = "Desbloquear la nueva tecnología"
+	ScienceT2 = "Nivel 2 de Ciencias"
+	ScienceT2Icon = "Nueva tecnología"
+	ScienceT2Desc = "Desbloquear la nueva tecnología"
+	ScienceT3 = "Nivel 3 de Ciencias"
+	ScienceT3Icon = "Nueva tecnología"
+	ScienceT3Desc = "Desbloquear la nueva tecnología"
+	ScienceT4 = "Nivel 4 de Ciencias"
+	ScienceT4Icon = "Nueva tecnología"
+	ScienceT4Desc = "Desbloquear la nueva tecnología"
+	ScienceT5 = "Nivel 5 de Ciencias"
+	ScienceT5Icon = "Nueva tecnología"
+	ScienceT5Desc = "Desbloquear la nueva tecnología"
+}
+EditorGroups
+{
+	Science = "Ciencia"
+}

@@ -9,7 +9,7 @@ Science
 		{
 			Texture
 			{
-				File = "t1.png"
+				File = "../images/t1.png"
 				SampleMode = Linear
 			}
 			Size = [64, 64]
@@ -24,7 +24,52 @@ Science
 		{
 			Texture
 			{
-				File = "t2.png"
+				File = "../images/t2.png"
+				SampleMode = Linear
+			}
+			Size = [64, 64]
+		}
+	}
+	{
+		NameKey = "Techs/ScienceT3"
+		IconNameKey = "Techs/ScienceT3Icon"
+		DescriptionKey = "Techs/ScienceT3Desc"
+		EditorGroup = "Science"
+		EditorIcon
+		{
+			Texture
+			{
+				File = "../images/t3.png"
+				SampleMode = Linear
+			}
+			Size = [64, 64]
+		}
+	}
+	{
+		NameKey = "Techs/ScienceT4"
+		IconNameKey = "Techs/ScienceT4Icon"
+		DescriptionKey = "Techs/ScienceT4Desc"
+		EditorGroup = "Science"
+		EditorIcon
+		{
+			Texture
+			{
+				File = "../images/t4.png"
+				SampleMode = Linear
+			}
+			Size = [64, 64]
+		}
+	}
+	{
+		NameKey = "Techs/ScienceT5"
+		IconNameKey = "Techs/ScienceT5Icon"
+		DescriptionKey = "Techs/ScienceT5Desc"
+		EditorGroup = "Science"
+		EditorIcon
+		{
+			Texture
+			{
+				File = "../images/t5.png"
 				SampleMode = Linear
 			}
 			Size = [64, 64]

@@ -18,7 +18,37 @@ Techs
 		Icon = &<science/science.rules>/Science/1/EditorIcon
 		EditorGroup = &<science/science.rules>/Science/1/EditorGroup
 		PartsUnlocked = []
-		Cost = 15000
+		Cost = 12500
 		Prerequisites = [kurim.techT1, cosmoteer.control_room_large]
+	}
+	{
+		ID = kurim.techT3
+		NameKey = &<science/science.rules>/Science/2/NameKey
+		DescriptionKey = &<science/science.rules>/Science/2/DescriptionKey
+		Icon = &<science/science.rules>/Science/2/EditorIcon
+		EditorGroup = &<science/science.rules>/Science/2/EditorGroup
+		PartsUnlocked = []
+		Cost = 15000
+		Prerequisites = [kurim.techT2]
+	}
+	{
+		ID = kurim.techT4
+		NameKey = &<science/science.rules>/Science/3/NameKey
+		DescriptionKey = &<science/science.rules>/Science/3/DescriptionKey
+		Icon = &<science/science.rules>/Science/3/EditorIcon
+		EditorGroup = &<science/science.rules>/Science/3/EditorGroup
+		PartsUnlocked = []
+		Cost = 17500
+		Prerequisites = [kurim.techT3]
+	}
+	{
+		ID = kurim.techT5
+		NameKey = &<science/science.rules>/Science/4/NameKey
+		DescriptionKey = &<science/science.rules>/Science/4/DescriptionKey
+		Icon = &<science/science.rules>/Science/4/EditorIcon
+		EditorGroup = &<science/science.rules>/Science/4/EditorGroup
+		PartsUnlocked = []
+		Cost = 20000
+		Prerequisites = [kurim.techT4]
 	}
 ]

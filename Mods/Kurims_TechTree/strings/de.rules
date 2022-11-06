@@ -9,6 +9,15 @@ Techs
 	ScienceT2 = "Tier 2 Forschung"
 	ScienceT2Icon = "Neue Tech"
 	ScienceT2Desc = "Schaltet neue Technologien frei"
+	ScienceT3 = "Tier 3 Forschung"
+	ScienceT3Icon = "Neue Tech"
+	ScienceT3Desc = "Schaltet neue Technologien frei"
+	ScienceT4 = "Tier 4 Forschung"
+	ScienceT4Icon = "Neue Tech"
+	ScienceT4Desc = "Schaltet neue Technologien frei"
+	ScienceT5 = "Tier 5 Forschung"
+	ScienceT5Icon = "Neue Tech"
+	ScienceT5Desc = "Schaltet neue Technologien frei"
 }
 EditorGroups
 {
