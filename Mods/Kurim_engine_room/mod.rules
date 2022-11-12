@@ -1,0 +1,25 @@
+ID = "kurim.engine_room"
+Name = "engine_room"
+Version = 1.1.1
+Author = "Kurim"
+CompatibleGameVersions = ["0.20.15"]
+Description = 	"engine_room"
+ModifiesMultiplayer = true
+StringsFolder = "strings"
+Logo = "logo.png"
+Actions
+[
+	{
+		Action = AddMany
+		AddTo = "<ships/terran/terran.rules>/Terran/Parts"
+		ManyToAdd = 
+		[
+			&<ships/engine_room/engine_room.rules>/Part
+		]
+	}
+	{
+		Action = AddMany
+		AddTo = "<modes/career/techs.rules>/Techs"
+		ManyToAdd = &<techs.rules>/Techs
+	}
+]

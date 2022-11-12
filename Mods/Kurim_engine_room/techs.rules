@@ -1,0 +1,13 @@
+Techs
+[
+	{
+		ID = kurim.engine_room
+		NameKey = &<ships/engine_room/engine_room.rules>/Part/NameKey
+		DescriptionKey = &<ships/engine_room/engine_room.rules>/Part/DescriptionKey
+		Icon = &<ships/engine_room/engine_room.rules>/Part/EditorIcon
+		EditorGroup = &<ships/engine_room/engine_room.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/engine_room/engine_room.rules>/Part/ID]
+		Cost = 5000
+		Prerequisites = [cosmoteer.control_room_med]
+	}
+]
