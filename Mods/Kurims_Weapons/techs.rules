@@ -1,0 +1,34 @@
+Techs
+[
+	// Tier 1 Blueprints
+	{
+		ID = kurim.light_phasor
+		NameKey = &<ships/light_phasor/light_phasor.rules>/Part/NameKey
+		DescriptionKey = &<ships/light_phasor/light_phasor.rules>/Part/DescriptionKey
+		Icon = &<ships/light_phasor/light_phasor.rules>/Part/EditorIcon
+		EditorGroup = &<ships/light_phasor/light_phasor.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/light_phasor/light_phasor.rules>/Part/ID]
+		Cost = 5000
+		//Prerequisites = [kurim.techT1]
+	}
+	{
+		ID = kurim.photon_torpedo
+		NameKey = &<ships/photon_torpedo/photon_torpedo.rules>/Part/NameKey
+		DescriptionKey = &<ships/photon_torpedo/photon_torpedo.rules>/Part/DescriptionKey
+		Icon = &<ships/photon_torpedo/photon_torpedo.rules>/Part/EditorIcon
+		EditorGroup = &<ships/photon_torpedo/photon_torpedo.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/photon_torpedo/photon_torpedo.rules>/Part/ID]
+		Cost = 5000
+		//Prerequisites = [kurim.techT1]
+	}
+	{
+		ID = kurim.quantum_torpedo
+		NameKey = &<ships/quantum_torpedo/quantum_torpedo.rules>/Part/NameKey
+		DescriptionKey = &<ships/quantum_torpedo/quantum_torpedo.rules>/Part/DescriptionKey
+		Icon = &<ships/quantum_torpedo/quantum_torpedo.rules>/Part/EditorIcon
+		EditorGroup = &<ships/quantum_torpedo/quantum_torpedo.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/quantum_torpedo/quantum_torpedo.rules>/Part/ID]
+		Cost = 5000
+		//Prerequisites = [kurim.techT2]
+	}
+]

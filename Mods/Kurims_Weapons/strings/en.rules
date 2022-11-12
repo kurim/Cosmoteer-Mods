@@ -1,0 +1,16 @@
+__Name = "English"
+__DebugOnly = false
+
+
+Parts
+{
+	LightPhaser = "Light Phaser"
+	LightPhaserIcon = "Light Phaser"
+	LightPhaserDesc = "Light Phaser, low but continuous damage"
+	Photontorpedo = "Photonen Torpedo"
+	PhotontorpedoIcon = "Photonen Torpedo"
+	PhotontorpedoDesc = "Photonen Torpedo mäßiger Schden hohe präzision"
+	Quantumtorpedo = "Quantum torpedo"
+	QuantumtorpedoIcon = "Quantum Torpedo"
+	QuantumtorpedoDesc = "Quantum Torpedo hoher Schden hohe präzision"		
+}

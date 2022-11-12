@@ -1,0 +1,27 @@
+ID = "kurim.testgun"
+Name = "Test Guns for TechMod"
+Version = 1.0.0
+Author = "Kurim"
+CompatibleGameVersions = ["0.20.15"]
+Description = 	"<red>This Version requieres Kurims TechTree</red>"
+ModifiesMultiplayer = true
+StringsFolder = "strings"
+Logo = "logo.png"
+Actions
+[
+	{
+		Action = AddMany
+		AddTo = "<ships/terran/terran.rules>/Terran/Parts"
+		ManyToAdd = 
+		[
+			&<ships/light_phasor/light_phasor.rules>/Part
+			&<ships/photon_torpedo/photon_torpedo.rules>/Part
+			&<ships/quantum_torpedo/quantum_torpedo.rules>/Part
+		]
+	}
+	{
+		Action = AddMany
+		AddTo = "<modes/career/techs.rules>/Techs"
+		ManyToAdd = &<techs.rules>/Techs
+	}
+]
