@@ -1,8 +1,7 @@
 ID = "kurim.quantum_torpedo_shoot"
 Range = 320
 IdealRange = [60, 320]
-IdealRadius = [5, 50]
-Speed = 30
+Speed = 40
 
 Components
 {
@@ -10,19 +9,55 @@ Components
 	{
 		Type = CirclePhysics
 		Radius = 0.3
-		Density = 0.0001
+		Density = 0.1
 	}
 
-	Death
+	Homing
+	{
+		Type = TargetHoming
+		TurnVelocity = 240d
+		Delay = .1
+		AvoidanceRaycastDistance = 250
+		VelocityCompensation = 60%
+	}
+
+	Retarget
+	{
+		Type = SameShipRetarget
+	}
+
+	Acceleration
+	{
+		Type = Acceleration
+		Acceleration = 65
+	}
+
+	NegativeAcceleration
+	{
+		Type = Acceleration
+		Acceleration = [-90, 0]
+		AccelerationOverTime = [0, .75]
+		Direction = FrameOfReferenceVelocity
+	}
+
+	DeathByLifetime
 	{
 		Type = DeathByLifetime
-		// Lifetime will be auto-calculated based on range and speed.
+		Lifetime = 15
+		HasTarget = true
+	}
+
+	DeathByDistanceTraveled
+	{
+		Type = DeathByDistanceTraveled
+		// Distance auto-computed from range.
+		HasTarget = false
 	}
 
 	Targetable
 	{
 		Type = Targetable
-		Health = 175
+		Health = 125
 		TargetCategory = "laser"
 	}
 
@@ -44,6 +79,7 @@ Components
 				{
 					Type = Damage
 					Damage = 6000
+					Radius = 4
 				}
 				{
 					Type = Impulse;
@@ -53,10 +89,10 @@ Components
 
 			MediaEffects
 			[
-				&<particles/laser_bolt_large_hit.rules>
-				&<particles/laser_bolt_large_flash.rules>
-				&<particles/laser_bolt_large_sparks.rules>
-				&<particles/laser_bolt_large_spikes.rules>
+				&<particles/quantum_torpedo_hit.rules>
+				&<particles/quantum_torpedo_flash.rules>
+				&<particles/quantum_torpedo_sparks.rules>
+				&<particles/quantum_torpedo_spikes.rules>
 
 				: /BASE_SOUNDS/AudioExterior
 				{
@@ -88,9 +124,9 @@ Components
 
 			MediaEffects
 			[
-				&<particles/laser_bolt_large_hit_struct.rules>
-				&<particles/laser_bolt_large_flash.rules>
-				&<particles/laser_bolt_large_sparks_struct.rules>
+				&<particles/quantum_torpedo_hit_struct.rules>
+				&<particles/quantum_torpedo_flash.rules>
+				&<particles/quantum_torpedo_sparks_struct.rules>
 
 				: /BASE_SOUNDS/AudioExterior
 				{

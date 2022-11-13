@@ -2,7 +2,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/LightPhaser"
 	IconNameKey = "Parts/LightPhaserIcon"
-	ID = kurim.test_gun // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
+	ID = kurim.light_phasor // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
 	EditorGroup = "WeaponsEnergy"
 	DescriptionKey = "Parts/LightPhaserDesc"
 	Resources
@@ -11,7 +11,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		[coil2, 15]
 	]
 	TypeCategories = [weapon, uses_power]
-	ReceivableBuffs : ^/0/ReceivableBuffs [WeaponPower]
+	ReceivableBuffs : ^/0/ReceivableBuffs []
 	Size = [1, 2]
 	PhysicalRect = [0, 1, 1, 1]
 	SaveRect = &PhysicalRect
@@ -84,30 +84,39 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			MaxResources = 1000
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
-		WeaponBuffToggle
+		BatteryConsumer
 		{
-			Type = BuffToggle
-			BuffType = WeaponPower
+			Type = ResourceConsumer
+			ResourceType = battery
+			Storage = BatteryStorage
+			DefaultPriority = &/PRIORITIES/Weapon_Supply
+			ResupplyThreshold = 500
+			OperationalToggle = PowerToggle
 		}
-		ToggledBatteryConsumer
-		{
-			Type = ToggledComponents
-			Toggle = WeaponBuffToggle
-			Invert = true
-			IncludeInBlueprints = true
-			Components
-			{
-				BatteryConsumer
-				{
-					Type = ResourceConsumer
-					ResourceType = battery
-					Storage = BatteryStorage
-					DefaultPriority = &/PRIORITIES/Weapon_Supply
-					ResupplyThreshold = 1000
-					OperationalToggle = PowerToggle
-				}
-			}
-		}
+		//WeaponBuffToggle
+		//{
+		//	Type = BuffToggle
+		//	BuffType = WeaponPower
+		//}
+		//ToggledBatteryConsumer
+		//{
+		//	Type = ToggledComponents
+		//	Toggle = WeaponBuffToggle
+		//	Invert = true
+		//	IncludeInBlueprints = true
+		//	Components
+		//	{
+		//		BatteryConsumer
+		//		{
+		//			Type = ResourceConsumer
+		//			ResourceType = battery
+		//			Storage = BatteryStorage
+		//			DefaultPriority = &/PRIORITIES/Weapon_Supply
+		//			ResupplyThreshold = 1000
+		//			OperationalToggle = PowerToggle
+		//		}
+		//	}
+		//}
 		TurretHolder
 		{
 			Type = Sprite
@@ -279,7 +288,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ShowProgressFor = Turret
 		}
 
-		BeamEmitterBase : <../../shots/test_gun_beam/test_gun_beam.rules>
+		BeamEmitterBase : <../../shots/light_phasor_beam/light_phasor_beam.rules>
 		{
 			Type = BeamEmitter
 			ChainedTo = Turret
@@ -308,7 +317,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ChainedTo = Oscillator
 			FireTrigger = Turret
 			Location = [0.4,0]
-			Width = &<../../shots/test_gun_beam/test_gun_beam.rules>/Width // BeamEmitterBase overrides width for targeting purposes.
+			Width = &<../../shots/light_phasor_beam/light_phasor_beam.rules>/Width // BeamEmitterBase overrides width for targeting purposes.
 		}
 
 		TurretGraphics

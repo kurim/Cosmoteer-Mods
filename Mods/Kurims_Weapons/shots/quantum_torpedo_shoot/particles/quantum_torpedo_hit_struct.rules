@@ -117,7 +117,7 @@ Def
 	{
 		Texture
 		{
-			File = laser_bolt_large_hit.png
+			File = quantum_torpedo_hit.png
 			FixTransparentColors = false
 			PreMultiplyByAlpha = false
 			MipLevels = 8

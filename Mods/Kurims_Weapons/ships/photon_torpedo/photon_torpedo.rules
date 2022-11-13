@@ -288,9 +288,11 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalToggle = IsOperational
 			AutoFireToggle = AutoFireToggle
 			FireInterval = 1.45
-			FiringArc = 160d
-			RotateSpeed = 90d
-			FireThresholdAngle = 1d
+			FiringArc = 0d;
+			ValidArc = 360d;
+			FireThresholdAngle = 180d;
+			RotateSpeed = 0d
+			AllowFireWithBlockedLOS = true
 			AIFirepowerRating = 800
 			Emitter = BulletEmitter
 			FirePermissionToggle = FireModeToggle
@@ -372,8 +374,8 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 
 			MediaEffects
 			[
-				&<particles/laser_blaster_small_shoot.rules>
-				&<particles/laser_blaster_small_shoot_flash.rules>
+				&<particles/photon_torpedo_shoot.rules>
+				&<particles/photon_torpedo_shoot_flash.rules>
 
 				: /BASE_SOUNDS/AudioExterior
 				{
@@ -525,7 +527,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					"weapon_normals1-9.png"
 				]
 				Size = [1, 2]
-				AnimationInterval = 0.05
+				AnimationInterval = 0.1
 				AnimationStartTime = MinValue
 				ClampAnimation = true
 			}

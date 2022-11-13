@@ -9,8 +9,11 @@ Parts
 	LightPhaserDesc = "Light Phaser, low but continuous damage"
 	Photontorpedo = "Photonen Torpedo"
 	PhotontorpedoIcon = "Photonen Torpedo"
-	PhotontorpedoDesc = "Photonen Torpedo mäßiger Schden hohe präzision"
+	PhotontorpedoDesc = "Photonen Torpedo mäßiger Schaden"
 	Quantumtorpedo = "Quantum torpedo"
 	QuantumtorpedoIcon = "Quantum Torpedo"
-	QuantumtorpedoDesc = "Quantum Torpedo hoher Schden hohe präzision"		
+	QuantumtorpedoDesc = "Quantum Torpedo hoher Schaden"
+	Tricobalttorpedo = "Tricobalt Torpedo"
+	TricobalttorpedoIcon = "Tricobalt Torpedo"
+	TricobalttorpedoDesc = "Tricobalt Torpedo hoher Schaden Schilddurchschlag"	
 }

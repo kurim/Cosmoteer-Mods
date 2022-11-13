@@ -16,7 +16,7 @@ BeamMediaEffects
 		{
 			Texture
 			{
-				File = "../../weapon/light_phaser.png"
+				File = "light_phasor_beam.png"
 				SampleMode = Linear
 				MipLevels = 1
 				UVMode = Clamp
@@ -28,7 +28,7 @@ BeamMediaEffects
 				MipLevels = max
 				UVMode = Wrap
 			}
-			Shader = "../../weapon/light_phaser.shader"
+			Shader = "light_phasor_beam.shader"
 			_gradientPow = 0.35
 			_sineFreq = 2.5
 			_sineAmp = 0.03
@@ -60,7 +60,7 @@ BeamMediaEffects
 		{
 			Texture
 			{
-				File = "../../weapon/light_phaser.png"
+				File = "light_phasor_beam.png"
 				MipLevels = max
 				SampleMode = Linear
 			}
@@ -92,7 +92,7 @@ BeamMediaEffects
 
 	: /BASE_SOUNDS/AudioExterior
 	{
-		Sound = "../../weapon/light_phaser.wav"
+		Sound = "light_phasor_beam.wav"
 		Volume = 1
 		Speed = 1
 		MaxConcurrent = 1
@@ -130,6 +130,6 @@ HitOperational
 
 	MediaEffects
 	[
-		&<particles/mining_beam_hit_sparks.rules>
+		&<particles/phasor_beam_hit_sparks.rules>
 	]
 }

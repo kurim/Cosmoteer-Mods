@@ -31,4 +31,14 @@ Techs
 		Cost = 5000
 		//Prerequisites = [kurim.techT2]
 	}
+	{
+		ID = kurim.tricobalt_torpedo
+		NameKey = &<ships/tricobalt_torpedo/tricobalt_torpedo.rules>/Part/NameKey
+		DescriptionKey = &<ships/tricobalt_torpedo/tricobalt_torpedo.rules>/Part/DescriptionKey
+		Icon = &<ships/tricobalt_torpedo/tricobalt_torpedo.rules>/Part/EditorIcon
+		EditorGroup = &<ships/tricobalt_torpedo/tricobalt_torpedo.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/tricobalt_torpedo/tricobalt_torpedo.rules>/Part/ID]
+		Cost = 5000
+		//Prerequisites = [kurim.techT3]
+	}
 ]

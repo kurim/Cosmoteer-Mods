@@ -147,7 +147,7 @@ Def
 	{
 		Texture
 		{
-			File = laser_bolt_large_hit.png
+			File = photon_torpedo_hit.png
 			MipLevels = 8
 			SampleMode = Linear
 		}

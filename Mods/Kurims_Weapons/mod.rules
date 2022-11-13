@@ -1,9 +1,13 @@
-ID = "kurim.testgun"
-Name = "Test Guns for TechMod"
+ID = "kurim.weapons"
+Name = "Kurims Weapons for TechMod"
 Version = 1.0.0
 Author = "Kurim"
 CompatibleGameVersions = ["0.20.15"]
-Description = 	"<red>This Version requieres Kurims TechTree</red>"
+Description = 	"<red>This Version requieres Kurims TechTree</red>\n\n"\
+				"- Photon Torpedo\n"\
+				"- Quantum Torpedo\n"\
+				"- Tricobalt Torpedo\n"\
+				"- Light Phaser"
 ModifiesMultiplayer = true
 StringsFolder = "strings"
 Logo = "logo.png"
@@ -17,6 +21,7 @@ Actions
 			&<ships/light_phasor/light_phasor.rules>/Part
 			&<ships/photon_torpedo/photon_torpedo.rules>/Part
 			&<ships/quantum_torpedo/quantum_torpedo.rules>/Part
+			&<ships/tricobalt_torpedo/tricobalt_torpedo.rules>/Part
 		]
 	}
 	{
