@@ -1,8 +1,8 @@
 ID = "kurim.crewquarters"
 Name = "Bigger Crew Quarters"
-Version = 1.1.1
+Version = 1.2.0
 Author = "Kurim"
-CompatibleGameVersions = ["0.20.15"]
+CompatibleGameVersions = ["0.20.22"]
 Description = 	"Adds new Crew Quarters\n\n"\
 				"- 3x3 for 16 Crewmembers\n"\
 				"- 4x4 for 30 Crewmembers"

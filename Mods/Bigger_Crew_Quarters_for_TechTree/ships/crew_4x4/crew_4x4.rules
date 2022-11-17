@@ -4,13 +4,14 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	IconNameKey = "Parts/CrewQuarters4x4Icon"
 	JobsNameKey = "JobNames/General"
 	JobsIcon = &<./Data/gui/game/crew/crew_gui.rules>/ToolIcon
-	ID = kurim.4x4crewquarters // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
+	ID = kurim.4x4crewquarters
 	OtherIDs = [4x4crewquarters]
 	EditorGroup = "Crew"
 	DescriptionKey = "Parts/CrewQuarters4x4Desc"
 	Resources
 	[
-		[steel, 192]
+		[steel, 160]
+		[tristeel, 8]
 	]
 	Size = [4, 4]
 	SelectionTypeID = "quarters"
