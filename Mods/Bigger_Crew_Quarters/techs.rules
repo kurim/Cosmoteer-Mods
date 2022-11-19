@@ -10,7 +10,7 @@ Techs
 		EditorGroup = &<ships/crew_3x3/crew_3x3.rules>/Part/EditorGroup
 		PartsUnlocked = [&<ships/crew_3x3/crew_3x3.rules>/Part/ID]
 		Cost = 5000
-		Prerequisites = [kurim.techT1]
+		Prerequisites = [cosmoteer.control_room_med]
 	}
 
 	// Tier 2 Blueprints
@@ -23,6 +23,6 @@ Techs
 		EditorGroup = &<ships/crew_4x4/crew_4x4.rules>/Part/EditorGroup
 		PartsUnlocked = [&<ships/crew_4x4/crew_4x4.rules>/Part/ID]
 		Cost = 7500
-		Prerequisites = [kurim.techT2]
+		Prerequisites = [cosmoteer.control_room_large]
 	}
 ]
