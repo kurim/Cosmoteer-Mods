@@ -2,7 +2,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/LightPhaser"
 	IconNameKey = "Parts/LightPhaserIcon"
-	ID = kurim.light_phasor // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
+	ID = kurim.light_railgun_deck
 	EditorGroup = "WeaponsEnergy"
 	DescriptionKey = "Parts/LightPhaserDesc"
 	Resources
@@ -13,14 +13,11 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	TypeCategories = [weapon, uses_power]
 	ReceivableBuffs : ^/0/ReceivableBuffs []
 	Size = [1, 2]
-	PhysicalRect = [0, 1, 1, 1]
-	SaveRect = &PhysicalRect
 	SelectionPriority = 1
 	SelectionTypeByRotation = true
 	MaxHealth = 3000
 	InitialPenetrationResistance = 3
 	PenetrationRectType = Normal
-	ProhibitAbove = 1
 	AllowedDoorLocations
 	[
 		[-1, 1]
@@ -79,7 +76,46 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Mode = FireModeToggle
 			OnMode = 2
 		}
+		LoadedAmmo
+		{
+			Type = ResourceStorage
+			ResourceType = bullet
+			MaxResources = 6
+			DelayBeforeReadyToUse = .25
+			AnticipateMoreResourcesFrom = [AmmoStorage]
+			ToggleOnResources = 6
+			ToggleOffResources = 5
+			UITileRect = [.5 + 7/64, .3 + 7/64, 1 - 14/64, 1 - 14/64]
+			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/AmmoDeliver
+			DropResourcesWhenDestroyed = true
+		}
+		AmmoStorage
+		{
+			Type = TypedResourceGrid
+			ResourceType = bullet
+			GridRect = [0, 1, 1, 1]
+			Layer = "doodads_low"
+			SpriteInset = [11/64, 9/64, 11/64, 13/64]
+		}
+		AmmoConsumer
+		{
+			Type = TypedResourceGridConsumer
+			ResourceType = bullet
+			Storage = AmmoStorage
+			DefaultPriority = &/PRIORITIES/Weapon_Supply
+			AdditionalStorageForJobPriority = [LoadedAmmo]
+			OperationalToggle = PowerToggle
+			ConsumptionToggleButtonOffset = [0, -.4]
+		}
 
+		AmmoPrereq
+		{
+			Type = MultiResourceStorage
+			ResourceType = bullet
+			ResourceStorages = [LoadedAmmo, AmmoStorage]
+			ToggleOnResources = 4
+			ToggleOffResources = 3
+		}
 		BatteryStorage
 		{
 			Type = ResourceStorage
@@ -120,23 +156,24 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		//		}
 		//	}
 		//}
-		TurretHolder
-		{
-			Type = Sprite
-			Location = [.5, .5]
-			Layer = "weapons"
-			AtlasSprite
-			{
-				File = "turret_holder.png"
-				NormalsFile = "turret_holder_normals.png"
-				Size = [1, 1]
-			}
-		}
+		//TurretHolder
+		//{
+		//	Type = Sprite
+		//	Location = [.5, .5]
+		//	Layer = "weapons"
+		//	AtlasSprite
+		//	{
+		//		File = "turret_holder.png"
+		//		NormalsFile = "turret_holder_normals.png"
+		//		Size = [1, 1]
+		//		Offset = [0, -1/64]
+		//	}
+		//}
 
 		Graphics
 		{
 			Type = Graphics
-			Location = [.5, 1.5]
+			Location = [.5, 1]
 			OperationalToggle = IsOperational
 			Floor
 			{
@@ -145,21 +182,22 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				[
 					{
 						File = "floor.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 					{
 						File = "floor_33.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 					{
 						File = "floor_66.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 				]
 			}
 			OperationalDoodad
 			{
 				Layer = "weapons"
+				Offset = [0, -0.5]
 				DamageLevels
 				[
 					{
@@ -180,6 +218,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalLighting
 			{
 				Layer = "lights_add"
+				Offset = [0, -0.5]
 				DamageLevels
 				[
 					{
@@ -191,6 +230,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Walls
 			{
 				Layer = "walls"
+				Offset = [0, -0.5]
 				DamageLevels
 				[
 					{
@@ -210,22 +250,23 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Roof
 			{
 				Layer = "roofs"
+				Location = [.5, 1]
 				DamageLevels
 				[
 					{
 						File = "roof.png"
 						NormalsFile = "roof_normals.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 					{
 						File = "roof_33.png"
 						NormalsFile = "roof_normals_33.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 					{
 						File = "roof_66.png"
 						NormalsFile = "roof_normals_66.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 				]
 			}
@@ -246,18 +287,22 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		Turret
 		{
 			Type = TurretWeapon
-			Location = [.5, 0.8128]//Relative to upper-left corner of unrotated part.
+			Location = [.5, 1]
 			Rotation = -90d// Relative to unrotated part.
 			OperationalToggle = IsOperational
 			AutoFireToggle = AutoFireToggle
-			FireInterval = .5
-			FiringArc = 110d
+			FireInterval = 1
+			FiringArc = 360d
 			RotateSpeed = 90d
-			FireThresholdAngle = 1d
-			AIFirepowerRating = 300
-			Emitter = BeamEmitterBase
-			FirePermissionToggle = FireModeToggle
+			FireThresholdAngle = 1d;
 			AutoTargetCrewSafetyDist = 8
+			IgnoreSourceShipLowLOSChecks = true
+			IgnoreJunkLOSChecks = true
+			AllowFireWithBlockedLOS = true
+			AIFirepowerRating = 800
+			Emitter = BulletEmitter
+			FirePermissionToggle = FireModeToggle
+			HoldTargetAfterCancel = &../BulletEmitter/FireDelay
 
 			AutoTargets
 			[
@@ -290,37 +335,162 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ProgressBar
 			ShowProgressFor = Turret
 		}
-
-		BeamEmitterBase : <../../shots/light_phasor_beam/light_phasor_beam.rules>
+			
+		BulletEmitter
 		{
-			Type = BeamEmitter
+			Type = BulletEmitter
 			ChainedTo = Turret
-			FireTrigger // none, but field is required
+			FireTrigger = Projectile
 			GetTargetFrom = Turret
-			Location = [0.4,0]
+			Location = [1, 0]
 			OperationalToggle = IsOperational
-			Duration = 1
-			ResourceStorage = BatteryStorage
-			ResourcesUsed = 400
-			MinResourcesUsed = 50
+			FireDelay = 0.2
+			Bullet = &<../../shots/bullet_railgun/bullet_railgun.rules>
+			ResourceUsage
+			[
+				{
+					ResourceStorage = AmmoStorage
+					ResourcesUsed = 10
+				}
+				{
+					ResourceStorage = BatteryStorage
+					ResourcesUsed = 500
+				}
+			]
 		}
 
-		Oscillator
+		ProjectileToggle
 		{
-			Type = Oscillator
-			ChainedTo = Turret
-			OperationalToggle = BeamEmitter
-			Location = [0.4,0]
-			Angle = -0.5d
-			Interval = 4.0
-			ResetWhenOperational = true
+			Type = TriggeredToggle
+			OnTrigger = Turret
+			OffTrigger = Projectile
+			OperationalToggle = IsOperational
 		}
-		BeamEmitter : BeamEmitterBase
+
+		Projectile
 		{
-			ChainedTo = Oscillator
-			FireTrigger = Turret
-			Location = [0.4,0]
-			Width = &<../../shots/light_phasor_beam/light_phasor_beam.rules>/Width // BeamEmitterBase overrides width for targeting purposes.
+			Type = RailgunProjectile
+			Location = [1, 4.5]
+			OperationalToggle = ProjectileToggle
+			YStartOffset = 3
+			YEndOffset = -4
+			SpeedStart = &../BulletEmitter/Bullet/Speed
+			SpeedEnd = &../BulletEmitter/Bullet/Speed
+			Interpolate = true // WARNING: Only use this for interpolating graphics. Using it for game logic will cause multiplayer desyncs.
+		}
+
+		RecoilProjectile : Projectile
+		{
+			Interpolate = false
+		}
+		RecoilTimer
+		{
+			Type = Timer
+			OperationalToggle = ProjectileToggle
+			Duration = 1/30
+			AutoStart = true
+			Repeats = true
+			TriggerWhenStarted = true
+		}
+		RecoilEffects
+		{
+			Type = TriggeredEffects
+			ChainedTo = RecoilProjectile
+			Rotation = 90d
+			Trigger = RecoilTimer
+			HitEffects
+			[
+				{
+					Type = Impulse
+					Impulse = 1
+				}
+			]
+		}
+		FireEffect
+		{
+			Type = TriggeredEffects
+			ChainedTo = Turret
+			Trigger = BulletEmitter
+			Location = [1.1, 0]
+			AnchorMediaEffects = true
+
+			MediaEffects
+			[
+				&<particles/railgun_shoot.rules>
+				&<particles/railgun_shoot_distortion.rules>
+			]
+		}
+
+		ToggledProjectileSprite
+		{
+			Type = ToggledComponents
+			Toggle = ProjectileToggle
+			Components
+			{
+				ProjectileGlowSprite
+				{
+					Type = Sprite
+					ChainedTo = Projectile
+					Layer = "lights_add"
+					AtlasSprite
+					{
+						File = "./Data/ships/terran/railgun_launcher/projectile_glow.png"
+						Size = [2, 3]
+					}
+				}
+				ProjectileFancyLightSprite
+				{
+					Type = Sprite
+					ChainedTo = Projectile
+					Layer = "roof_lights_fancy"
+					AtlasSprite
+					{
+						File = "./Data/ships/common/light_blob.png"
+						Size = [6, 6]
+						Z = 0.25 // Controls the "height" of the light for the purposes of normal mapping. Set to -1 (or any negative number) to disable normal lighting for this light.
+						VertexColor
+						{
+							Rf = 0.69*12
+							Gf = 0.96383333*12
+							Bf = 1*12
+							Af = 1
+						}
+					}
+				}
+				ProjectileSprite
+				{
+					Type = Sprite
+					ChainedTo = Projectile
+					Layer = "walls"
+					AtlasSprite
+					{
+						File = "./Data/ships/terran/railgun_launcher/projectile.png"
+						Size = [1.25, 2]
+					}
+				}
+			}
+		}
+
+		ProjectileSound
+		{
+			Type = ContinuousEffects
+			ChainedTo = Projectile
+			OperationalToggle = ProjectileToggle
+			FactorMediaEffectsIntensityWith = Projectile
+			MediaEffects
+			[
+				: /BASE_SOUNDS/AudioExterior
+				{
+					Sound = "./Data/ships/terran/railgun_launcher/rail.wav"
+					Volume = 2
+					Speed = .8
+					RampUpTime = .05
+					RampDownTime = .25
+					AllowStacking = false
+					VolumeOverIntensity = 1
+					SpeedOverIntensity = [0.5, 1]
+				}
+			]
 		}
 
 		TurretGraphics
@@ -331,50 +501,55 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalToggle = IsOperational
 			OperationalDoodad
 			{
-				Layer = "structure"
+				Layer = "roof_turrets"
 				DamageLevels
 				[
 					{
 						File = "turret_on.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 					{
 						File = "turret_on_33.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 					{
 						File = "turret_on_66.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 				]
 			}
 			NonOperationalDoodad
 			{
-				Layer = "structure"
+				Layer = "roof_turrets"
 				DamageLevels
 				[
 					{
 						File = "turret_off.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 					{
 						File = "turret_off_33.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 					{
 						File = "turret_off_66.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 				]
 			}
 		}
-
 		WeaponSprite
 		{
 			Type = Sprite
@@ -382,7 +557,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalToggle = IsOperational
 			Location = [.5, 0]
 			Rotation = 90d
-			Layer = "weapons"
+			Layer = "roof_turrets"
 			ResetAnimationTrigger = Turret
 			AtlasSprite
 			{
@@ -392,16 +567,18 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					"weapon0.png"// Loop back to beginning and clamp there.
 				]
 				Size = [1, 1]
+				Offset = [0, -1/64]
 				AnimationInterval = 0.05
 				AnimationStartTime = MinValue
 				ClampAnimation = true
 			}
 		}
 
+
 		BatterySprites
 		{
 			Type = ResourceSprites
-			Location = [.5, 1.5]
+			Location = [.5, .5]
 			ResourceStorage = BatteryStorage
 			Layer = "doodads_high"
 			ResourceLevels
@@ -474,26 +651,33 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	Stats
 	{
 		PowerCapacity = (&~/Part/Components/BatteryStorage/MaxResources) / 1000
-		RecPower = &../StatsByCategory/0/Stats/PowerUsageContinuous
+		RecPower = &../StatsByCategory/0/Stats/PowerPerSecond
 		RecCrew = (&RecPower) * 4
 	}
 
 	StatsByCategory
 	[
 		{
-			NameKey = "StatCategories/PDShot"
+			NameKey = "StatCategories/BulletRailgun"
 			Stats
 			{
-				DamagePerShot = (&~/Part/Components/BeamEmitterBase/HitOperational/HitEffects/0/Damage)
-				HitInterval = &~/Part/Components/BeamEmitterBase/HitInterval
-				DamageContinuous = (&DamagePerShot) / (&HitInterval)
-				Range = &~/Part/Components/BeamEmitterBase/Range
-				Arc = deg(&~/Part/Components/Turret/FiringArc)
-				TurretSpeed = deg(&~/Part/Components/Turret/RotateSpeed)
-				ShotSpeed = Infinity
-				PowerPerShot = (&~/Part/Components/BeamEmitterBase/ResourcesUsed) / 1000
-				PowerUsageContinuous = (&PowerPerShot) / (&~/Part/Components/Turret/FireInterval)
+				DamagePerShot = &~/Part/Components/BulletEmitter/Bullet/Components/Hit/HitOperational/HitEffects/0/Damage
+				DamagePerSecond = (&DamagePerShot) * (&ROF)
+				Damage = [&../DamagePerShot, &../DamagePerSecond]
+				Penetration = &~/Part/Components/BulletEmitter/Bullet/Components/Hit/Penetration
+				ROF = 1 / (&~/Part/Components/Turret/FireInterval)
+				Range = &~/Part/Components/BulletEmitter/Bullet/Range
+				Arc = 0
+				AmmoPerShot = &~/Part/Components/BulletEmitter/ResourceUsage/0/ResourcesUsed
+				AmmoPerSecond = (&AmmoPerShot) * (&ROF)
+				ShotSpeed = &~/Part/Components/BulletEmitter/Bullet/Speed
+				ShotHP = &~/Part/Components/BulletEmitter/Bullet/Components/Targetable/Health
+				PowerPerShot = (&~/Part/Components/BulletEmitter/ResourceUsage/1/ResourcesUsed) / 1000
+				PowerPerSecond = (&PowerPerShot) * (&ROF)
+				ShotPowerUsage = [&../PowerPerShot, &../PowerPerSecond]
 			}
 		}
 	]
+
+	StatsNotesKey = "Stats/RailgunNotes"
 }

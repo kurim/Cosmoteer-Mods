@@ -2,7 +2,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/LightPhaser"
 	IconNameKey = "Parts/LightPhaserIcon"
-	ID = kurim.light_phasor // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
+	ID = kurim.light_phasor_deck // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
 	EditorGroup = "WeaponsEnergy"
 	DescriptionKey = "Parts/LightPhaserDesc"
 	Resources
@@ -13,14 +13,11 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	TypeCategories = [weapon, uses_power]
 	ReceivableBuffs : ^/0/ReceivableBuffs []
 	Size = [1, 2]
-	PhysicalRect = [0, 1, 1, 1]
-	SaveRect = &PhysicalRect
 	SelectionPriority = 1
 	SelectionTypeByRotation = true
 	MaxHealth = 3000
 	InitialPenetrationResistance = 3
 	PenetrationRectType = Normal
-	ProhibitAbove = 1
 	AllowedDoorLocations
 	[
 		[-1, 1]
@@ -130,13 +127,14 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				File = "turret_holder.png"
 				NormalsFile = "turret_holder_normals.png"
 				Size = [1, 1]
+				Offset = [0, -1/64]
 			}
 		}
 
 		Graphics
 		{
 			Type = Graphics
-			Location = [.5, 1.5]
+			Location = [.5, 1]
 			OperationalToggle = IsOperational
 			Floor
 			{
@@ -145,15 +143,15 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				[
 					{
 						File = "floor.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 					{
 						File = "floor_33.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 					{
 						File = "floor_66.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 				]
 			}
@@ -215,17 +213,17 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					{
 						File = "roof.png"
 						NormalsFile = "roof_normals.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 					{
 						File = "roof_33.png"
 						NormalsFile = "roof_normals_33.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 					{
 						File = "roof_66.png"
 						NormalsFile = "roof_normals_66.png"
-						Size = [1, 1]
+						Size = [1, 2]
 					}
 				]
 			}
@@ -246,18 +244,22 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		Turret
 		{
 			Type = TurretWeapon
-			Location = [.5, 0.8128]//Relative to upper-left corner of unrotated part.
+			//Location = [.5, 0.8128]//Relative to upper-left corner of unrotated part.
+			Location = [.5, 1]
 			Rotation = -90d// Relative to unrotated part.
 			OperationalToggle = IsOperational
 			AutoFireToggle = AutoFireToggle
 			FireInterval = .5
-			FiringArc = 110d
+			FiringArc = 360d
 			RotateSpeed = 90d
 			FireThresholdAngle = 1d
 			AIFirepowerRating = 300
 			Emitter = BeamEmitterBase
 			FirePermissionToggle = FireModeToggle
 			AutoTargetCrewSafetyDist = 8
+			IgnoreSourceShipLowLOSChecks = true
+			IgnoreJunkLOSChecks = true
+			HoldTargetWhileFiring = 0.5
 
 			AutoTargets
 			[
@@ -299,10 +301,10 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			GetTargetFrom = Turret
 			Location = [0.4,0]
 			OperationalToggle = IsOperational
-			Duration = 1
+			Duration = 0.5
 			ResourceStorage = BatteryStorage
-			ResourcesUsed = 400
-			MinResourcesUsed = 50
+			ResourcesUsed = 200
+			MinResourcesUsed = 1
 		}
 
 		Oscillator
@@ -312,7 +314,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalToggle = BeamEmitter
 			Location = [0.4,0]
 			Angle = -0.5d
-			Interval = 4.0
+			Interval = 2
 			ResetWhenOperational = true
 		}
 		BeamEmitter : BeamEmitterBase
@@ -331,50 +333,55 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalToggle = IsOperational
 			OperationalDoodad
 			{
-				Layer = "structure"
+				Layer = "roof_turrets"
 				DamageLevels
 				[
 					{
 						File = "turret_on.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 					{
 						File = "turret_on_33.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 					{
 						File = "turret_on_66.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 				]
 			}
 			NonOperationalDoodad
 			{
-				Layer = "structure"
+				Layer = "roof_turrets"
 				DamageLevels
 				[
 					{
 						File = "turret_off.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 					{
 						File = "turret_off_33.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 					{
 						File = "turret_off_66.png"
 						NormalsFile = "turret_normals.png"
 						Size = [1, 2]
+						Offset = [0, -1/64]
 					}
 				]
 			}
 		}
-
 		WeaponSprite
 		{
 			Type = Sprite
@@ -382,7 +389,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalToggle = IsOperational
 			Location = [.5, 0]
 			Rotation = 90d
-			Layer = "weapons"
+			Layer = "roof_turrets"
 			ResetAnimationTrigger = Turret
 			AtlasSprite
 			{
@@ -392,11 +399,13 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					"weapon0.png"// Loop back to beginning and clamp there.
 				]
 				Size = [1, 1]
+				Offset = [0, -1/64]
 				AnimationInterval = 0.05
 				AnimationStartTime = MinValue
 				ClampAnimation = true
 			}
 		}
+
 
 		BatterySprites
 		{

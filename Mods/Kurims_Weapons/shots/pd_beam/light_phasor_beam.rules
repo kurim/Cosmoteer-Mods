@@ -1,11 +1,10 @@
-Range = 160
-IdealRange = [20, 160]
-Width = .5
+Range = 150
+IdealRange = [10, 150]
+Width = .2
 HitInterval = .1
 PenetratesStructure = false
 SourceShipLowCollisions = false
 CrewCollisions = {Enemies=true; Junk=true}
-HitCrew = &HitOperational
 
 BeamMediaEffects
 [
@@ -96,8 +95,8 @@ BeamMediaEffects
 		Volume = 1
 		Speed = 1
 		MaxConcurrent = 1
-		RampUpTime = .5
-		RampDownTime = .5
+		RampUpTime = .05
+		RampDownTime = .05
 
 		DynamicVolume : ^/0/DynamicVolume
 		{
@@ -111,25 +110,51 @@ BeamMediaEffects
 
 ]
 
-HitShield = &HitOperational
-HitStructural = &HitOperational
-HitOperational
+Hit
 {
-	HitEffects
-	[
-		{
-			Type = Damage
-			Damage = 200
-			Filter
-			{
-				Friendlies = false
-				TargetedFriendlies = false
-			}
-		}
-	]
+	Type = SimpleHit
 
-	MediaEffects
-	[
-		&<particles/phasor_beam_hit_sparks.rules>
-	]
+	BulletCollisions
+	{
+		Enemies = true
+		Junk = true
+		Friendlies = true
+		OnlyBulletCategories = [missile, mine, bullet]
+	}
+	HitBullet
+	{
+		Offset = [-0.15, 0]
+
+		HitEffects
+		[
+			{
+				Type = Damage
+				Damage = 1500
+			}
+		]
+
+		MediaEffects
+		[
+			&<particles/phasor_beam_hit_sparks.rules>
+		]
+	}
+
+	CrewCollisions = {Enemies=true; Junk=true}
+	HitCrew = &HitOperational
+
+	HitShield = &HitOperational
+	HitOperational
+	{
+		Offset = [-0.15, 0]
+
+		HitEffects
+		[
+			{
+				Type = Damage
+				Damage = 150
+			}
+		]
+		MediaEffects = &../HitBullet/MediaEffects
+	}
+	HitStructural = &HitOperational
 }

@@ -1,0 +1,124 @@
+ID = "b4rn4cl3b0y.hornet_missile"
+Range = 350
+IdealRange = 320
+Speed = 45
+
+Components
+{
+	Physics
+	{
+		Type = BoxPhysics
+		Size = [1.3, .4]
+		Density = 0.1
+	}
+	
+	Homing
+	{
+		Type = TargetHoming
+		TurnVelocity = 290d
+		Delay = .1
+		AvoidanceRaycastDistance = 250
+		VelocityCompensation = 80%
+	}
+	
+	Retarget
+	{
+		Type = SameShipRetarget
+	}
+	
+	Acceleration
+	{
+		Type = Acceleration
+		Acceleration = 75
+	}
+	
+	NegativeAcceleration
+	{
+		Type = Acceleration
+		Acceleration = [-90, 0]
+		AccelerationOverTime = [0, .75]
+		Direction = FrameOfReferenceVelocity
+	}
+	
+	DeathByLifetime
+	{
+		Type = DeathByLifetime
+		Lifetime = 20
+		HasTarget = true
+	}
+	
+	DeathByDistanceTraveled
+	{
+		Type = DeathByDistanceTraveled
+		HasTarget = false
+	}
+	
+	//Sprites, Lights und MediaEffects
+	Sprite
+	{
+		Type = Sprite
+		IsLit = true
+		Sprite
+		{
+			Texture
+			{
+				File = "missile_hornet.png"
+				MipLevels = max
+			}
+			Size = [1.3, .4]
+		}
+		NormalsTexture
+		{
+			File = "missile_hornet_normals.png"
+			Size = [1,3, .4]
+		}
+	}
+	
+	Targetable
+	{
+		Type = Targetable
+		Health = 600
+		TargetCategory = "missile"
+		OnDeath = &../Hit/HitFriendly
+	}
+	
+	Hit
+	{
+		Type = SimpleHit
+		SourcePartCollisionDelay = 1.5/30
+		
+		HitShield = &HitOperational
+
+		HitOperational // fehlte
+		{
+			HitEffects
+			[
+				{
+					Type = ExplosiveDamage // war leerzeichen zu viel
+					TotalDamage = 7500
+					Radius = 3
+					Filter
+					{
+						Friendlies = true
+					}
+				}
+				{
+					Type = Impulse; // fehlt ein e richtig ist Impulse nicht Impuls
+					Impulse = 150;
+				}
+			]
+			
+			//MediaEffects
+			
+			
+		}
+		HitStructural = &HitOperational
+		
+		HitFriendly // Hit/HitFriendly war nicht korrekt :D
+		{
+			//MediaEffects
+			
+			
+		}
+	}
+}

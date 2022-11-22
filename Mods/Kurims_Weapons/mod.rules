@@ -19,14 +19,47 @@ Actions
 		ManyToAdd = 
 		[
 			&<ships/light_phasor/light_phasor.rules>/Part
+			&<ships/light_phasor_deck/light_phasor_deck.rules>/Part
 			&<ships/photon_torpedo/photon_torpedo.rules>/Part
 			&<ships/quantum_torpedo/quantum_torpedo.rules>/Part
 			&<ships/tricobalt_torpedo/tricobalt_torpedo.rules>/Part
+			&<ships/photon_torpedo_deck/photon_torpedo_deck.rules>/Part
+			&<ships/light_railgun_deck/light_railgun_deck.rules>/Part
+			&<ships/point_defense/point_defense.rules>/Part
 		]
 	}
 	{
 		Action = AddMany
 		AddTo = "<modes/career/techs.rules>/Techs"
 		ManyToAdd = &<techs.rules>/Techs
+	}
+	{
+		Action = Add
+		AddTo = "<buffs/buffs.rules>"
+		CreateIfNotExisting = false
+		IgnoreIfNotExisting = false
+		Name = WeaponPower
+		ToAdd
+		{
+			CombineMode = Max
+			BaseValue = 100%
+
+			Icon
+			{
+				Texture
+				{
+					File = "buff_engine.png"
+					MipLevels = 2
+					SampleMode = Linear
+				}
+				Size = [2, 2]
+			}
+			IconTextFormatKey = "BuildBox/BuffPercentageFmt"
+			IconTextMultiply = 100
+			IconTextAdd = -100
+
+			RectBorderColor = [10, 212, 98, 160]
+			RectFillColor = [10, 212, 98, 64]
+		}
 	}
 ]
