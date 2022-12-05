@@ -15,7 +15,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	]
 	Size = [3, 3]
 	SelectionTypeID = "quarters"
-	MaxHealth = 8000
+	MaxHealth = 9000
 	TypeCategories = [provides_crew]
 	ReceivableBuffs : ^/0/ReceivableBuffs []
 	EditorIcon
