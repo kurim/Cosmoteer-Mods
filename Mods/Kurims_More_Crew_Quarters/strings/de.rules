@@ -1,0 +1,25 @@
+__Name = "Deutsch"
+__DebugOnly = false
+
+Parts
+{
+	CrewQuarters3x1 = "Zweier Crewkoje"
+	CrewQuarters3x1Icon = "Zweier-Koje"
+	CrewQuarters3x1Desc = "Bietet Betten für 4 Crewmitglieder-"
+
+	CrewQuarters3x2 = "Vierer Crewkoje"
+	CrewQuarters3x2Icon = "Vierer-Koje"
+	CrewQuarters3x2Desc = "Bietet Betten für 8 Crewmitglieder-"
+
+	CrewQuarters3x3 = "Crewschlafsaal"
+	CrewQuarters3x3Icon = "Schlafsaal"
+	CrewQuarters3x3Desc = "Bietet Betten für 16 Crewmitglieder-"
+
+	CrewQuarters4x3 = "Crewkaserne"
+	CrewQuarters4x3Icon = "Kaserne"
+	CrewQuarters4x3Desc = "Bietet Betten für 24 Crewmitglieder-"
+
+	CrewQuarters4x4 = "Crewwohnheim"
+	CrewQuarters4x4Icon = "Wohnheim"
+	CrewQuarters4x4Desc = "Bietet Betten für 30 Crewmitglieder-"
+}
