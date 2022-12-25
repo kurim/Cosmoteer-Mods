@@ -26,6 +26,9 @@ Actions
 			&<ships/photon_torpedo_deck/photon_torpedo_deck.rules>/Part
 			&<ships/light_railgun_deck/light_railgun_deck.rules>/Part
 			&<ships/point_defense/point_defense.rules>/Part
+			&<ships/laser_sx_deck/laser_sx_deck.rules>/Part
+			&<ships/dual_phaser_cannon/dual_phaser_cannon.rules>/Part
+			&<ships/dual_phaser_cannon_deck/dual_phaser_cannon.rules>/Part
 		]
 	}
 	{

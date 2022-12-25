@@ -1,0 +1,35 @@
+ID = "kurim.crewquartersalldoors"
+Name = "Kurim's More Crew Quarters Alldoors"
+Version = 1.3.0
+Author = "Kurim & RustyDios"
+CompatibleGameVersions = ["0.20.22"]
+Description = 	"Unrestricted Doors\n\n"\
+				"Adds new Crew Quarters\n\n"\
+				"- 3x1 for 4 Crewmembers\n"\
+				"- 3x2 for 8 Crewmembers\n"\
+				"- 3x3 for 16 Crewmembers\n"\
+				"- 4x3 for 24 Crewmembers\n"\
+				"- 4x4 for 30 Crewmembers"
+ModifiesMultiplayer = true
+StringsFolder = "strings"
+Logo = "logo.png"
+Actions
+[
+	{
+		Action = AddMany
+		AddTo = "<ships/terran/terran.rules>/Terran/Parts"
+		ManyToAdd = 
+		[
+			&<ships/crew_3x1/crew_3x1.rules>/Part
+			&<ships/crew_3x2/crew_3x2.rules>/Part
+			&<ships/crew_3x3/crew_3x3.rules>/Part
+			&<ships/crew_4x3/crew_4x3.rules>/Part
+			&<ships/crew_4x4/crew_4x4.rules>/Part
+		]
+	}
+	{
+		Action = AddMany
+		AddTo = "<modes/career/techs.rules>/Techs"
+		ManyToAdd = &<techs.rules>/Techs
+	}
+]

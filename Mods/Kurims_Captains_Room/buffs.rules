@@ -1,0 +1,12 @@
+CaptainsRoomBuff
+{
+	CombineMode = Max
+	BaseValue = 100%
+
+	IconTextFormatKey = "BuildBox/BuffPercentageFmt"
+	IconTextMultiply = 100
+	IconTextAdd = -100
+	ShowIconTextForZeroValue = false
+	RectBorderColor = [0, 255, 84, 160]
+	RectFillColor = [0, 255, 84, 64]
+}

@@ -1,0 +1,54 @@
+BLUEPRINTS:
+
+Wall/Armor (walls need to be dark, like the one on the laser blaster or small thrusters)
+----
+Colorize Hue: 0.67
+Colorize Sat: 1
+Colorize Lig: 0.34
+
+Doodads
+-------		Blue		Red		Orange		Yellow		white		Green(FTL)	Magenta		Purple
+Colorize Hue:	0.58		0		0.078		0.286		0.58		0.472		0.847		0.726
+Colorize Sat:	1		0.40		0.33		0.48		0.25		0.5		0.5		0.64
+Colorize Lig:	0.2		0.20/-0.15	0.22		0.23		0.30		0.25/.15(floor) 0.2		0.4
+Brightness:	0		-30/-20		0		0		35		0		25		0
+Contrast:	0		5/0		0		0		20		15/0		15		15
+Opacity:	90%		100%		100%		90%		90%		100%		100%		100%
+REMOVE SHADOW AND DO BLUR 10
+
+Floor
+-----
+Colorize Hue: 0.58
+Colorize Sat: 1
+Colorize Lig: 0.5 /0.2	for doble floor
+Opacity: 30%
+
+
+Corridors
+---------
+Colorize Hue: 0.58
+Colorize Sat: 1
+Colorize Lig: -0.4
+Opacity: 30%
+
+
+Storages floor
+---------
+Colorize Hue: 0.58
+Colorize Sat: 1
+Colorize Lig: -0.3
+Opacity: 30%
+
+
+Structure
+---------
+Colorize Hue: 0.58
+Colorize Sat: 0.5
+Colorize Lig: 0.2
+
+
+Door
+----
+Colorize Hue: 0.6
+Colorize Sat: 1
+Colorize Lig: 0.4

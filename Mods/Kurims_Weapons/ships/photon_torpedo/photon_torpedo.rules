@@ -340,7 +340,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Location = [1, 0]
 			OperationalToggle = IsOperational
 			FireDelay = .8
-			Bullet = &<../../shots/photon_torpedo_shoot/photon_torpedo_shoot.rules>
+			Bullet = &<../../shots/photon_torpedo_shot/photon_torpedo_shot.rules>
 			ResourceStorage = BatteryStorage
 			ResourcesUsed = 2000
 			MinResourcesUsed = 1
@@ -374,8 +374,8 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 
 			MediaEffects
 			[
-				&<particles/photon_torpedo_shoot.rules>
-				&<particles/photon_torpedo_shoot_flash.rules>
+				&<particles/photon_torpedo_shot.rules>
+				&<particles/photon_torpedo_shot_flash.rules>
 
 				: /BASE_SOUNDS/AudioExterior
 				{

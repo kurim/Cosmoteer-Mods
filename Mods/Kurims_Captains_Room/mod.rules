@@ -1,0 +1,45 @@
+ID = "kurim.readyroom"
+Name = "Kurim's Captain's ready room"
+Version = 1.0.0
+Author = "Kurim"
+CompatibleGameVersions = ["0.20.29"]
+Description = 	"Restricted Doors"
+ModifiesMultiplayer = true
+StringsFolder = "strings"
+Logo = "logo.png"
+Actions
+[
+	{
+		Action = AddMany
+		AddTo = "<ships/terran/terran.rules>/Terran/Parts"
+		ManyToAdd = 
+		[
+			&<ships/captains_room/captains_room.rules>/Part
+		]
+	}
+	{
+		Action = AddMany
+		AddTo = "<modes/career/techs.rules>/Techs"
+		ManyToAdd = &<techs.rules>/Techs
+	}
+	{
+		Action = Overrides
+		OverrideIn = "<./Data/buffs/buffs.rules>"
+		Overrides = &<buffs.rules>
+	}
+	{
+		Action = AddMany
+		AddTo = "<ships/terran/thruster_small/thruster_small.rules>/Part/ReceivableBuffs"
+		ManyToAdd = [CaptainsRoomBuff]
+	}
+	//{
+	//	Action = AddBase
+	//	AddBaseTo = "<ships/terran/control_room_small/control_room_small.rules>/Part/Components"
+	//	BaseToAdd = &<booster_components.rules>
+	//}
+	//{
+	//	Action = Replace
+	//	Replace = "<ships/terran/control_room_small/control_room_small.rules>/Part/MaxHealth"
+	//	With {BaseValue=4000; BuffType=BoosterActivate; BuffMode=Add; }
+	//}
+]

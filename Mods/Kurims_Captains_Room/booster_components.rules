@@ -1,0 +1,21 @@
+BuffProvider
+{
+	Type = GridBuffProvider
+	BuffType = BoosterActivate
+	GridDistance = 1
+	BuffAmount = { BaseValue=1; BuffType=BoosterActivate; BuffMode=Add; }
+	OperationalToggle = BuffToggle
+}
+
+//SelfBuffProvider
+//{
+//	Type = SelfBuffProvider
+//	BuffType = BoosterActivate
+//	BuffAmount = 1
+//}
+
+BuffToggle
+{
+	Type = BuffToggle
+	BuffType = BoosterActivate
+}

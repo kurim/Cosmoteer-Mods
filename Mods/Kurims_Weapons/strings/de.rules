@@ -15,5 +15,19 @@ Parts
 	QuantumtorpedoDesc = "Quantum Torpedo hoher Schaden hohe präzision"
 	Tricobalttorpedo = "Tricobalt Torpedo"
 	TricobalttorpedoIcon = "Tricobalt Torpedo"
-	TricobalttorpedoDesc = "Tricobalt Torpedo hoher Schaden Schilddurchschlag"	
+	TricobalttorpedoDesc = "Tricobalt Torpedo hoher Schaden Schilddurchschlag"
+	LaserSxDeck = "Experimental Laser SX"
+	LaserSxDeckIcon = "Exp. Laser SX"
+	LaserSxDeckDesc = "Experimental Laser SX"
+	PhaserDualDeck = "Dual Phaser Cannons"
+	PhaserDualDeckIcon = "Dual Phaser"
+	PhaserDualDeckDesc = "Dual Phaser Cannons"
+	DualPhaserCannon = "Pulsphaser"
+	DualPhaserCannonIcon = "Pulsphaser"
+	DualPhaserCannonDesc = "Pulsphaser benutzen statt einem durchgehenden Phaserstrahl eine schnelle Folge von Phaserpulsen."
+}
+
+StatCategories
+{
+	PhaserBolt = "Phaserpuls"
 }

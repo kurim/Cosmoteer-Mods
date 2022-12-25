@@ -1,0 +1,12 @@
+Techs
+[
+	{
+		ID = kurim.CaptainsRoom
+		NameKey = &<ships/captains_room/captains_room.rules>/Part/NameKey
+		DescriptionKey = &<ships/captains_room/captains_room.rules>/Part/DescriptionKey
+		Icon = &<ships/captains_room/captains_room.rules>/Part/EditorIcon
+		EditorGroup = &<ships/captains_room/captains_room.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/captains_room/captains_room.rules>/Part/ID]
+		Cost = 5000
+	}
+]

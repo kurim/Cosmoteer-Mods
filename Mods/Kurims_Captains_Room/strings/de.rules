@@ -1,0 +1,9 @@
+__Name = "Deutsch"
+__DebugOnly = false
+
+Parts
+{
+	CaptainsRoom = "Bereitschaftsraum"
+	CaptainsRoomIcon = "Bereitschaftsraum"
+	CaptainsRoomDesc = "Der Raum des Käpt'ns"
+}

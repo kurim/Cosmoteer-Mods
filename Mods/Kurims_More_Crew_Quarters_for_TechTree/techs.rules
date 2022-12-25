@@ -1,0 +1,64 @@
+Techs
+[
+	// Tier 1 Blueprints
+	{
+		Name = crewquarters3x1
+		ID = kurim.3x1crewquarters
+		NameKey = &<ships/crew_3x1/crew_3x1.rules>/Part/NameKey
+		DescriptionKey = &<ships/crew_3x1/crew_3x1.rules>/Part/DescriptionKey
+		Icon = &<ships/crew_3x1/crew_3x1.rules>/Part/EditorIcon
+		EditorGroup = &<ships/crew_3x1/crew_3x1.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/crew_3x1/crew_3x1.rules>/Part/ID]
+		Prerequisites = [kurim.techT1]
+		Cost = 1500
+	}
+	// Tier 2 Blueprints
+	{
+		Name = crewquarters3x2
+		ID = kurim.3x2crewquarters
+		NameKey = &<ships/crew_3x2/crew_3x2.rules>/Part/NameKey
+		DescriptionKey = &<ships/crew_3x2/crew_3x2.rules>/Part/DescriptionKey
+		Icon = &<ships/crew_3x2/crew_3x2.rules>/Part/EditorIcon
+		EditorGroup = &<ships/crew_3x2/crew_3x2.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/crew_3x2/crew_3x2.rules>/Part/ID]
+		Cost = 3000
+		Prerequisites = [kurim.techT2]
+	}
+	// Tier 3 Blueprints
+	{
+		Name = crewquarters3x3
+		ID = kurim.3x3crewquarters
+		NameKey = &<ships/crew_3x3/crew_3x3.rules>/Part/NameKey
+		DescriptionKey = &<ships/crew_3x3/crew_3x3.rules>/Part/DescriptionKey
+		Icon = &<ships/crew_3x3/crew_3x3.rules>/Part/EditorIcon
+		EditorGroup = &<ships/crew_3x3/crew_3x3.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/crew_3x3/crew_3x3.rules>/Part/ID]
+		Cost = 6000
+		Prerequisites = [kurim.techT3]
+	}
+	// Tier 4 Blueprints
+	{
+		Name = crewquarters4x3
+		ID = kurim.4x3crewquarters
+		NameKey = &<ships/crew_4x3/crew_4x3.rules>/Part/NameKey
+		DescriptionKey = &<ships/crew_4x3/crew_4x3.rules>/Part/DescriptionKey
+		Icon = &<ships/crew_4x3/crew_4x3.rules>/Part/EditorIcon
+		EditorGroup = &<ships/crew_4x3/crew_4x3.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/crew_4x3/crew_4x3.rules>/Part/ID]
+		Cost = 9000
+		Prerequisites = [kurim.techT4]
+	}
+
+	// Tier 5 Blueprints
+	{
+		Name = crewquarters4x4
+		ID = kurim.4x4crewquarters
+		NameKey = &<ships/crew_4x4/crew_4x4.rules>/Part/NameKey
+		DescriptionKey = &<ships/crew_4x4/crew_4x4.rules>/Part/DescriptionKey
+		Icon = &<ships/crew_4x4/crew_4x4.rules>/Part/EditorIcon
+		EditorGroup = &<ships/crew_4x4/crew_4x4.rules>/Part/EditorGroup
+		PartsUnlocked = [&<ships/crew_4x4/crew_4x4.rules>/Part/ID]
+		Cost = 12000
+		Prerequisites = [kurim.techT5]
+	}
+]

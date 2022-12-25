@@ -7,13 +7,13 @@ Colorize Sat: 100
 Colorize Lig: 34
 
 Doodads
--------		Blue		Red		Orange	Yellow	white		Green(FTL)	Magenta	Purple(add Hue-Sat 10 40 100 after colorize)
+-------		Blue		Red		Orange		Yellow		white		Green(FTL)	Magenta		Purple(add Hue-Sat 10 40 100 after colorize)
 Colorize Hue:	208		0		28		103		208		170		305		255
 Colorize Sat:	100		40		33		48		25		50		50		40
-Colorize Lig:	25		20/-15	22		23		30		25/15		20		20
-Brightness:		0		-30/-20	0		0		35		0		25		15
-Contrast:		10		5/0		0		0		20		15/0		15		15
-Opacity:		90%		100%		100%		90%		90%		100%		100%		100%
+Colorize Lig:	25		20/-15		22		23		30		25/15		20		20
+Brightness:	0		-30/-20		0		0		35		0		25		15
+Contrast:	10		5/0		0		0		20		15/0		15		15
+Opacity:	90%		100%		100%		90%		90%		100%		100%		100%
 REMOVE SHADOW AND DO BLUR 10
 
 Floor

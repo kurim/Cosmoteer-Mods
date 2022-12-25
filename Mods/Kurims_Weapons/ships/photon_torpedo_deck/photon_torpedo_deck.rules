@@ -2,7 +2,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/Photontorpedo"
 	IconNameKey = "Parts/PhotontorpedoIcon"
-	ID = kurim.photon_torpedo_deck // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
+	ID = kurim.photon_torpedo_deck // Part IDs must al	ys be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
 	EditorGroup = "WeaponsEnergy"
 	DescriptionKey = "Parts/PhotontorpedoDesc"
 	Resources
@@ -303,7 +303,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Location = [1, 0]
 			OperationalToggle = IsOperational
 			FireDelay = .8
-			Bullet = &<../../shots/photon_torpedo_shoot_alt/photon_torpedo_shoot.rules>
+			Bullet = &<../../shots/photon_torpedo_shot_alt/photon_torpedo_shot.rules>
 			ResourceStorage = BatteryStorage
 			ResourcesUsed = 2000
 			MinResourcesUsed = 1

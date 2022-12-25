@@ -1,0 +1,9 @@
+__Name = "English"
+__DebugOnly = false
+
+Parts
+{
+	CaptainsRoom = "Ready Room"
+	CaptainsRoomIcon = "Ready Room"
+	CaptainsRoomDesc = "Captains Room"
+}

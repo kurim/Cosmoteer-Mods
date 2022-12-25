@@ -1,0 +1,25 @@
+__Name = "English"
+__DebugOnly = false
+
+Parts
+{
+	CrewQuarters3x1 = "Twin Bunk"
+	CrewQuarters3x1Icon = "Twin Bunk"
+	CrewQuarters3x1Desc = "Provides beds for 4 crew."
+
+	CrewQuarters3x2 = "Quad Bunk"
+	CrewQuarters3x2Icon = "Quad Bunk"
+	CrewQuarters3x2Desc = "Provides beds for 8 crew."
+
+	CrewQuarters3x3 = "Dormitory"
+	CrewQuarters3x3Icon = "Dormitory"
+	CrewQuarters3x3Desc = "Provides beds for 16 crew."
+
+	CrewQuarters4x3 = "Barracks"
+	CrewQuarters4x3Icon = "Barracks"
+	CrewQuarters4x3Desc = "Provides beds for 24 crew."
+
+	CrewQuarters4x4 = "Residence"
+	CrewQuarters4x4Icon = "Residence"
+	CrewQuarters4x4Desc = "Provides beds for 30 crew."
+}
