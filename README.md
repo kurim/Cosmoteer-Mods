@@ -14,6 +14,8 @@
 - PSD Content
 - Images
 
+Idea by NeXuS @ https://discord.gg/cosmoteer
+
 You can reuse every thing you like, but make sure that you mention my work.
 
 ## Cosmoteer Modding Documentation
