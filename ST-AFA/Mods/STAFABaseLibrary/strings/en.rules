@@ -1,0 +1,59 @@
+__Name = "English"
+__DebugOnly = false
+
+EditorGroups
+{
+	Starfleet = "Starfleet Modules"
+}
+
+Inputs
+{
+	PartTriggers
+	{
+		
+	}
+	PartToggles
+	{
+		
+	}
+}
+
+PartTriggers
+{
+	
+}
+
+PartToggles
+{
+	
+}
+
+BuildBox
+{
+	
+}
+
+Stats
+{
+
+}
+
+StatCategories
+{
+	
+}
+
+Ammo
+{
+	
+}
+
+Resource
+{
+	
+}
+
+Parts
+{
+	
+}
