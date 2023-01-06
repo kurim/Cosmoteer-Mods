@@ -1,13 +1,15 @@
 # Cosmoteer-Mods
 
 ## My Cosmoteer-Mods
+[Folder](https://github.com/kurim/Cosmoteer-Mods/tree/main/Kurim)
 
 - Bigger Crew Quarters
 - Bigger Crew Quarters for TechTree
 - Kurims TechTree
 - Experimaental Stuff
 
-## StarTrek - A Final Assault
+## StarTrek - A Final Assault 
+[Folder](https://github.com/kurim/Cosmoteer-Mods/tree/main/ST-AFA)
 
 - PSD Content
 - Images
