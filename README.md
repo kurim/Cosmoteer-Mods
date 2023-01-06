@@ -13,6 +13,9 @@
 
 - PSD Content
 - Images
+- Fonts
+
+Idea by NeXuS @ https://discord.gg/cosmoteer
 
 You can reuse every thing you like, but make sure that you mention my work.
 
