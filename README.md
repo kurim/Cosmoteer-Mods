@@ -13,6 +13,7 @@
 
 - PSD Content
 - Images
+- Fonts
 
 Idea by NeXuS @ https://discord.gg/cosmoteer
 
