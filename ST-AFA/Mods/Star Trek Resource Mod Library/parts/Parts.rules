@@ -1,0 +1,6 @@
+Parts
+[
+	//********** WEAPONS ********
+	&<Factories/factory_antimatter/factory_antimatter.rules>/Part
+	&<Factories/factory_torpedo/factory_torpedo_parts.rules>/Part
+]

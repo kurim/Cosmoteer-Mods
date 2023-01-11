@@ -1,0 +1,13 @@
+ID = nexusmods.resource_torpedo_part
+Type = Resource
+DescriptionKey = "Resource/TorpedoPart"
+CategoryKey = "Doodads/Resources"
+Icon
+{
+	Texture
+	{
+		File = "torpedo_part.png"
+		MipLevels = 2
+	}
+}
+ResourceType = torpedo_part

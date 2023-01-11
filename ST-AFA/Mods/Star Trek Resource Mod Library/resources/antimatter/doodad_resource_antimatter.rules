@@ -1,0 +1,13 @@
+ID = nexusmods.resource_antimatter
+Type = Resource
+DescriptionKey = "Resource/Antimatter"
+CategoryKey = "Doodads/Resources"
+Icon
+{
+	Texture
+	{
+		File = "antimatter.png"
+		MipLevels = 2
+	}
+}
+ResourceType = antimatter

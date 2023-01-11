@@ -1,0 +1,110 @@
+ID = antimatter
+NameKey = "Resource/Antimatter"
+PluralNameKey = "Resource/AntimatterPlural"
+DescriptionKey = "Resource/AntimatterDesc"
+BuyPrice = 20000
+MaxPerNugget = 1
+MaxStackSize = 1
+FlexGridPriorityKey = "flex_grid_diamond"
+FlexGridDefaultPriority = 1
+DropRates = &<./Data/resources/resources.rules>/RareMaterialDropRates
+
+Icon
+{
+	Texture
+	{
+		File = "icon.png"
+		MipLevels = max
+	}
+	Size = [64, 64]
+}
+
+Overlay
+{
+	Texture
+	{
+		File = "overlay.png"
+		SampleMode = Linear
+		MipLevels = max
+	}
+	Size = [1, 1]
+}
+
+DeathHitEffects // Scaled with stack size.
+[
+	{
+		Type = ExplosiveDamage
+		TotalDamage = 8000
+		Radius = 14
+		Delay = .05
+		FireChancePerNDamage = 50%
+		NDamage = 1000
+		CrewKillChance = 30%
+		Filter
+		{
+			OperationalHealth = true
+			StructuralHealth = false
+			Friendlies = true
+		}
+	}
+	{
+		Type = ExplosiveDamage
+		TotalDamage = 6000
+		Radius = 7
+		Delay = .05
+		Filter
+		{
+			OperationalHealth = false
+			StructuralHealth = true
+			Friendlies = true
+			Crew = false
+		}
+	}
+]
+
+NuggetSprite
+{
+	File = "antimatter.png"
+	NormalsFile = "antimatter_normals.png"
+	Size = [1, 1]
+	Offset = [.25+4/64, 0]
+	UVRotation = 1
+}
+
+StackSprites
+[
+	{
+		File = "antimatter.png"
+		Size = [1, 1]
+	}
+	// {
+		// File = "antimatter_stack_2.png"
+		// Size = [1, 1]
+	// }
+	// {
+		// File = "antimatter_stack_3.png"
+		// Size = [1, 1]
+	// }
+	// {
+		// File = "antimatter_stack_4.png"
+		// Size = [1, 1]
+	// }
+	//{
+	//	File = "antimatter_stack_5.png"
+	//	Size = [1, 1]
+	//}
+]
+
+StackReceiveMediaEffects
+[
+	: /BASE_SOUNDS/AudioInterior
+	{
+		Sound = "antimatter_deliver.wav"
+		Volume = 1.0
+		Speed = 1.2
+		SpeedVariation = .05
+	}
+]
+
+StackPickupMediaEffects = &/COMMON_EFFECTS/ResourcePickup
+NuggetPickupMediaEffects = &/COMMON_EFFECTS/NuggetPickup

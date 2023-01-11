@@ -1,0 +1,18 @@
+__Name = "Deutsch"
+__DebugOnly = false
+
+Parts
+{
+	// Federation
+	PhaserPointdefense = "Small Phaser Array"
+	PhaserPointdefenseIcon = "Small Phaser Array"
+	PhaserPointdefenseDesc = "A small phaser beam weapon with numerous emitters that allows it to fire in a wide arc."
+	DualPhaserCannon = "Pulsphaser"
+	DualPhaserCannonIcon = "Pulsphaser"
+	DualPhaserCannonDesc = "Pulsphaser benutzen statt einem durchgehenden Phaserstrahl eine schnelle Folge von Phaserpulsen."
+}
+
+StatCategories
+{
+	PhaserBolt = "Phaserpuls"
+}

@@ -1,0 +1,125 @@
+ID = nexusmods.001_st_basemod_library
+Name = "ST-AFA - BASE LIBRARY"
+Version = 0.1.4
+CompatibleGameVersions = ["0.20.34", "0.20.24"]
+ModifiesMultiplayer = true
+Author = "Panem et Circenses"
+Logo = logo.png
+Description = "Adds new STAR TREK stuff to the game \n\n"\
+              "<red>WARNING: This mod is a WIP and a development mod. Some things might be unbalanced or broken!\n THIS MOD IS REQUIRED FOR ALL MY STAR TREK MODS</red> \n\n"\
+			  "- replaces FTL jump sound with warp sounds\n"\
+			  "- adds Starfleet editor group (to be used by other mods of this collection)\n"\
+			  "- adds some buffs to the game (to be used by other mods of this collection)\n"
+StringsFolder = "strings"
+
+Actions
+[
+	//******************** EDITOR GROUPS ********************
+	{
+		Action = Add
+		AddTo = "<gui/game/designer/editor_groups.rules>"
+		Name = "Starfleet"
+		CreateIfNotExisting = true
+		IgnoreIfNotExisting = true
+		ToAdd
+		{
+			NameKey = "EditorGroups/Starfleet"	// to be changed to Starfleet
+			Icon
+			{
+				Texture
+				{
+					File = "starfleet.png"
+					MipLevels = 2
+					SampleMode = Linear
+				}
+			}
+		}
+	}
+	
+	//******************** FUNCTIONS ********************
+	{
+		Action = Add
+		AddTo = "<ships/terran/control_room_large/control_room_large.rules>/Part"
+		Name = IsFtlPoint
+		ToAdd = true
+		OnlyIfNotExisting = false
+		CreateIfNotExisting = false
+		IgnoreIfNotExisting = false
+	}
+	//******************** PARTS ********************
+	
+	//******************** TECHS ********************
+	
+	
+	//******************** SOUNDS ********************
+	{
+		Action = Replace
+		Replace = "<ships/terran/hyperdrive_small/hyperdrive_small.rules>/Part/Components/FtlDrive/JumpOutGateMediaEffects/1/Sound"
+		IgnoreIfNotExisting = false
+		With = "sounds/warp_speed_in.wav"
+	}
+	{
+		Action = Replace
+		Replace = "<ships/terran/hyperdrive_small/hyperdrive_small.rules>/Part/Components/FtlDrive/JumpInGateMediaEffects/1/Sound"
+		IgnoreIfNotExisting = false
+		With = "sounds/warp_speed_out.wav"
+	}
+	{
+		Action = Replace
+		Replace = "<ships/base_ship.rules>/FtlEffects/JumpOutMediaEffects/0/Sound"
+		IgnoreIfNotExisting = false
+		With = "sounds/warp_speed_in.wav"
+	}
+	{
+		Action = Replace
+		Replace = "<ships/base_ship.rules>/FtlEffects/JumpInMediaEffects/0/Sound"
+		IgnoreIfNotExisting = false
+		With = "sounds/warp_speed_out.wav"
+	}
+	{
+		Action = Replace
+		Replace = "<ships/base_ship.rules>/FtlEffects/TotalDuration"
+		IgnoreIfNotExisting = false
+		With = 2.5
+	}
+	//******************** BUFFS ********************
+	{
+		Action = Overrides
+		OverrideIn = "<./Data/buffs/buffs.rules>"
+		Overrides = &<buffs.rules>
+	}
+	{
+		Action = Add
+		AddTo = "<./Data/ships/terran/control_room_small/control_room_small.rules>/Part/ReceivableBuffs"
+		ToAdd = AntimatterPower
+		OnlyIfNotExisting = false
+	}
+	{
+		Action = Add
+		AddTo = "<./Data/ships/terran/control_room_med/control_room_med.rules>/Part/ReceivableBuffs"
+		ToAdd = AntimatterPower
+		OnlyIfNotExisting = false
+	}
+	{
+		Action = Add
+		AddTo = "<./Data/ships/terran/control_room_large/control_room_large.rules>/Part/ReceivableBuffs"
+		ToAdd = AntimatterPower
+		OnlyIfNotExisting = false
+	}
+	{
+		Action = Add
+		AddTo = "<./Data/ships/terran/sensor_array/sensor_array.rules>/Part/ReceivableBuffs"
+		ToAdd = AntimatterPower
+		OnlyIfNotExisting = false
+	}
+	{
+		Action = Add
+		AddTo = "<./Data/ships/terran/tractor_beam_emitter/tractor_beam_emitter.rules>/Part/ReceivableBuffs"
+		ToAdd = AntimatterPower
+		OnlyIfNotExisting = false
+	}
+	//******************** RESOURCES ********************
+
+	//******************** UI ********************
+
+]

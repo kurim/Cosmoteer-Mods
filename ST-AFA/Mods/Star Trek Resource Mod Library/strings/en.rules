@@ -1,0 +1,68 @@
+EditorGroups
+{
+	
+}
+
+Inputs
+{
+	PartTriggers
+	{
+		
+	}
+	PartToggles
+	{
+		
+	}
+}
+
+PartTriggers
+{
+	
+}
+
+PartToggles
+{
+	
+}
+
+BuildBox
+{
+	
+}
+
+Stats
+{
+	
+}
+
+StatCategories
+{
+	
+}
+
+Ammo
+{
+	
+}
+
+Resource
+{
+	Antimatter = "Antimatter"
+	AntimatterPlural = "Antimatter"
+	AntimatterDesc = "Highly instable material, that explodes when it comes into contact with matter, thus has to be stored in magnetic fields."
+
+	TorpedoPart = "Torpedo Part"
+	TorpedoPartPlural = "Torpedo Parts"
+	TorpedoPartDesc = "Parts for arming torpedo based weapons"
+}
+
+Parts
+{
+	FactoryAntimatter = "Antimatter converter"
+	FactoryAntimatterIcon = "Antimatter converter"
+	FactoryAntimatterDesc = "Uses energy to crack hyperium into antimatter."
+	
+	FactoryTorpedoPart = "Torpedo Factory"
+	FactoryTorpedoPartIcon = "Torpedo Factory"
+	FactoryTorpedoPartDesc = "Uses antimatter to create torpedo parts"
+}

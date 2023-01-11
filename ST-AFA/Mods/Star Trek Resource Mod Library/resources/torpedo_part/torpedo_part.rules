@@ -1,0 +1,123 @@
+ID = torpedo_part
+NameKey = "Resource/TorpedoPart"
+PluralNameKey = "Resource/TorpedoPartPlural"
+DescriptionKey = "Resource/TorpedoPartDesc"
+BuyPrice = 40
+SellPrice = (&BuyPrice) / 10
+MaxPerNugget = 1
+MaxStackSize = 10
+FlexGridPriorityKey = "flex_grid_missile_part_he"
+FlexGridDefaultPriority = 1
+DropRates = &<./Data/resources/resources.rules>/AmmoDropRates
+
+Icon
+{
+	Texture
+	{
+		File = "icon.png"
+		MipLevels = max
+	}
+	Size = [64, 64]
+}
+
+Overlay
+{
+	Texture
+	{
+		File = "overlay.png"
+		SampleMode = Linear
+		MipLevels = max
+	}
+	Size = [1, 1]
+}
+
+DeathHitEffects // Scaled with stack size.
+[
+	{
+		Type = ExplosiveDamage
+		TotalDamage = 4000
+		Radius = 12
+		Delay = .05
+		FireChancePerNDamage = 50%
+		NDamage = 1000
+		CrewKillChance = 10%
+		Filter
+		{
+			OperationalHealth = true
+			StructuralHealth = false
+			Friendlies = true
+		}
+	}
+	{
+		Type = ExplosiveDamage
+		TotalDamage = 2000
+		Radius = 6
+		Delay = .05
+		Filter
+		{
+			OperationalHealth = false
+			StructuralHealth = true
+			Friendlies = true
+			Crew = false
+		}
+	}
+]
+
+DeathMediaEffects = &/COMMON_EFFECTS/MedPartDestroyed
+
+NuggetSprite
+{
+	File = "torpedo_part.png"
+	NormalsFile = "torpedo_part_normals.png"
+	Size = [1, 1]
+	Offset = [.25, 0]
+	UVRotation = 1
+}
+
+StackSprites
+[
+	{
+		File = "stack_1.png"
+		Size = [1, 1]
+	}
+	{
+		File = "stack_2.png"
+		Size = [1, 1]
+	}
+	{
+		File = "stack_3.png"
+		Size = [1, 1]
+	}
+	{
+		File = "stack_4.png"
+		Size = [1, 1]
+	}
+	{
+		File = "stack_5.png"
+		Size = [1, 1]
+	}
+	{
+		File = "stack_6.png"
+		Size = [1, 1]
+	}
+	{
+		File = "stack_7.png"
+		Size = [1, 1]
+	}
+	{
+		File = "stack_8.png"
+		Size = [1, 1]
+	}
+	{
+		File = "stack_9.png"
+		Size = [1, 1]
+	}
+	{
+		File = "stack_10.png"
+		Size = [1, 1]
+	}
+]
+
+StackReceiveMediaEffects = &/COMMON_EFFECTS/MissileDeliver
+StackPickupMediaEffects = &/COMMON_EFFECTS/ResourcePickup
+NuggetPickupMediaEffects = &/COMMON_EFFECTS/NuggetPickup
