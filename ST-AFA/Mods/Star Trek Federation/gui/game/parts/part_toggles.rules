@@ -1,0 +1,56 @@
+PartToggles
+[
+	// Torpedo type
+	{
+		ToggleID = "torpedo_type"
+		Style = Popout
+		ShowInEditor = true
+		Choices
+		[
+			// Photon Torpedo.
+			{
+				ChoiceID = "torpedo_type_photon"
+				ButtonToolTipKey = "PartToggles/TorpedoType_Photon"
+				ButtonSprite
+				{
+					Texture
+					{
+						File = "photon_torpedo.png"
+						MipLevels = 2
+						SampleMode = Linear
+					}
+				}
+			}
+
+			// Quantum Torpedo.
+			{
+				ChoiceID = "torpedo_type_quantum"
+				ButtonToolTipKey = "PartToggles/TorpedoType_Quantum"
+				ButtonSprite
+				{
+					Texture
+					{
+						File = "quantum_torpedo.png"
+						MipLevels = 2
+						SampleMode = Linear
+					}
+				}
+			}
+
+			// Tricobalt Torpedo.
+			{
+				ChoiceID = "torpedo_type_tricobalt"
+				ButtonToolTipKey = "PartToggles/TorpedoType_Tricobalt"
+				ButtonSprite
+				{
+					Texture
+					{
+						File = "tricobalt_torpedo.png"
+						MipLevels = 2
+						SampleMode = Linear
+					}
+				}
+			}
+		]
+	}
+]

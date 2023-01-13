@@ -1,0 +1,63 @@
+__Name = "Deutsch"
+__DebugOnly = false
+
+Parts
+{
+	// Weapons
+	Phaser_Pointdefense = "Small Phaser Array"
+	Phaser_Pointdefense_Icon = "Small Phaser Array"
+	Phaser_Pointdefense_Desc = "A small phaser beam weapon with numerous emitters that allows it to fire in a wide arc."
+	Dual_Phaser_Cannon = "Pulsphaser"
+	Dual_Phaser_Cannon_Icon = "Pulsphasers"
+	Dual_Phaser_Cannon_Desc = "Pulsphaser benutzen statt einem durchgehenden Phaserstrahl eine schnelle Folge von Phaserpulsen."
+	Torpedolauncher = "Torpedo launcher"
+	Torpedolauncher_Icon = "Torpedo launcher"
+	Torpedolauncher_Desc = "Launches torpedos to deal devastating damage to an enemy."
+	// Rooms
+	Captains_Room = "Bereitschaftsraum"
+	Captains_Room_Icon = "Bereitschaftsraum"
+	Captains_Room_Desc = "Der Bereitschaftsraum ist das Büro des kommandierenden Offiziers."
+	// Energy
+	Warpcore_large = "Warpcore"
+	Warpcore_large_Icon = "Warpcore"
+	Warpcore_large_Desc = "Provides energy to compatible systems in a huge radius and is able to provide warp speed. The warpcore consumes antimatter and dilithium crystals to wrk properly."
+	// Engines
+	Warpnacelle_2x6 = "Warpnacell"
+	Warpnacelle_2x6_Icon = "Warpnacell 2x6"
+	Warpnacelle_2x6_Desc = "Delivers thrust and maneuverability to a federation starship"
+}
+
+Inputs
+{
+	PartTriggers
+	{
+		
+	}
+	PartToggles
+	{
+		torpedo_type_photon = "Launcher: Photon Torpedos"
+		torpedo_type_quantum = "Launcher: Quantum Torpedos"
+		torpedo_type_tricobalt = "Launcher: Tricobalt Torpedos"
+	}
+}
+
+PartToggles
+{
+	TorpedoType_Photon = "Photon torpedo launcher"
+	TorpedoType_Quantum = "Quantum torpedo launcher"
+	TorpedoType_Tricobalt = "Tricobalt torpedo launcher"
+}
+
+Stats
+{
+	WeaponBuffFmt = "<white>Waffen-Buff:</white> <good>+{0:0} %</good>"
+}
+
+StatCategories
+{
+	PhaserBolt = "Phaserpuls"
+	TorpedoLauncher = "Torpedo Launcher"
+	QuantumTorpedoLauncher = "Quantum Torpedo Launcher"
+	TricobaltTorpedoLauncher = "Tricobalt Torpedo Launcher"
+	Weapon = "Weapon"
+}

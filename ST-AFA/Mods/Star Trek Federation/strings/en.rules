@@ -1,0 +1,63 @@
+__Name = "English"
+__DebugOnly = false
+
+Parts
+{
+	// Weapons
+	Phaser_Pointdefense = "Small Phaser Array"
+	Phaser_Pointdefense_Icon = "Small Phaser Array"
+	Phaser_Pointdefense_Desc = "A small phaser beam weapon with numerous emitters that allows it to fire in a wide arc."
+	Dual_Phaser_Cannon = "Phaser Cannons"
+	Dual_Phaser_Cannon_Icon = "Phaser Cannons"
+	Dual_Phaser_Cannon_Desc = "Phaser Cannons use a rapid succession of phaser pulses instead of a continuous phaser beam."
+	Torpedolauncher = "Torpedo launcher"
+	Torpedolauncher_Icon = "Torpedo launcher"
+	Torpedolauncher_Desc = "Launches torpedos to deal devastating damage to an enemy."
+	// Rooms
+	Captains_Room = "Captain's ready room"
+	Captains_Room_Icon = "Ready room"
+	Captains_Room_Desc = "The captain's ready room was a personal office reserved for the commanding officer of a starship and was typically accessed from the bridge."
+	// Energy
+	Warpcore_large = "Warpcore"
+	Warpcore_large_Icon = "Warpcore"
+	Warpcore_large_Desc = "Provides energy to compatible systems in a huge radius and is able to provide warp speed. The warpcore consumes antimatter and dilithium crystals to wrk properly."
+	// Engines
+	Warpnacelle_2x6 = "Warpnacell"
+	Warpnacelle_2x6_Icon = "Warpnacell 2x6"
+	Warpnacelle_2x6_Desc = "Delivers thrust and maneuverability to a federation starship"
+}
+
+Inputs
+{
+	PartTriggers
+	{
+		
+	}
+	PartToggles
+	{
+		torpedo_type_photon = "Launcher: Photon Torpedos"
+		torpedo_type_quantum = "Launcher: Quantum Torpedos"
+		torpedo_type_tricobalt = "Launcher: Tricobalt Torpedos"
+	}
+}
+
+PartToggles
+{
+	TorpedoType_Photon = "Photon torpedo launcher"
+	TorpedoType_Quantum = "Quantum torpedo launcher"
+	TorpedoType_Tricobalt = "Tricobalt torpedo launcher"
+}
+
+Stats
+{
+	WeaponBuffFmt = "<white>Weapon-Buff:</white> <good>+{0:0} %</good>"
+}
+
+StatCategories
+{
+	PhaserBolt = "Phaser pulse"
+	TorpedoLauncher = "Torpedo Launcher"
+	QuantumTorpedoLauncher = "Quantum Torpedo Launcher"
+	TricobaltTorpedoLauncher = "Tricobalt Torpedo Launcher"
+	Weapon = "Weapon"
+}
