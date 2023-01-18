@@ -2,7 +2,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/Dual_Phaser_Cannon"
 	IconNameKey = "Parts/Dual_Phaser_Cannon_Icon"
-	ID = "nexusmods.dual_phaser_cannon"
+	ID = "st-afa.dual_phaser_cannon"
 	EditorGroups = ["WeaponsEnergy", "Starfleet"]
 	DescriptionKey = "Parts/Dual_Phaser_Cannon_Desc"
 	Resources
@@ -12,7 +12,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		[coil2, 6]
 	]
 	TypeCategories = [weapon, uses_power, is_crewed]
-	ReceivableBuffs : ^/0/ReceivableBuffs [CaptainsRoomBuff]
+	ReceivableBuffs : ^/0/ReceivableBuffs [AntimatterPower, CaptainsRoomBuff]
 	Size = [2, 3]
 	PhysicalRect = [0, 1, 2, 2]
 	SaveRect = &PhysicalRect
@@ -37,7 +37,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			File = "icon.png"
 			SampleMode = Linear
 		}
-		Size = [21.33, 42.66]
+		Size = [40, 80]
 	}
 	Components : ^/0/Components
 	{
@@ -96,9 +96,10 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = BatteryStorage
 			DefaultPriority = &/PRIORITIES/Weapon_Supply
-			ResupplyThreshold = 1000
+			ResupplyThreshold = 0
 			OperationalToggle = PowerToggle
 		}
+
 		CrewLocation1
 		{
 			Type = CrewLocation
@@ -250,7 +251,8 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Rotation = -90d// Relative to unrotated part.
 			OperationalToggle = IsOperational
 			AutoFireToggle = AutoFireToggle
-			FireInterval = 2/30
+			//FireInterval = 2/30
+			FireInterval = 0.5
 			FiringArc = 45d
 			RotateSpeed = 360d
 			FireThresholdAngle = 1d
@@ -304,9 +306,12 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Location = [.5, 0]
 			OperationalToggle = IsOperational
 			Spread = [-1.5d, 1.5d]
+			FireDelay = .2
+			Burst = 4
+			BurstDelay = 0.01
 			Bullet = &<../../../shots/phaser_dual_bolt/phaser_dual_bolt.rules>
 			ResourceStorage = BatteryStorage
-			ResourcesUsed = 250
+			ResourcesUsed = 2000
 			MinResourcesUsed = 1
 		}
 
@@ -446,7 +451,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					AtlasSprite
 					{
 						File = &/INDICATORS/PowerOff
-						Size = [1.5, 1.5]
+						Size = [.5, .5]
 					}
 				}
 
@@ -457,7 +462,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					AtlasSprite
 					{
 						File = &/INDICATORS/NoPower
-						Size = [1.5, 1.5]
+						Size = [.5, .5]
 					}
 				}
 				
@@ -467,7 +472,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					AtlasSprite
 					{
 						File = &/INDICATORS/NoCrew
-						Size = [1.5, 1.5]
+						Size = [.5, .5]
 					}
 				}
 			]

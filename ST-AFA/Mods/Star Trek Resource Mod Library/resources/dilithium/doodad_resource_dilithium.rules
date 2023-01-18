@@ -1,0 +1,13 @@
+ID = nexusmods.resource_dilithium
+Type = Resource
+DescriptionKey = "Resource/Dilithium"
+CategoryKey = "Doodads/Resources"
+Icon
+{
+	Texture
+	{
+		File = "dilithium.png"
+		MipLevels = 2
+	}
+}
+ResourceType = dilithium

@@ -331,9 +331,9 @@ MissileStats
 		Damage = [&../DamagePerShot, &../DamagePerSecond]
 		DamageArea = &~/Components/Emitter/Bullet/Stage2/Components/Hit/HitOperational/HitEffects/0/Radius
 		ROF = 1 / (&<../fed_torpedo_launcher.rules>/Part/Components/CommonReloadTimerLong/Duration)
-		Range = &~/Components/Emitter/Bullet/Range
+		RangeLimited = [&~/Part/Components/Bullet/Range/BaseValue, &~/Part/Components/Bullet/Range/MaxValue]
 		Arc = deg(&~/Components/Weapon/ValidArc)
-		ShotLaunchSpeed = &~/Components/Emitter/Bullet/Speed
+		ShotLaunchSpeed = &~/EmitterBase/Bullet/Speed/BaseValue
 		Acceleration = &~/Components/Emitter/Bullet/Stage2/Components/BoostAcceleration/Acceleration
 		AccelerationDelay = &~/Components/Emitter/Bullet/Components/DeployDeath/Lifetime
 		ShotHP = &~/Components/Emitter/Bullet/Components/Targetable/Health

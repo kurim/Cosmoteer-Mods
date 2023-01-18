@@ -1,6 +1,6 @@
-ID = "nexusmods.100_federation"
+ID = "st-afa.100_federation"
 Name = "ST-AFA - Federation"
-Version = 0.1.0
+Version = 0.1.1
 Author = "ST-AFA Mod-Team"
 CompatibleGameVersions = ["0.20.24"]
 ModifiesMultiplayer = true
@@ -18,6 +18,16 @@ StringsFolder = "strings"
 Actions
 [
 	//******************** FUNCTIONS ********************
+
+	{
+		Action = Overrides
+		OverrideIn = "<./Data/ships/priorities.rules>"
+		Overrides
+		{
+			CaptainsRoom_Supply = 10
+			CaptainsRoom_Crew = 10
+		}
+	}
 
 	//******************** PARTS ********************
 	{

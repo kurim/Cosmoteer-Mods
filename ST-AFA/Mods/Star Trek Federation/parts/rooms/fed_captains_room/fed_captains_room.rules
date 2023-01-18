@@ -2,9 +2,8 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/Captains_Room"
 	IconNameKey = "Parts/Captains_Room_Icon"
-	JobsNameKey = "JobNames/General"
 	JobsIcon = &<./Data/gui/game/crew/crew_gui.rules>/ToolIcon
-	ID = "nexusmods.fed_captains_room"
+	ID = "st-afa.fed_captains_room"
 	OtherIDs = [CaptainsRoom]
 	EditorGroups = ["Crew", "Starfleet"]
 	DescriptionKey = "Parts/Captains_Room_Desc"
@@ -17,7 +16,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	SelectionTypeID = "quarters"
 	MaxHealth = 9000
 	TypeCategories = [command, is_crewed, uses_power, readyroom]
-	ReceivableBuffs : ^/0/ReceivableBuffs []
+	ReceivableBuffs : ^/0/ReceivableBuffs [AntimatterPower]
 	CrewSpeedFactor = .70
 	AllowedDoorLocations
 	[
@@ -85,7 +84,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceConsumer
 			ResourceType = battery
 			Storage = CombinedBatteryStorage
-			DefaultPriority = &/PRIORITIES/Thruster_Supply
+			DefaultPriority = &/PRIORITIES/CaptainsRoom_Supply
 			ResupplyThreshold = 500
 			OperationalToggle = PowerToggle
 		}
@@ -128,7 +127,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		{
 			Type = PartCrew
 			Crew = 1
-			DefaultPriority = &/PRIORITIES/ControlRoom_Crew
+			DefaultPriority = &/PRIORITIES/CaptainsRoom_Crew
 			PrerequisitesBeforeCrewing = [PowerToggle]
 			HighPriorityPrerequisites = [BatteryStorage]
 			CrewDestinations

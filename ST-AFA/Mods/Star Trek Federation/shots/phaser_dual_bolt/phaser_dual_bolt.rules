@@ -4,10 +4,10 @@ Range = { BaseValue=260; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=
 IdealRange
 [
 	{ BaseValue=60; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=160; }
-	{ BaseValue=260; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=360; }
+	{ BaseValue=240; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=320; }
 ]
 IdealRadius = [5, 50]
-Speed = { BaseValue=120; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=180; }
+Speed = { BaseValue=200; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=260; }
 
 Components
 {

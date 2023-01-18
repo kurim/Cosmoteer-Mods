@@ -13,6 +13,9 @@ Parts
 	Torpedolauncher = "Torpedo launcher"
 	Torpedolauncher_Icon = "Torpedo launcher"
 	Torpedolauncher_Desc = "Launches torpedos to deal devastating damage to an enemy."
+	Phaser_Cannon_Deck = "Phaser Cannons"
+	Phaser_Cannon_Deck_Icon = "Phaser Cannons"
+	Phaser_Cannon_Deck_Desc = "Phaser Cannons use a rapid succession of phaser pulses instead of a continuous phaser beam."
 	// Rooms
 	Captains_Room = "Captain's ready room"
 	Captains_Room_Icon = "Ready room"
@@ -21,10 +24,28 @@ Parts
 	Warpcore_large = "Warpcore"
 	Warpcore_large_Icon = "Warpcore"
 	Warpcore_large_Desc = "Provides energy to compatible systems in a huge radius and is able to provide warp speed. The warpcore consumes antimatter and dilithium crystals to wrk properly."
-	// Engines
+	Warpnacelle_3x6 = "Warpnacell"
+	Warpnacelle_3x6_Icon = "Warpnacell 3x6"
+	Warpnacelle_3x6_Desc = "Delivers thrust and maneuverability to big federation starships, like Nebula classes"
+	Warpnacelle_3x9 = "Warpnacell"
+	Warpnacelle_3x9_Icon = "Warpnacell 3x9"
+	Warpnacelle_3x9_Desc = "Delivers thrust and maneuverability to huge federation starships, like Galaxy classes"
 	Warpnacelle_2x6 = "Warpnacell"
 	Warpnacelle_2x6_Icon = "Warpnacell 2x6"
-	Warpnacelle_2x6_Desc = "Delivers thrust and maneuverability to a federation starship"
+	Warpnacelle_2x6_Desc = "Delivers thrust and maneuverability to medium federation starships, like Intrepid classes"
+	Warpnacelle_2x9 = "Warpnacell"
+	Warpnacelle_2x9_Icon = "Warpnacell 2x9"
+	Warpnacelle_2x9_Desc = "Delivers thrust and maneuverability to big federation starships, like Excelsior classes"
+	Warpnacelle_1x6 = "Warpnacell"
+	Warpnacelle_1x6_Icon = "Warpnacell 1x6"
+	Warpnacelle_1x6_Desc = "Delivers thrust and maneuverability to small federation starships, like Miranda classes"
+	Warpnacelle_1x9 = "Warpnacell"
+	Warpnacelle_1x9_Icon = "Warpnacell 1x9"
+	Warpnacelle_1x9_Desc = "Delivers thrust and maneuverability to medium federation starships, like Centaur classes"
+	// Shields
+	ShieldCore = "Shieldcore"
+	ShieldCoreIcon = "Shieldcore"
+	ShieldCoreDesc = "Central shieldcore that should guard all sides of a starship"
 }
 
 Inputs

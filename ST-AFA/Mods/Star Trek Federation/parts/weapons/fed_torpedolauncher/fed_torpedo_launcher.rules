@@ -2,7 +2,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/Torpedolauncher"
 	IconNameKey = "Parts/Torpedolauncher_Icon"
-	ID = "nexusmods.torpedolauncher_2x4"
+	ID = "st-afa.torpedolauncher_2x4"
 	OtherIDs = [torpedo_launcher]
 	EditorGroups = ["WeaponsProjectile", "Starfleet"]
 	DescriptionKey = "Parts/Torpedolauncher_Desc"
@@ -20,7 +20,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	SelectionTypeByRotation = true
 	MaxHealth = 6000
 	TypeCategories = [weapon, uses_torpedos, is_crewed] //uses_missiles, uses_emps, uses_nukes, uses_mines, uses_launcher_parts,
-	ReceivableBuffs : ^/0/ReceivableBuffs []
+	ReceivableBuffs : ^/0/ReceivableBuffs [CaptainsRoomBuff]
 	ProhibitAbove = 2
 	AllowedDoorLocations
 	[

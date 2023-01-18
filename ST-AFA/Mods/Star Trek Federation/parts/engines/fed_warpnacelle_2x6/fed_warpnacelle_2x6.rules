@@ -2,16 +2,17 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/Warpnacelle_2x6"
 	IconNameKey = "Parts/Warpnacelle_2x6_Icon"
-	ID = nexusmods.fed_warpnacelle_2x6 // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
+	ID = "st-afa.fed_warpnacelle_2x6" // Part IDs must always be in the form of "author_name.part_name". If making your own mod, do *not* use "cosmoteer" as your author name, because it may conflict with future vanilla parts.
 	EditorGroup = "Starfleet"
 	DescriptionKey = "Parts/Warpnacelle_2x6_Desc"
 	Resources
 	[
-		[steel, 16]
-		[coil, 11]
+		[steel, 125]
+		[coil, 125]
 	]
 	TypeCategories = [thruster, uses_power]
 	Size = [2, 6]
+	IsRotateable = false
 	PhysicalRect = [0, 0, 2, 6]
 	SaveRect = &PhysicalRect
 	BoundingRectType = Physical
@@ -22,13 +23,13 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	MaxHealth = 4500
 	ProhibitRects
 	[
-		[default, [-1, -4, 1, 1]]	// top
-		[default, [2, -4, 1, 1]]	// top
-		[default, [3, -3, 1, 4]]	// top right
-		[default, [-2, -3, 1, 4]]	// top left
-		[default, [3, 3, 1, 5]]		// bottom right
-		[default, [-2, 3, 1, 5]]	// bottom left
-		[default, [-1, 8, 4, 1]]	// bottom
+		[default, [-2, -4, 1, 1]]	// top
+		[default, [3, -4, 1, 1]]	// top
+		[default, [4, -3, 1, 4]]	// top right
+		[default, [-3, -3, 1, 4]]	// top left
+		[default, [4, 3, 1, 5]]		// bottom right
+		[default, [-3, 3, 1, 5]]	// bottom left
+		[default, [-2, 8, 6, 1]]	// bottom
 	]
 	ThrusterForce = 8000
 	ThrustIncreaseTime = 4
@@ -60,7 +61,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			File = "icon.png"
 			SampleMode = Linear
 		}
-		Size = [10.66, 64]
+		Size = [21.33, 64]
 	}
 	Components : ^/0/Components
 	{
@@ -174,11 +175,11 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 						Size = [2, 6]
 					}
 					{
-						File = "./Data/ships/terran/thruster_small_3way/floor_33.png"
+						File = "floor.png"
 						Size = [2, 6]
 					}
 					{
-						File = "./Data/ships/terran/thruster_small_3way/floor_66.png"
+						File = "floor.png"
 						Size = [2, 6]
 					}
 				]
@@ -206,14 +207,14 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					{
 						AnimationFiles
 						[
-							"./Data/ships/terran/thruster_small_3way/doodads_on1_33.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on2_33.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on3_33.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on4_33.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on5_33.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on6_33.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on7_33.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on8_33.png"
+							"doodads_on1.png"
+							"doodads_on2.png"
+							"doodads_on3.png"
+							"doodads_on4.png"
+							"doodads_on5.png"
+							"doodads_on6.png"
+							"doodads_on7.png"
+							"doodads_on8.png"
 						]
 						Size = [2, 6]
 						AnimationInterval = 0.075
@@ -221,14 +222,14 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					{
 						AnimationFiles
 						[
-							"./Data/ships/terran/thruster_small_3way/doodads_on1_66.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on2_66.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on3_66.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on4_66.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on5_66.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on6_66.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on7_66.png"
-							"./Data/ships/terran/thruster_small_3way/doodads_on8_66.png"
+							"doodads_on1.png"
+							"doodads_on2.png"
+							"doodads_on3.png"
+							"doodads_on4.png"
+							"doodads_on5.png"
+							"doodads_on6.png"
+							"doodads_on7.png"
+							"doodads_on8.png"
 						]
 						Size = [2, 6]
 						AnimationInterval = 0.075
@@ -245,32 +246,32 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 						Size = [2, 6]
 					}
 					{
-						File = "./Data/ships/terran/thruster_small_3way/doodads_off_33.png"
+						File = "doodads_off.png"
 						Size = [2, 6]
 					}
 					{
-						File = "./Data/ships/terran/thruster_small_3way/doodads_off_66.png"
+						File = "doodads_off.png"
 						Size = [2, 6]
 					}
 				]
 			}
-			OperationalLighting
-			{
-				Layer = "lights_add"
-				Offset = [0, .5]
-				DamageLevels
-				[
-					{
-						AnimationFiles
-						[
-							"./Data/ships/terran/thruster_small_3way/lights.png"
-							"./Data/ships/terran/thruster_small_3way/lights2.png"
-						]
-						Size = [3, 2]
-						AnimationInterval = 0.1
-					}
-				]
-			}
+			// OperationalLighting
+			// {
+				// Layer = "lights_add"
+				// Offset = [0, .5]
+				// DamageLevels
+				// [
+					// {
+						// AnimationFiles
+						// [
+							// "./Data/ships/terran/thruster_small_3way/lights.png"
+							// "./Data/ships/terran/thruster_small_3way/lights2.png"
+						// ]
+						// Size = [3, 2]
+						// AnimationInterval = 0.1
+					// }
+				// ]
+			// }
 			Walls
 			{
 				Layer = "walls"
@@ -296,19 +297,19 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				DamageLevels
 				[
 					{
-						File = "./Data/ships/terran/thruster_small_3way/roof.png"
-						NormalsFile = "./Data/ships/terran/thruster_small_3way/roof_normals.png"
-						Size = [1, 1]
+						File = "NacelleBig_2x6roof.png"
+						NormalsFile = "NacelleBig_2x6roof_normals.png"
+						Size = [2, 6]
 					}
 					{
-						File = "./Data/ships/terran/thruster_small_3way/roof_33.png"
-						NormalsFile = "./Data/ships/terran/thruster_small_3way/roof_normals_33.png"
-						Size = [1, 1]
+						File = "NacelleBig_2x6roof.png"
+						NormalsFile = "NacelleBig_2x6roof_normals.png"
+						Size = [2, 6]
 					}
 					{
-						File = "./Data/ships/terran/thruster_small_3way/roof_66.png"
-						NormalsFile = "./Data/ships/terran/thruster_small_3way/roof_normals_66.png"
-						Size = [1, 1]
+						File = "NacelleBig_2x6roof.png"
+						NormalsFile = "NacelleBig_2x6roof_normals.png"
+						Size = [2, 6]
 					}
 				]
 			}
@@ -319,16 +320,16 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				DamageLevels
 				[
 					{
-						File = "./Data/ships/terran/thruster_small_3way/roof_glows.png"
-						Size = [1, 1]
+						File = "roof_glows.png"
+						Size = [2, 6]
 					}
 					{
-						File = "./Data/ships/terran/thruster_small_3way/roof_glows_33.png"
-						Size = [1, 1]
+						File = "roof_glows.png"
+						Size = [2, 6]
 					}
 					{
-						File = "./Data/ships/terran/thruster_small_3way/roof_glows_66.png"
-						Size = [1, 1]
+						File = "roof_glows.png"
+						Size = [2, 6]
 					}
 				]
 			}
@@ -339,40 +340,13 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				[
 					{
 						File = "./Data/ships/common/light_blob.png"
-						Size = [1.7, 1.7]
+						Size = [3.7, 3.7]
 						Z = 1.0 // Controls the "height" of the light for the purposes of normal mapping.
-						VertexColor = [255*1.0,116*1.0, 24*1.0]
+						VertexColor = [128*1.0,255*1.0, 255*1.0]
 					}
 				]
 			}
 		}
-		// NozzleGraphics
-		// {
-			// Type = Graphics
-			// Location = [1.5, 1]
-			// Floor
-			// {
-				// Layer = "weapons"
-				// DamageLevels
-				// [
-					// {
-						// File = "./Data/ships/terran/thruster_small_3way/nozzle.png"
-						// NormalsFile = "./Data/ships/terran/thruster_small_3way/nozzle_normals.png"
-						// Size = [2, 2]
-					// }
-					// {
-						// File = "./Data/ships/terran/thruster_small_3way/nozzle_33.png"
-						// NormalsFile = "./Data/ships/terran/thruster_small_3way/nozzle_normals.png"
-						// Size = [2, 2]
-					// }
-					// {
-						// File = "./Data/ships/terran/thruster_small_3way/nozzle_66.png"
-						// NormalsFile = "./Data/ships/terran/thruster_small_3way/nozzle_normals.png"
-						// Size = [2, 2]
-					// }
-				// ]
-			// }
-		// }
 
 		BatterySprites
 		{
@@ -398,7 +372,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalToggle = IsOperational
 			Force = &../../ThrusterForce
 			MinActivation = -0.05
-			MaxActivation = 1 //{ BaseValue=1; BuffType=Engine; BuffMode=Multiply; }
+			MaxActivation = { BaseValue=1; BuffType=Engine; BuffMode=Multiply; }
 			MinUncommandedActivation = &MinActivation
 			MaxUncommandedActivation = &MaxActivation
 			ActivationIncreaseTime = &../../ThrustIncreaseTime
@@ -406,67 +380,6 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			FuelStorage = BatteryStorage
 			FuelUsagePerSecond = &../../FuelUsage
 		}
-
-		// NozzleColliderBottom
-		// {
-			// Type = PolygonCollider
-			// Vertices
-			// [
-				// [1.2, 1]
-				// [1.8, 1]
-				// [1.875, 1.45]
-				// [1.125, 1.45]
-			// ]
-			// Density = 1
-		// }
-
-		// ThrustEffectsBottom
-		// {
-			// Type = ContinuousEffects
-			// ChainedTo = MainThrusterBottom
-			// Location = [-2/64, 0]
-			// FactorMediaEffectsIntensityWith = MainThrusterBottom
-			// MediaEffects
-			// [
-				// &<../thruster_small/particles/thruster_plume_small.rules>
-				// &<../thruster_small/particles/thruster_plume_light_small.rules>
-				// &<../thruster_small/particles/thruster_sparks_small.rules>
-				// &<../thruster_small/particles/thruster_fire_small.rules>
-				// &<../thruster_small/particles/thruster_smoke_small.rules>
-
-				// : /COMMON_SOUNDS/ThrusterRumble
-				// {
-					// Volume = .075
-					// Speed = 2
-					// MaxConcurrentVolume = .15
-				// }
-			// ]
-		// }
-
-		// BurstTriggerBottom
-		// {
-			// Type = ThresholdTrigger
-			// AmountFrom = MainThrusterBottom
-			// MinAmount = .5
-		// }
-
-		// BurstEffectsBottom
-		// {
-			// Type = TriggeredEffects
-			// ChainedTo = MainThrusterBottom
-			// Trigger = BurstTriggerBottom
-			// FactorMediaEffectsIntensityWith = MainThrusterBottom
-			// AnchorMediaEffects = true
-			// MediaEffects
-			// [
-				// : /COMMON_SOUNDS/ThrusterBurst
-				// {
-					// Volume = .125
-					// Speed = 2
-					// MaxConcurrentVolume = .25
-				// }
-			// ]
-		// }
 
 		MainThrusterRight
 		{
@@ -476,7 +389,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalToggle = IsOperational
 			Force = &../../ThrusterForce
 			MinActivation = 0
-			MaxActivation = 1 //{ BaseValue=1; BuffType=Engine; BuffMode=Multiply; }
+			MaxActivation = { BaseValue=1; BuffType=Engine; BuffMode=Multiply; }
 			MinUncommandedActivation = &MinActivation
 			MaxUncommandedActivation = &MaxActivation
 			ActivationIncreaseTime = &../../ThrustIncreaseTime
@@ -484,67 +397,6 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			FuelStorage = BatteryStorage
 			FuelUsagePerSecond = &../../FuelUsage
 		}
-
-		// NozzleColliderRight
-		// {
-			// Type = PolygonCollider
-			// Vertices
-			// [
-				// [2, .8]
-				// [2, .2]
-				// [2.45, .125]
-				// [2.45, .875]
-			// ]
-			// Density = 1
-		// }
-
-		// ThrustEffectsRight
-		// {
-			// Type = ContinuousEffects
-			// ChainedTo = MainThrusterRight
-			// Location = [-2/64, 0]
-			// FactorMediaEffectsIntensityWith = MainThrusterRight
-			// MediaEffects
-			// [
-				// &<../thruster_small/particles/thruster_plume_small.rules>
-				// &<../thruster_small/particles/thruster_plume_light_small.rules>
-				// &<../thruster_small/particles/thruster_sparks_small.rules>
-				// &<../thruster_small/particles/thruster_fire_small.rules>
-				// &<../thruster_small/particles/thruster_smoke_small.rules>
-
-				// : /COMMON_SOUNDS/ThrusterRumble
-				// {
-					// Volume = .075
-					// Speed = 2
-					// MaxConcurrentVolume = .15
-				// }
-			// ]
-		// }
-
-		// BurstTriggerRight
-		// {
-			// Type = ThresholdTrigger
-			// AmountFrom = MainThrusterRight
-			// MinAmount = .5
-		// }
-
-		// BurstEffectsRight
-		// {
-			// Type = TriggeredEffects
-			// ChainedTo = MainThrusterRight
-			// Trigger = BurstTriggerRight
-			// FactorMediaEffectsIntensityWith = MainThrusterRight
-			// AnchorMediaEffects = true
-			// MediaEffects
-			// [
-				// : /COMMON_SOUNDS/ThrusterBurst
-				// {
-					// Volume = .125
-					// Speed = 2
-					// MaxConcurrentVolume = .25
-				// }
-			// ]
-		// }
 
 		MainThrusterLeft
 		{
@@ -554,7 +406,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalToggle = IsOperational
 			Force = &../../ThrusterForce
 			MinActivation = 0
-			MaxActivation = 1 // { BaseValue=1; BuffType=Engine; BuffMode=Multiply; }
+			MaxActivation = { BaseValue=1; BuffType=Engine; BuffMode=Multiply; }
 			MinUncommandedActivation = &MinActivation
 			MaxUncommandedActivation = &MaxActivation
 			ActivationIncreaseTime = &../../ThrustIncreaseTime
@@ -562,67 +414,6 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			FuelStorage = BatteryStorage
 			FuelUsagePerSecond = &../../FuelUsage
 		}
-
-		// NozzleColliderLeft
-		// {
-			// Type = PolygonCollider
-			// Vertices
-			// [
-				// [1, .2]
-				// [1, .8]
-				// [.55, .875]
-				// [.55, .125]
-			// ]
-			// Density = 1
-		// }
-
-		// ThrustEffectsLeft
-		// {
-			// Type = ContinuousEffects
-			// ChainedTo = MainThrusterLeft
-			// Location = [-2/64, 0]
-			// FactorMediaEffectsIntensityWith = MainThrusterLeft
-			// MediaEffects
-			// [
-				// &<../thruster_small/particles/thruster_plume_small.rules>
-				// &<../thruster_small/particles/thruster_plume_light_small.rules>
-				// &<../thruster_small/particles/thruster_sparks_small.rules>
-				// &<../thruster_small/particles/thruster_fire_small.rules>
-				// &<../thruster_small/particles/thruster_smoke_small.rules>
-
-				// : /COMMON_SOUNDS/ThrusterRumble
-				// {
-					// Volume = .075
-					// Speed = 2
-					// MaxConcurrentVolume = .15
-				// }
-			// ]
-		// }
-
-		// BurstTriggerLeft
-		// {
-			// Type = ThresholdTrigger
-			// AmountFrom = MainThrusterLeft
-			// MinAmount = .5
-		// }
-
-		// BurstEffectsLeft
-		// {
-			// Type = TriggeredEffects
-			// ChainedTo = MainThrusterLeft
-			// Trigger = BurstTriggerLeft
-			// FactorMediaEffectsIntensityWith = MainThrusterLeft
-			// AnchorMediaEffects = true
-			// MediaEffects
-			// [
-				// : /COMMON_SOUNDS/ThrusterBurst
-				// {
-					// Volume = .125
-					// Speed = 2
-					// MaxConcurrentVolume = .25
-				// }
-			// ]
-		// }
 
 		MainThrusterTop
 		{
@@ -632,7 +423,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalToggle = IsOperational
 			Force = &../../ThrusterForce
 			MinActivation = -0.05
-			MaxActivation = 1 //{ BaseValue=1; BuffType=Engine; BuffMode=Multiply; }
+			MaxActivation = { BaseValue=1; BuffType=Engine; BuffMode=Multiply; }
 			MinUncommandedActivation = &MinActivation
 			MaxUncommandedActivation = &MaxActivation
 			ActivationIncreaseTime = &../../ThrustIncreaseTime
@@ -707,7 +498,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		{
 			Type = BlueprintSprite
 			File = "./Data/ships/terran/thruster_small_3way/blueprints.png"
-			Size = [3, 2]
+			Size = [2, 6]
 		}
 	}
 

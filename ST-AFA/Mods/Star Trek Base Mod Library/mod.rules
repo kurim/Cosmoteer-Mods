@@ -1,4 +1,4 @@
-ID = nexusmods.001_st_basemod_library
+ID = "st-afa.001_basemod_library"
 Name = "ST-AFA - BASE LIBRARY"
 Version = 0.1.4
 CompatibleGameVersions = ["0.20.34", "0.20.24"]
@@ -46,6 +46,27 @@ Actions
 		CreateIfNotExisting = false
 		IgnoreIfNotExisting = false
 	}
+
+	{
+        Action = Add
+        AddTo = "<ships/terran/terran.rules>/Terran/CategoryLimits"
+        ToAdd
+        {
+            Category = "readyroom"
+            Max = 1
+        }
+    }
+	{
+		Action = Add
+		AddTo = "<./Data/gui/game/parts/part_stats.rules>/PartStats"
+		ToAdd 
+		{
+			ID = WeaponBuff
+			FormatKey = "Stats/WeaponBuffFmt"
+		}
+		OnlyIfNotExisting = false
+	}
+
 	//******************** PARTS ********************
 	
 	//******************** TECHS ********************

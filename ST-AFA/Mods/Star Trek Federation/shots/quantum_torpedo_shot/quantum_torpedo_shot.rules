@@ -1,7 +1,12 @@
-ID = "nexusmods.quantum_torpedo_shot" // originals by kurim
-Range = 320
-IdealRange = [60, 320]
-Speed = 40
+ID = "nexusmods.quantum_torpedo_shot"  // originals by kurim
+Range = { BaseValue=320; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=360; }
+IdealRange
+[
+	{ BaseValue=60; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=60; }
+	{ BaseValue=320; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=360; }
+]
+IdealRadius = [5, 50]
+Speed = { BaseValue=40; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=60; }
 
 Components
 {
