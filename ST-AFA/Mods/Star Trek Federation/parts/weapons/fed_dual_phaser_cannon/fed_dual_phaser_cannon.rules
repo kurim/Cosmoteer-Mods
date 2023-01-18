@@ -2,7 +2,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/Dual_Phaser_Cannon"
 	IconNameKey = "Parts/Dual_Phaser_Cannon_Icon"
-	ID = "st-afa.dual_phaser_cannon"
+	ID = "stafa.dual_phaser_cannon"
 	EditorGroups = ["WeaponsEnergy", "Starfleet"]
 	DescriptionKey = "Parts/Dual_Phaser_Cannon_Desc"
 	Resources

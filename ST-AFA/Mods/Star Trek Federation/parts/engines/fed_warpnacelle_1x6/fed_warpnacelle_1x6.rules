@@ -2,7 +2,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/Warpnacelle_1x6"
 	IconNameKey = "Parts/Warpnacelle_1x6_Icon"
-	ID = "st-afa.fed_warpnacelle_1x6"
+	ID = "stafa.fed_warpnacelle_1x6"
 	EditorGroup = "Starfleet"
 	DescriptionKey = "Parts/Warpnacelle_1x6_Desc"
 	Resources

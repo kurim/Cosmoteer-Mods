@@ -29,6 +29,13 @@ Actions
 		}
 	}
 
+	//******************** TECHS ********************
+	{
+		Action = AddMany
+		AddTo = "<modes/career/techs.rules>/Techs"
+		ManyToAdd = &<fed_tech.rules>/Techs
+	}
+	
 	//******************** PARTS ********************
 	{
 		Action = AddMany

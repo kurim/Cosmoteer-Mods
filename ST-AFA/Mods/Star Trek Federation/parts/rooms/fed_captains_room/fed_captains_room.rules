@@ -3,7 +3,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	NameKey = "Parts/Captains_Room"
 	IconNameKey = "Parts/Captains_Room_Icon"
 	JobsIcon = &<./Data/gui/game/crew/crew_gui.rules>/ToolIcon
-	ID = "st-afa.fed_captains_room"
+	ID = "stafa.fed_captains_room"
 	OtherIDs = [CaptainsRoom]
 	EditorGroups = ["Crew", "Starfleet"]
 	DescriptionKey = "Parts/Captains_Room_Desc"

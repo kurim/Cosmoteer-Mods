@@ -1,0 +1,14 @@
+Techs
+[
+	// Techtree
+	{
+		Name = fed_warpcore_large
+		ID = stafa.fed_warpcore_large
+		NameKey = &<parts/energy/fed_warpcore_large/fed_warpcore_large.rules>/Part/NameKey
+		DescriptionKey = &<parts/energy/fed_warpcore_large/fed_warpcore_large.rules>/Part/DescriptionKey
+		Icon = &<parts/energy/fed_warpcore_large/fed_warpcore_large.rules>/Part/EditorIcon
+		EditorGroup = &<parts/energy/fed_warpcore_large/fed_warpcore_large.rules>/Part/EditorGroup
+		PartsUnlocked = [&<parts/energy/fed_warpcore_large/fed_warpcore_large.rules>/Part/ID]
+		Cost = 1500
+	}
+]
