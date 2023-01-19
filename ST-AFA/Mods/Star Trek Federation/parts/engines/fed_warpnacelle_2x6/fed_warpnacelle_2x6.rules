@@ -497,7 +497,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		Blueprints
 		{
 			Type = BlueprintSprite
-			File = "./Data/ships/terran/thruster_small_3way/blueprints.png"
+			File = "blueprints.png"
 			Size = [2, 6]
 		}
 	}

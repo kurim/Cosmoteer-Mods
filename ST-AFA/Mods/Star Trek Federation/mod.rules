@@ -1,6 +1,6 @@
 ID = "st-afa.100_federation"
 Name = "ST-AFA - Federation"
-Version = 0.1.1
+Version = 0.1.1.1
 Author = "ST-AFA Mod-Team"
 CompatibleGameVersions = ["0.20.24"]
 ModifiesMultiplayer = true

@@ -810,8 +810,8 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		Blueprints
 		{
 			Type = BlueprintSprite
-			File = "./Data/ships/terran/reactor_large/blueprints.png"
-			Size = [4, 4]
+			File = "blueprints.png"
+			Size = [8, 8]
 		}
 	}
 

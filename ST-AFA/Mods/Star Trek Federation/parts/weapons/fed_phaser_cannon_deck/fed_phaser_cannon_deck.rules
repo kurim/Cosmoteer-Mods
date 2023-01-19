@@ -99,29 +99,22 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		CrewLocation1
 		{
 			Type = CrewLocation
-			Location = [.65625, 1.27]
-		}
-		CrewLocation2
-		{
-			Type = CrewLocation
-			Location = [1.34375, 1.27]
+			Location = [1, 1.6]
 		}
 		PartCrew
 		{
 			Type = PartCrew
-			Crew = 2
+			Crew = 1
 			DefaultPriority = &/PRIORITIES/Weapon_Crew
 			PrerequisitesBeforeCrewing = [PowerToggle]
 			HighPriorityPrerequisites = [BatteryStorage]
 			CrewDestinations
 			[
 				&../../CrewLocation1/Location
-				&../../CrewLocation2/Location
 			]
 			CrewLocations
 			[
 				CrewLocation1
-				CrewLocation2
 			]
 		}
 		Graphics
@@ -173,7 +166,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			}
 			OperationalLighting
 			{
-				Layer = "lights_add"
+				Layer = "doodads_low"
 				DamageLevels
 				[
 					{
@@ -393,14 +386,6 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				}
 				{
 					File = "batteries2.png"
-					Size = [2, 2]
-				}
-				{
-					File = "batteries3.png"
-					Size = [2, 2]
-				}
-				{
-					File = "batteries4.png"
 					Size = [2, 2]
 				}
 			]
