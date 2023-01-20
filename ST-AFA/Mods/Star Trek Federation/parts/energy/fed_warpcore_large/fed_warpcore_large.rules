@@ -135,7 +135,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			MaxResources = 2
 			StartingResources = 0
             GridRect = [7,7,1,1]
-            Layer = "doodads_low"
+            Layer = "structure"
             SpriteInset = [12/64, 4/64, 6/64, 11/64]
 		}
 		AntimatterSplitter
@@ -348,6 +348,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		{
 			Type = Graphics
 			Location = [4, 4]
+			OperationalToggle = IsOperational
 			Floor
 			{
 				Layer = "floors"
@@ -357,45 +358,6 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 						AnimationFiles
 						[
 							"floor_on.png"
-							// "./Data/ships/terran/reactor_large/floor_on2.png"
-							// "./Data/ships/terran/reactor_large/floor_on3.png"
-							// "./Data/ships/terran/reactor_large/floor_on4.png"
-							// "./Data/ships/terran/reactor_large/floor_on5.png"
-							// "./Data/ships/terran/reactor_large/floor_on6.png"
-							// "./Data/ships/terran/reactor_large/floor_on7.png"
-							// "./Data/ships/terran/reactor_large/floor_on8.png"
-						]
-						Size = [8, 8]
-						AnimationInterval = 0.095
-					}
-					{
-						AnimationFiles
-						[
-							"floor_on.png"
-							// "./Data/ships/terran/reactor_large/floor_on1_33.png"
-							// "./Data/ships/terran/reactor_large/floor_on2_33.png"
-							// "./Data/ships/terran/reactor_large/floor_on3_33.png"
-							// "./Data/ships/terran/reactor_large/floor_on4_33.png"
-							// "./Data/ships/terran/reactor_large/floor_on5_33.png"
-							// "./Data/ships/terran/reactor_large/floor_on6_33.png"
-							// "./Data/ships/terran/reactor_large/floor_on7_33.png"
-							// "./Data/ships/terran/reactor_large/floor_on8_33.png"
-						]
-						Size = [8, 8]
-						AnimationInterval = 0.095
-					}
-					{
-						AnimationFiles
-						[
-							"floor_on.png"
-							// "./Data/ships/terran/reactor_large/floor_on1_66.png"
-							// "./Data/ships/terran/reactor_large/floor_on2_66.png"
-							// "./Data/ships/terran/reactor_large/floor_on3_66.png"
-							// "./Data/ships/terran/reactor_large/floor_on4_66.png"
-							// "./Data/ships/terran/reactor_large/floor_on5_66.png"
-							// "./Data/ships/terran/reactor_large/floor_on6_66.png"
-							// "./Data/ships/terran/reactor_large/floor_on7_66.png"
-							// "./Data/ships/terran/reactor_large/floor_on8_66.png"
 						]
 						Size = [8, 8]
 						AnimationInterval = 0.095
@@ -439,25 +401,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					}
 				]
 			}
-			NonOperationalDoodad
-			{
-				Layer = "doodads_high"
-				DamageLevels
-				[
-					{
-						File = "./Data/ships/terran/reactor_large/reactor_off.png"
-						Size = [3, 3]
-					}
-					{
-						File = "./Data/ships/terran/reactor_large/reactor_off_33.png"
-						Size = [3, 3]
-					}
-					{
-						File = "./Data/ships/terran/reactor_large/reactor_off_66.png"
-						Size = [3, 3]
-					}
-				]
-			}
+			//NonOperationalDoodad = &OperationalDoodad
 			OperationalLighting
 			{
 				Layer = "lights_add"
@@ -465,45 +409,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				[
 					{
 						File = "lights.png"
-						//AnimationFiles
-						//[
-							//"lights1.png"
-							// "lights2.png"
-							// "lights3.png"
-							// "lights4.png"
-							// "lights5.png"
-							// "lights6.png"
-						//]
 						Size = [8, 8]
-						//AnimationInterval = 0.105
-					}
-					{
-						File = "lights.png"
-						//AnimationFiles
-						//[
-							//"lights1.png"
-							// "lights2.png"
-							// "lights3.png"
-							// "lights4.png"
-							// "lights5.png"
-							// "lights6.png"
-						//]
-						Size = [8, 8]
-						//AnimationInterval = 0.105
-					}
-					{
-						File = "lights.png"
-						//AnimationFiles
-						//[
-							//"lights1.png"
-							// "lights2.png"
-							// "lights3.png"
-							// "lights4.png"
-							// "lights5.png"
-							// "lights6.png"
-						//]
-						Size = [8, 8]
-						//AnimationInterval = 0.105
 					}
 				]
 			}
@@ -513,17 +419,17 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				DamageLevels
 				[
 					{
-						File = "./Data/ships/terran/reactor_large/walls.png"
+						File = "walls.png"
 						Size = [8, 8]
 					}
-					{
-						File = "./Data/ships/terran/reactor_large/walls_33.png"
-						Size = [8, 8]
-					}
-					{
-						File = "./Data/ships/terran/reactor_large/walls_66.png"
-						Size = [8, 8]
-					}
+					//{
+					//	File = "walls_33.png"
+					//	Size = [8, 8]
+					//}
+					//{
+					//	File = "walls_66.png"
+					//	Size = [8, 8]
+					//}
 				]
 			}
 			Roof
@@ -555,14 +461,6 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				// [
 					// {
 						// File = "./Data/ships/terran/reactor_large/roof_glows.png"
-						// Size = [8, 8]
-					// }
-					// {
-						// File = "./Data/ships/terran/reactor_large/roof_glows_33.png"
-						// Size = [8, 8]
-					// }
-					// {
-						// File = "./Data/ships/terran/reactor_large/roof_glows_66.png"
 						// Size = [8, 8]
 					// }
 				// ]
@@ -777,14 +675,32 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				CrewLocation2
 			]
 		}
+
+		OperationEffects
+		{
+			Type = ToggleEffects
+			Location = [1, 1]
+			Toggle = IsOperational
+			ToggledOnMediaEffects = &/COMMON_EFFECTS/PowerOn
+			ToggledOffMediaEffects = &/COMMON_EFFECTS/PowerOff
+		}
 		
 		Indicators
 		{
 			Type = IndicatorSprites
-			Location = [2, 2]
+			Location = [4, 4]
 			Layer = "indicators"
 			Indicators
 			[
+				// Turned off.
+				{
+					Toggle = PowerToggle
+					AtlasSprite
+					{
+						File = &/INDICATORS/PowerOff
+						Size = [1, 1]
+					}
+				}
 				// Out of power.
 				{
 					Toggle = BatteryStorage
