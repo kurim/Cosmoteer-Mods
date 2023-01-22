@@ -2,7 +2,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/ShieldCore"
 	IconNameKey = "Parts/ShieldCoreIcon"
-	ID = nexusmods.fed_shieldcore
+	ID = "stafa.fed_shieldcore"
 	EditorGroup = "Starfleet"
 	DescriptionKey = "Parts/ShieldCoreDesc"
 	Resources
@@ -76,11 +76,56 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ProgressBar
 			OperationalToggle = IsOperational
 			ShowProgressFor = CombinedBatteryStorage
-			LowColor = [0, 0, 255]
-			HighColor = [0, 0, 255]
-			FullColor = [0, 0, 255]
+			LowColor = [255, 0, 0]
+			HighColor = [255, 255, 0]
+			FullColor = [0, 255, 0]
 			Height = 10
 		}
+		CrewLocation1
+        {
+            Type = CrewLocation
+            Location = [2, 0.9]
+            Rotation = 180d
+        }
+        CrewLocation2
+        {
+            Type = CrewLocation
+            Location = [2, 3.1]
+            Rotation = 0d
+        }
+        CrewLocation3
+        {
+            Type = CrewLocation
+            Location = [0.9, 2]
+            Rotation = 90d
+        }
+        CrewLocation4
+        {
+            Type = CrewLocation
+            Location = [3.1, 2]
+            Rotation = 270d
+        }
+        PartCrew
+        {
+            Type = PartCrew
+            Crew = 2
+            DefaultPriority = &/PRIORITIES/ControlRoom_Crew
+            PrerequisitesBeforeCrewing = [PowerToggle]
+            CrewDestinations
+            [
+                [2, 1.2]
+                [2, 3.4]
+                [0.6, 2]
+                [3.4, 2]
+            ]
+            CrewLocations
+            [
+                CrewLocation1
+                CrewLocation2
+                CrewLocation3
+                CrewLocation4
+            ]
+        }
 		
 		CombinedBatteryStorage
 		{
@@ -104,7 +149,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 24000
-			ToggleOnResources = 23001
+			ToggleOnResources = 20000
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -114,7 +159,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = FrontBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 500
+			ResupplyThreshold = 2000
 			OperationalToggle = PowerToggle
 		}
 
@@ -403,7 +448,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 12000
-			ToggleOnResources = 11001
+			ToggleOnResources = 10000
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -413,7 +458,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = BackBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 500
+			ResupplyThreshold = 1000
 			OperationalToggle = PowerToggle
 		}
 
@@ -700,7 +745,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 16000
-			ToggleOnResources = 15001
+			ToggleOnResources = 14000
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -710,7 +755,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = LeftBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 500
+			ResupplyThreshold = 1000
 			OperationalToggle = PowerToggle
 		}
 
@@ -997,7 +1042,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 16000
-			ToggleOnResources = 15001
+			ToggleOnResources = 14000
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -1007,7 +1052,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = RightBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 500
+			ResupplyThreshold = 1000
 			OperationalToggle = PowerToggle
 		}
 
@@ -1312,7 +1357,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalDoodad
 			{
 				Layer = "doodads_high"
-				Offset = [0, -0.375]
+				Offset = [0, 0]
 				DamageLevels
 				[
 					{
@@ -1326,39 +1371,25 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 							"doodads_on6.png"
 							"doodads_on7.png"
 							"doodads_on8.png"
+							"doodads_on9.png"
+							"doodads_on10.png"
+							"doodads_on11.png"
+							"doodads_on12.png"
+							"doodads_on13.png"
+							"doodads_on2.png"
+							"doodads_on3.png"
+							"doodads_on4.png"
+							"doodads_on5.png"
+							"doodads_on6.png"
+							"doodads_on7.png"
+							"doodads_on8.png"
+							"doodads_on9.png"
+							"doodads_on10.png"
+							"doodads_on11.png"
+							"doodads_on12.png"
 						]
 						Size = [2, 2]
-						AnimationInterval = 0.1
-					}
-					{
-						AnimationFiles
-						[
-							"doodads_on1_33.png"
-							"doodads_on2_33.png"
-							"doodads_on3_33.png"
-							"doodads_on4_33.png"
-							"doodads_on5_33.png"
-							"doodads_on6_33.png"
-							"doodads_on7_33.png"
-							"doodads_on8_33.png"
-						]
-						Size = [2, 2]
-						AnimationInterval = 0.1
-					}
-					{
-						AnimationFiles
-						[
-							"doodads_on1_66.png"
-							"doodads_on2_66.png"
-							"doodads_on3_66.png"
-							"doodads_on4_66.png"
-							"doodads_on5_66.png"
-							"doodads_on6_66.png"
-							"doodads_on7_66.png"
-							"doodads_on8_66.png"
-						]
-						Size = [2, 2]
-						AnimationInterval = 0.1
+						AnimationInterval = 0.075
 					}
 				]
 			}
@@ -1448,103 +1479,75 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			}
 		}
 
-		External_Doodad_Graphics
-		{
-			Type = Graphics
-			Location = [1, 0.5]
-			OperationalDoodad
-			{
-				Layer = "weapons"
-				DamageLevels
-				[
-					{
-						File = "doodad_external.png"
-						NormalsFile = "doodad_external_normals.png"
-						Size = [2, 1]
-					}
-					{
-						File = "doodad_external_33.png"
-						NormalsFile = "doodad_external_normals_33.png"
-						Size = [2, 1]
-					}
-					{
-						File = "doodad_external_66.png"
-						NormalsFile = "doodad_external_normals_66.png"
-						Size = [2, 1]
-					}
-				]
-			}
-		}
-
-		BatterySprites
-		{
-			Type = ResourceSprites
-			Location = [1, 1.59375]
-			ResourceStorage = FrontBatteryStorage
-			Layer = "doodads_low"
-			ResourceLevels
-			[
-				{
-					File = "batteries1.png"
-					Size = [2, 1]
-				}
-				{
-					File = "batteries2.png"
-					Size = [2, 1]
-				}
-				{
-					File = "batteries3.png"
-					Size = [2, 1]
-				}
-				{
-					File = "batteries4.png"
-					Size = [2, 1]
-				}
-				{
-					File = "batteries5.png"
-					Size = [2, 1]
-				}
-				{
-					File = "batteries6.png"
-					Size = [2, 1]
-				}
-			]
-		}
-		RoofBatterySprites
-		{
-			Type = ResourceSprites
-			Location = [1, 1.6875]
-			ResourceStorage = FrontBatteryStorage
-			Layer = "roof_doodads"
-			ResourceLevels
-			[
-				{
-					File = "roof_batteries1.png"
-					Offset = [-0.5, 0]
-					Size = [1, 1]
-				}
-				{
-					File = "roof_batteries2.png"
-					Size = [2, 1]
-				}
-				{
-					File = "roof_batteries3.png"
-					Size = [2, 1]
-				}
-				{
-					File = "roof_batteries4.png"
-					Size = [2, 1]
-				}
-				{
-					File = "roof_batteries5.png"
-					Size = [2, 1]
-				}
-				{
-					File = "roof_batteries6.png"
-					Size = [2, 1]
-				}
-			]
-		}
+//		BatterySprites
+//		{
+//			Type = ResourceSprites
+//			Location = [1, 1.59375]
+//			ResourceStorage = FrontBatteryStorage
+//			Layer = "doodads_low"
+//			ResourceLevels
+//			[
+//				{
+//					File = "batteries1.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "batteries2.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "batteries3.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "batteries4.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "batteries5.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "batteries6.png"
+//					Size = [2, 1]
+//				}
+//			]
+//		}
+//		RoofBatterySprites
+//		{
+//			Type = ResourceSprites
+//			Location = [1, 1.6875]
+//			ResourceStorage = FrontBatteryStorage
+//			Layer = "roof_doodads"
+//			ResourceLevels
+//			[
+//				{
+//					File = "roof_batteries1.png"
+//					Offset = [-0.5, 0]
+//					Size = [1, 1]
+//				}
+//				{
+//					File = "roof_batteries2.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "roof_batteries3.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "roof_batteries4.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "roof_batteries5.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "roof_batteries6.png"
+//					Size = [2, 1]
+//				}
+//			]
+//		}
 
 		OperationEffects
 		{
@@ -1558,13 +1561,13 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		{
 			Type = DeathEffects
 			MediaEffects = &/COMMON_EFFECTS/MedPartDestroyed
-			Location = [1, 1.5]
+			Location = [2, 2]
 		}
 
 		Indicators
 		{
 			Type = IndicatorSprites
-			Location = [1, 1.5]
+			Location = [2, 2]
 			Layer = "indicators"
 			Indicators
 			[
@@ -1584,6 +1587,15 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					AtlasSprite
 					{
 						File = &/INDICATORS/NoPower
+						Size = [1, 1]
+					}
+				}
+				// No crew.
+				{
+					Toggle = PartCrew
+					AtlasSprite
+					{
+						File = &/INDICATORS/NoCrew
 						Size = [1, 1]
 					}
 				}

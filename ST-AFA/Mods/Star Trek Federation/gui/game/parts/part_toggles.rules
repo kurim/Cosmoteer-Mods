@@ -53,4 +53,84 @@ PartToggles
 			}
 		]
 	}
+	// core shield type
+	{
+		ToggleID = "CoreShield_type"
+		Style = Popout
+		ShowInEditor = true
+		SortOrder = 3
+		Choices
+		[
+			{
+				ChoiceID = "cid_CoreShield_XS"
+				Mode = 0
+				ButtonToolTipKey = "PartToggles/btt_CoreShield_XS"
+				ButtonSprite
+				{
+					Texture
+					{
+						File = "shield_XS.png"
+						MipLevels = 2
+						SampleMode = Linear
+					}
+				}
+			}
+			{
+				ChoiceID = "cid_CoreShield_S"
+				Mode = 1
+				ButtonToolTipKey = "PartToggles/btt_CoreShield_S"
+				ButtonSprite
+				{
+					Texture
+					{
+						File = "shield_S.png"
+						MipLevels = 2
+						SampleMode = Linear
+					}
+				}
+			}
+			{
+				ChoiceID = "cid_CoreShield_M"
+				Mode = 2
+				ButtonToolTipKey = "PartToggles/btt_CoreShield_M"
+				ButtonSprite
+				{
+					Texture
+					{
+						File = "shield_M.png"
+						MipLevels = 2
+						SampleMode = Linear
+					}
+				}
+			}
+			{
+				ChoiceID = "cid_CoreShield_L"
+				Mode = 3
+				ButtonToolTipKey = "PartToggles/btt_CoreShield_L"
+				ButtonSprite
+				{
+					Texture
+					{
+						File = "shield_L.png"
+						MipLevels = 2
+						SampleMode = Linear
+					}
+				}
+			}
+			{
+				ChoiceID = "cid_CoreShield_XL"
+				Mode = 4
+				ButtonToolTipKey = "PartToggles/btt_CoreShield_XL"
+				ButtonSprite
+				{
+					Texture
+					{
+						File = "shield_XL.png"
+						MipLevels = 2
+						SampleMode = Linear
+					}
+				}
+			}
+		]
+	}
 ]

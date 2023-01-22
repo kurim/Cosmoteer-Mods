@@ -214,7 +214,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = GridBuffProvider
 			BuffType = AntimatterPower
 			BuffAmount = 100%
-			GridDistance = 30
+			GridDistance = 100
 		}
 		EnergySubstation
 		{

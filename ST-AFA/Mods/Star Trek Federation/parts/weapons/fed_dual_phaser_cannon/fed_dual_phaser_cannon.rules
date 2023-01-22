@@ -96,7 +96,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = BatteryStorage
 			DefaultPriority = &/PRIORITIES/Weapon_Supply
-			ResupplyThreshold = 0
+			ResupplyThreshold = 1999
 			OperationalToggle = PowerToggle
 		}
 

@@ -2,7 +2,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
 	NameKey = "Parts/ShieldCore"
 	IconNameKey = "Parts/ShieldCoreIcon"
-	ID = "st-afa.fed_shieldcore"
+	ID = "stafa.fed_shieldcore"
 	EditorGroup = "Starfleet"
 	DescriptionKey = "Parts/ShieldCoreDesc"
 	Resources
@@ -20,6 +20,11 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	ReceivableBuffs : ^/0/ReceivableBuffs [AntimatterPower]
 	PenetrationRectType = Normal
 	ShieldRadius = 0.01
+	Radius_XS = 15
+	Radius_S = 25
+	Radius_M = 35
+	Radius_L = 45
+	Radius_XL = 60
 	BlockedTravelCells
 	[
 		[1, 1]
@@ -91,7 +96,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		}
 		
 		//
-		// Original ArcShield
+		// BaseArcShield
 		//
 		BaseArcShield
 		{
@@ -99,9 +104,9 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Radius = &~/Part/ShieldRadius
 			Arc = 0.01d
 			OperationalToggle = FrontIsOperational
-			PenetrationResistance = [25, 0]
+			PenetrationResistance = [75, 0]
 			DrainResourcesFrom = FrontBatteryStorage
-			ResourceDrainPerDamage = .2
+			ResourceDrainPerDamage = .4
 			Rotation = -90d
 			Location = [2, 2]
 
@@ -357,41 +362,41 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		//
 		// Toggles
 		//
-		ShieldType
+		ShieldTypeToggle
 		{
 			Type = UIToggle
-			ToggleID = "shield_type"
+			ToggleID = "CoreShield_type"
 			Default = 0
 			AlwaysAllowInBuildMode = true
 		}
 		ShieldToggleXS
 		{
 			Type = ModeToggle
-			Mode = ShieldType
+			Mode = ShieldTypeToggle
 			OnMode = 0
 		}
 		ShieldToggleS
 		{
 			Type = ModeToggle
-			Mode = ShieldType
+			Mode = ShieldTypeToggle
 			OnMode = 1
 		}
 		ShieldToggleM
 		{
 			Type = ModeToggle
-			Mode = ShieldType
+			Mode = ShieldTypeToggle
 			OnMode = 2
 		}
 		ShieldToggleL
 		{
 			Type = ModeToggle
-			Mode = ShieldType
+			Mode = ShieldTypeToggle
 			OnMode = 3
 		}
 		ShieldToggleXL
 		{
 			Type = ModeToggle
-			Mode = ShieldType
+			Mode = ShieldTypeToggle
 			OnMode = 4
 		}
 		
@@ -402,9 +407,10 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			IncludeInBlueprints = true
 			Components =
 			{
+				// FRONT
 				ArcShield_XS_Front : &~/Part/Components/BaseArcShield
 				{
-					Radius = 15
+					Radius = &~/Part/Radius_XS
 					Arc = 90d
 					Rotation = -90d
 					OperationalToggle = FrontIsOperational
@@ -412,14 +418,34 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					ShieldMediaEffects
 					[
 						{
-							Radius = 15
-							Arc = 90d
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
 						}
 					]
 					HitMediaEffects
 					[
 						{
-							Radius = 15
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
 						}
 					]
 				}
@@ -433,9 +459,1120 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				{
 					Type = ToggleEffects
 					ChainedTo = ArcShield_XS_Front
-					Location = [15, 0]
+					Location = [&~/Part/Radius_XS, 0]
 					Toggle = FrontIsOperational
 				}
+				
+				// BACK
+				ArcShield_XS_Back : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_XS
+					Arc = 90d
+					Rotation = 90d
+					OperationalToggle = BackIsOperational
+					DrainResourcesFrom = BackBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				BackEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_XS_Back
+					FactorMediaEffectsIntensityWith = BackBatteryStorage
+					OperationalToggle = BackIsOperational
+				}
+				BackShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_XS_Back
+					Location = [&~/Part/Radius_XS, 0]
+					Toggle = BackIsOperational
+				}
+				
+				
+				// LEFT
+				ArcShield_XS_Left : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_XS
+					Arc = 90d
+					Rotation = 180d
+					OperationalToggle = LeftIsOperational
+					DrainResourcesFrom = LeftBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				LeftEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_XS_Left
+					FactorMediaEffectsIntensityWith = LeftBatteryStorage
+					OperationalToggle = LeftIsOperational
+				}
+				LeftShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_XS_Left
+					Location = [&~/Part/Radius_XS, 0]
+					Toggle = LeftIsOperational
+				}
+				
+				
+				// RIGHT
+				ArcShield_XS_Right : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_XS
+					Arc = 90d
+					Rotation = 0d
+					OperationalToggle = RightIsOperational
+					DrainResourcesFrom = RightBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				RightEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_XS_Right
+					FactorMediaEffectsIntensityWith = RightBatteryStorage
+					OperationalToggle = RightIsOperational
+				}
+				RightShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_XS_Right
+					Location = [&~/Part/Radius_XS, 0]
+					Toggle = RightIsOperational
+				}
+				
+			}
+		}
+		ToggledComponents_ArcShield_S
+		{
+			Type = ToggledComponents
+			Toggle = ShieldToggleS
+			IncludeInBlueprints = true
+			Components =
+			{
+				// FRONT
+				ArcShield_S_Front : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_S
+					Arc = 90d
+					Rotation = -90d
+					OperationalToggle = FrontIsOperational
+					DrainResourcesFrom = FrontBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				FrontEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_S_Front
+					FactorMediaEffectsIntensityWith = FrontBatteryStorage
+					OperationalToggle = FrontIsOperational
+				}
+				FrontShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_S_Front
+					Location = [&~/Part/Radius_S, 0]
+					Toggle = FrontIsOperational
+				}
+				
+				// BACK
+				ArcShield_S_Back : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_S
+					Arc = 90d
+					Rotation = 90d
+					OperationalToggle = BackIsOperational
+					DrainResourcesFrom = BackBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				BackEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_S_Back
+					FactorMediaEffectsIntensityWith = BackBatteryStorage
+					OperationalToggle = BackIsOperational
+				}
+				BackShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_S_Back
+					Location = [&~/Part/Radius_S, 0]
+					Toggle = BackIsOperational
+				}
+				
+				// LEFT
+				ArcShield_S_Left : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_S
+					Arc = 90d
+					Rotation = 180d
+					OperationalToggle = LeftIsOperational
+					DrainResourcesFrom = LeftBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				LeftEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_S_Left
+					FactorMediaEffectsIntensityWith = LeftBatteryStorage
+					OperationalToggle = LeftIsOperational
+				}
+				LeftShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_S_Left
+					Location = [&~/Part/Radius_S, 0]
+					Toggle = LeftIsOperational
+				}
+				
+				
+				// RIGHT
+				ArcShield_S_Right : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_S
+					Arc = 90d
+					Rotation = 0d
+					OperationalToggle = RightIsOperational
+					DrainResourcesFrom = RightBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				RightEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_S_Right
+					FactorMediaEffectsIntensityWith = RightBatteryStorage
+					OperationalToggle = RightIsOperational
+				}
+				RightShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_S_Right
+					Location = [&~/Part/Radius_S, 0]
+					Toggle = RightIsOperational
+				}
+				
+			}
+		}
+		ToggledComponents_ArcShield_M
+		{
+			Type = ToggledComponents
+			Toggle = ShieldToggleM
+			IncludeInBlueprints = true
+			Components =
+			{
+				// FRONT
+				ArcShield_M_Front : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_M
+					Arc = 90d
+					Rotation = -90d
+					OperationalToggle = FrontIsOperational
+					DrainResourcesFrom = FrontBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				FrontEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_M_Front
+					FactorMediaEffectsIntensityWith = FrontBatteryStorage
+					OperationalToggle = FrontIsOperational
+				}
+				FrontShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_M_Front
+					Location = [&~/Part/Radius_M, 0]
+					Toggle = FrontIsOperational
+				}
+				
+				// BACK
+				ArcShield_M_Back : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_M
+					Arc = 90d
+					Rotation = 90d
+					OperationalToggle = BackIsOperational
+					DrainResourcesFrom = BackBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				BackEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_M_Back
+					FactorMediaEffectsIntensityWith = BackBatteryStorage
+					OperationalToggle = BackIsOperational
+				}
+				BackShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_M_Back
+					Location = [&~/Part/Radius_M, 0]
+					Toggle = BackIsOperational
+				}
+				
+				
+				// LEFT
+				ArcShield_M_Left : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_M
+					Arc = 90d
+					Rotation = 180d
+					OperationalToggle = LeftIsOperational
+					DrainResourcesFrom = LeftBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				LeftEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_M_Left
+					FactorMediaEffectsIntensityWith = LeftBatteryStorage
+					OperationalToggle = LeftIsOperational
+				}
+				LeftShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_M_Left
+					Location = [&~/Part/Radius_M, 0]
+					Toggle = LeftIsOperational
+				}
+				
+				
+				// RIGHT
+				ArcShield_M_Right : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_M
+					Arc = 90d
+					Rotation = 0d
+					OperationalToggle = RightIsOperational
+					DrainResourcesFrom = RightBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				RightEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_M_Right
+					FactorMediaEffectsIntensityWith = RightBatteryStorage
+					OperationalToggle = RightIsOperational
+				}
+				RightShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_M_Right
+					Location = [&~/Part/Radius_M, 0]
+					Toggle = RightIsOperational
+				}
+				
+			}
+		}
+		ToggledComponents_ArcShield_L
+		{
+			Type = ToggledComponents
+			Toggle = ShieldToggleL
+			IncludeInBlueprints = true
+			Components =
+			{
+				// FRONT
+				ArcShield_L_Front : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_L
+					Arc = 90d
+					Rotation = -90d
+					OperationalToggle = FrontIsOperational
+					DrainResourcesFrom = FrontBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				FrontEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_L_Front
+					FactorMediaEffectsIntensityWith = FrontBatteryStorage
+					OperationalToggle = FrontIsOperational
+				}
+				FrontShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_L_Front
+					Location = [&~/Part/Radius_L, 0]
+					Toggle = FrontIsOperational
+				}
+				
+				// BACK
+				ArcShield_L_Back : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_L
+					Arc = 90d
+					Rotation = 90d
+					OperationalToggle = BackIsOperational
+					DrainResourcesFrom = BackBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				BackEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_L_Back
+					FactorMediaEffectsIntensityWith = BackBatteryStorage
+					OperationalToggle = BackIsOperational
+				}
+				BackShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_L_Back
+					Location = [&~/Part/Radius_L, 0]
+					Toggle = BackIsOperational
+				}
+				
+				
+				// LEFT
+				ArcShield_L_Left : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_L
+					Arc = 90d
+					Rotation = 180d
+					OperationalToggle = LeftIsOperational
+					DrainResourcesFrom = LeftBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				LeftEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_L_Left
+					FactorMediaEffectsIntensityWith = LeftBatteryStorage
+					OperationalToggle = LeftIsOperational
+				}
+				LeftShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_L_Left
+					Location = [&~/Part/Radius_L, 0]
+					Toggle = LeftIsOperational
+				}
+				
+				
+				// RIGHT
+				ArcShield_L_Right : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_L
+					Arc = 90d
+					Rotation = 0d
+					OperationalToggle = RightIsOperational
+					DrainResourcesFrom = RightBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				RightEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_L_Right
+					FactorMediaEffectsIntensityWith = RightBatteryStorage
+					OperationalToggle = RightIsOperational
+				}
+				RightShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_L_Right
+					Location = [&~/Part/Radius_L, 0]
+					Toggle = RightIsOperational
+				}
+				
+			}
+		}
+		ToggledComponents_ArcShield_XL
+		{
+			Type = ToggledComponents
+			Toggle = ShieldToggleXL
+			IncludeInBlueprints = true
+			Components =
+			{
+				// FRONT
+				ArcShield_XL_Front : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_XL
+					Arc = 90d
+					Rotation = -90d
+					OperationalToggle = FrontIsOperational
+					DrainResourcesFrom = FrontBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				FrontEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_XL_Front
+					FactorMediaEffectsIntensityWith = FrontBatteryStorage
+					OperationalToggle = FrontIsOperational
+				}
+				FrontShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_XL_Front
+					Location = [&~/Part/Radius_XL, 0]
+					Toggle = FrontIsOperational
+				}
+				
+				// BACK
+				ArcShield_XL_Back : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_XL
+					Arc = 90d
+					Rotation = 90d
+					OperationalToggle = BackIsOperational
+					DrainResourcesFrom = BackBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				BackEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_XL_Back
+					FactorMediaEffectsIntensityWith = BackBatteryStorage
+					OperationalToggle = BackIsOperational
+				}
+				BackShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_XL_Back
+					Location = [&~/Part/Radius_XL, 0]
+					Toggle = BackIsOperational
+				}
+				
+				// LEFT
+				ArcShield_XL_Left : &~/Part/Components/BaseArcShield
+				{
+					Radius = 240 //&~/Part/Radius_XL
+					Arc = 20d // 90d
+					Rotation = 180d
+					OperationalToggle = LeftIsOperational
+					DrainResourcesFrom = LeftBatteryStorage
+					Location = [130, 2]
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				LeftEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_XL_Left
+					FactorMediaEffectsIntensityWith = LeftBatteryStorage
+					Location = [2.2, 0]
+					OperationalToggle = LeftIsOperational
+				}
+				LeftShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_XL_Left
+					Location = [&~/Part/Radius_XL, 0]
+					Toggle = LeftIsOperational
+				}
+				
+				
+				// RIGHT
+				ArcShield_XL_Right : &~/Part/Components/BaseArcShield
+				{
+					Radius = &~/Part/Radius_XL
+					Arc = 90d
+					Rotation = 0d
+					OperationalToggle = RightIsOperational
+					DrainResourcesFrom = RightBatteryStorage
+					ShieldMediaEffects
+					[
+						{
+							Type = ArcShield
+							Radius = &../../Radius
+							Arc = &../../Arc
+							FadeInTime = .25
+							FadeOutTime = .25
+							FadeFromScale = .8
+							ArcSprite : ~/Part/Components/BaseArcShield/ShieldMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 64
+							Bucket = Lower1
+						}
+					]
+					HitMediaEffects
+					[
+						{
+							Type = ArcShield
+							FadeInTime = 0.1
+							FadeOutTime = 0.5
+							Radius = &../../Radius
+							Arc = &../../Arc
+							ArcSprite : ~/Part/Components/BaseArcShield/HitMediaEffects/0/ArcSprite
+							{
+								
+							}
+							ArcSpriteSegments = 6
+							Bucket = Upper3
+						}
+					]
+				}
+				RightEmitterEffect : &~/Part/Components/BaseEmitterEffect
+				{
+					ChainedTo = ArcShield_XL_Right
+					FactorMediaEffectsIntensityWith = RightBatteryStorage
+					OperationalToggle = RightIsOperational
+				}
+				RightShieldOperationEffects : &~/Part/Components/BaseShieldOperationEffects
+				{
+					Type = ToggleEffects
+					ChainedTo = ArcShield_XL_Right
+					Location = [&~/Part/Radius_XL, 0]
+					Toggle = RightIsOperational
+				}
+				
 			}
 		}
 		
@@ -453,7 +1590,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 24000
-			ToggleOnResources = 23001
+			ToggleOnResources = 20000
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -463,7 +1600,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = FrontBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 500
+			ResupplyThreshold = 2000
 			OperationalToggle = PowerToggle
 		}
 
@@ -491,7 +1628,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 12000
-			ToggleOnResources = 11001
+			ToggleOnResources = 10000
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -501,7 +1638,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = BackBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 500
+			ResupplyThreshold = 1000
 			OperationalToggle = PowerToggle
 		}
 
@@ -514,266 +1651,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			MinFromQuantityForConversion = 1
 			Interval = 1
 		}
-		BackArcShield
-		{
-			Type = ArcShield
-			Radius = &~/Part/ShieldRadius
-			Arc = 90d
-			OperationalToggle = BackIsOperational
-			PenetrationResistance = [25, 0]
-			DrainResourcesFrom = BackBatteryStorage
-			ResourceDrainPerDamage = .4
-			Rotation = 90d
-			Location = [2, 2]
-
-			BlueprintArcSprite
-			{
-				Texture
-				{
-					File = "shield_energy.png"
-					SampleMode = Linear
-					MipLevels = 1
-				}
-				Size = [0, 1.5]
-				Color = [0, 0, 255, 127]
-			}
-			BlueprintArcSpriteSegments = 64
-
-			CoverageArcSprite
-			{
-				Texture
-				{
-					File = "shield_energy.png"
-					SampleMode = Linear
-					MipLevels = 1
-				}
-				Size = [0, 1.5]
-				Color = [255, 255, 255, 127]
-			}
-			CoverageArcSpriteSegments = 64
-
-			ShieldMediaEffects
-			[
-				{
-					Type = ArcShield
-					Radius = &~/Part/Components/BackArcShield/Radius
-					Arc = &~/Part/Components/BackArcShield/Arc
-					FadeInTime = .25
-					FadeOutTime = .25
-					FadeFromScale = .8
-					ArcSprite
-					{
-						Texture
-						{
-							File = "shield_energy.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						Shader = "shield.shader"
-						_waveTex
-						{
-							File = "shield_energy_wave.png"
-							UVMode = Wrap
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_maskTex
-						{
-							File = "shield_mask.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						_waveSpeed = 1
-						_waveAlpha = 1
-						_waveCurveInterval = .5
-						_waveCurveMagnitude = .35
-						_waveCurveUOffsetPerSecond = .2
-						_fullPowerColor1 = [54, 0, 91, 127]
-						_lowPowerColor1 = [54, 0, 91, 127]
-						_fullPowerColor2 = [0, 0, 255, 127]
-						_lowPowerColor2 = [255, 0, 0, 127]
-						_lowPowerThicknessExponent = .6
-						_xScale = 1
-						TargetBlendMode = Add
-						Size = [0, 1.5]
-					}
-					ArcSpriteSegments = 64
-					Bucket = Lower1
-				}
-
-				: /BASE_SOUNDS/AudioExteriorDetail
-				{
-					Sound = "shield_loop.wav"
-					Volume = .15
-					Speed = .5
-					MaxConcurrent = 1
-					MaxConcurrentVolume = .3
-					DynamicVolume : ^/0/DynamicVolume
-					{
-						MinDistance = .75
-						MaxDistance = 1.5
-					}
-					IgnoreIntensity = true
-				}
-			]
-
-			HitMediaEffects
-			[
-				{
-					Type = ArcShield
-					FadeInTime = .1
-					FadeOutTime = .5
-					Radius = &~/Part/Components/BackArcShield/Radius
-					Arc = 20d
-					ArcSprite
-					{
-						Texture
-						{
-							File = "shield_energy_original.png"
-							SampleMode = Linear
-							MipLevels = max
-						}
-						Shader = "shield.shader"
-						_waveTex
-						{
-							File = "shield_energy_wave.png"
-							UVMode = Wrap
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_maskTex
-						{
-							File = "shield_energy_original.png"
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_waveSpeed = -2
-						_waveAlpha = .75
-						_waveCurveInterval = 1
-						_waveCurveMagnitude = .25
-						_waveCurveUOffsetPerSecond = 0
-						//TargetBlendMode = Add
-						_fullPowerColor1 = [0, 0, 255, 127]
-						_lowPowerColor1 = [255, 0, 0, 200]
-						_fullPowerColor2 = [154, 98, 238, 127]
-						_lowPowerColor2 = [236, 150, 234, 127]
-						_lowPowerThicknessExponent = .6
-						_xScale = 1
-						TargetBlendMode = Add
-						Size = [0, 3]
-					}
-					ArcSpriteSegments = 6
-					Bucket = Upper3
-				}
-
-				: /BASE_SOUNDS/AudioExterior
-				{
-					Sound = "shield_hit.wav"
-					Volume = 1
-					Speed = 1
-					IgnoreIntensity = true
-					SpeedVariation = .25
-					MaxConcurrent = 10
-				}
-			]
-		}
-
-		BackEmitterEffect
-		{
-			Type = ContinuousEffects
-			ChainedTo = BackArcShield
-			FactorMediaEffectsIntensityWith = BackBatteryStorage
-			Location = [2.2, 0]
-			OperationalToggle = BackIsOperational
-			ParentToShip = true
-			MediaEffects
-			[
-				{
-					Type = ArcShield
-					Radius = 2.2
-					Arc = 90d
-					FadeInTime = .25
-					FadeOutTime = .25
-					ArcSprite
-					{
-						Texture
-						{
-							File = "shield_energy.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						UVRect = [0, 1, 1, -1]
-						Shader = "shield.shader"
-						_waveTex
-						{
-							File = "shield_energy_wave.png"
-							UVMode = Wrap
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_maskTex
-						{
-							File = "shield_mask.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						_waveSpeed = -1
-						_waveAlpha = 1
-						_waveCurveInterval = .5
-						_waveCurveMagnitude = .35
-						_waveCurveUOffsetPerSecond = .2
-						_fullPowerColor1 = [54, 0, 91, 127]
-						_lowPowerColor1 = [54, 0, 91, 127]
-						_fullPowerColor2 = [0, 0, 255, 127]
-						_lowPowerColor2 = [255, 0, 0, 127]
-						_lowPowerThicknessExponent = .6
-						TargetBlendMode = Add
-						_xScale = 0.5
-						Size = [0, 1.0]
-					}
-					ArcSpriteSegments = 12
-					Bucket = Upper1
-				}
-
-				: /BASE_SOUNDS/AudioExteriorDetail
-				{
-					Sound = "shield_emitter_loop.wav"
-					Volume = .2
-					Speed = 1
-					MaxConcurrent = 1
-					MaxConcurrentVolume = .4
-					IgnoreIntensity = true
-				}
-			]
-		}
-
-		BackShieldOperationEffects
-		{
-			Type = ToggleEffects
-			ChainedTo = BackArcShield
-			Location = [&~/Part/Components/BackArcShield/Radius, 0]
-			Toggle = BackIsOperational
-			ToggledOnMediaEffects
-			[
-				: /BASE_SOUNDS/AudioExterior
-				{
-					Sound = "activate.wav"
-					Volume = .5
-					Speed = 1
-					IgnoreIntensity = true
-				}
-			]
-			ToggledOffMediaEffects
-			[
-				: /BASE_SOUNDS/AudioExterior
-				{
-					Sound = "deactivate.wav"
-					Volume = .5
-					Speed = 1
-					IgnoreIntensity = true
-				}
-			]
-		}
+		
 		//
 		// Leftshield
 		//
@@ -788,7 +1666,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 16000
-			ToggleOnResources = 15001
+			ToggleOnResources = 14000
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -798,7 +1676,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = LeftBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 500
+			ResupplyThreshold = 1000
 			OperationalToggle = PowerToggle
 		}
 
@@ -811,266 +1689,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			MinFromQuantityForConversion = 1
 			Interval = 1
 		}
-		LeftArcShield
-		{
-			Type = ArcShield
-			Radius = &~/Part/ShieldRadius
-			Arc = 90d
-			OperationalToggle = LeftIsOperational
-			PenetrationResistance = [25, 0]
-			DrainResourcesFrom = LeftBatteryStorage
-			ResourceDrainPerDamage = .3
-			Rotation = 180d
-			Location = [2, 2]
-
-			BlueprintArcSprite
-			{
-				Texture
-				{
-					File = "shield_energy.png"
-					SampleMode = Linear
-					MipLevels = 1
-				}
-				Size = [0, 1.5]
-				Color = [0, 0, 255, 127]
-			}
-			BlueprintArcSpriteSegments = 64
-
-			CoverageArcSprite
-			{
-				Texture
-				{
-					File = "shield_energy.png"
-					SampleMode = Linear
-					MipLevels = 1
-				}
-				Size = [0, 1.5]
-				Color = [255, 255, 255, 127]
-			}
-			CoverageArcSpriteSegments = 64
-
-			ShieldMediaEffects
-			[
-				{
-					Type = ArcShield
-					Radius = &~/Part/Components/LeftArcShield/Radius
-					Arc = &~/Part/Components/LeftArcShield/Arc
-					FadeInTime = .25
-					FadeOutTime = .25
-					FadeFromScale = .8
-					ArcSprite
-					{
-						Texture
-						{
-							File = "shield_energy.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						Shader = "shield.shader"
-						_waveTex
-						{
-							File = "shield_energy_wave.png"
-							UVMode = Wrap
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_maskTex
-						{
-							File = "shield_mask.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						_waveSpeed = 1
-						_waveAlpha = 1
-						_waveCurveInterval = .5
-						_waveCurveMagnitude = .35
-						_waveCurveUOffsetPerSecond = .2
-						_fullPowerColor1 = [54, 0, 91, 127]
-						_lowPowerColor1 = [54, 0, 91, 127]
-						_fullPowerColor2 = [0, 0, 255, 127]
-						_lowPowerColor2 = [255, 0, 0, 127]
-						_lowPowerThicknessExponent = .6
-						_xScale = 1
-						TargetBlendMode = Add
-						Size = [0, 1.5]
-					}
-					ArcSpriteSegments = 64
-					Bucket = Lower1
-				}
-
-				: /BASE_SOUNDS/AudioExteriorDetail
-				{
-					Sound = "shield_loop.wav"
-					Volume = .15
-					Speed = .5
-					MaxConcurrent = 1
-					MaxConcurrentVolume = .3
-					DynamicVolume : ^/0/DynamicVolume
-					{
-						MinDistance = .75
-						MaxDistance = 1.5
-					}
-					IgnoreIntensity = true
-				}
-			]
-
-			HitMediaEffects
-			[
-				{
-					Type = ArcShield
-					FadeInTime = .1
-					FadeOutTime = .5
-					Radius = &~/Part/Components/LeftArcShield/Radius
-					Arc = 20d
-					ArcSprite
-					{
-						Texture
-						{
-							File = "shield_energy_original.png"
-							SampleMode = Linear
-							MipLevels = max
-						}
-						Shader = "shield.shader"
-						_waveTex
-						{
-							File = "shield_energy_wave.png"
-							UVMode = Wrap
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_maskTex
-						{
-							File = "shield_energy_original.png"
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_waveSpeed = -2
-						_waveAlpha = .75
-						_waveCurveInterval = 1
-						_waveCurveMagnitude = .25
-						_waveCurveUOffsetPerSecond = 0
-						//TargetBlendMode = Add
-						_fullPowerColor1 = [0, 0, 255, 127]
-						_lowPowerColor1 = [255, 0, 0, 200]
-						_fullPowerColor2 = [154, 98, 238, 127]
-						_lowPowerColor2 = [236, 150, 234, 127]
-						_lowPowerThicknessExponent = .6
-						_xScale = 1
-						TargetBlendMode = Add
-						Size = [0, 3]
-					}
-					ArcSpriteSegments = 6
-					Bucket = Upper3
-				}
-
-				: /BASE_SOUNDS/AudioExterior
-				{
-					Sound = "shield_hit.wav"
-					Volume = 1
-					Speed = 1
-					IgnoreIntensity = true
-					SpeedVariation = .25
-					MaxConcurrent = 10
-				}
-			]
-		}
-
-		LeftEmitterEffect
-		{
-			Type = ContinuousEffects
-			ChainedTo = LeftArcShield
-			FactorMediaEffectsIntensityWith = LeftBatteryStorage
-			Location = [2.2, 0]
-			OperationalToggle = LeftIsOperational
-			ParentToShip = true
-			MediaEffects
-			[
-				{
-					Type = ArcShield
-					Radius = 2.2
-					Arc = 90d
-					FadeInTime = .25
-					FadeOutTime = .25
-					ArcSprite
-					{
-						Texture
-						{
-							File = "shield_energy.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						UVRect = [0, 1, 1, -1]
-						Shader = "shield.shader"
-						_waveTex
-						{
-							File = "shield_energy_wave.png"
-							UVMode = Wrap
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_maskTex
-						{
-							File = "shield_mask.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						_waveSpeed = -1
-						_waveAlpha = 1
-						_waveCurveInterval = .5
-						_waveCurveMagnitude = .35
-						_waveCurveUOffsetPerSecond = .2
-						_fullPowerColor1 = [54, 0, 91, 127]
-						_lowPowerColor1 = [54, 0, 91, 127]
-						_fullPowerColor2 = [0, 0, 255, 127]
-						_lowPowerColor2 = [255, 0, 0, 127]
-						_lowPowerThicknessExponent = .6
-						TargetBlendMode = Add
-						_xScale = 0.5
-						Size = [0, 1.0]
-					}
-					ArcSpriteSegments = 12
-					Bucket = Upper1
-				}
-
-				: /BASE_SOUNDS/AudioExteriorDetail
-				{
-					Sound = "shield_emitter_loop.wav"
-					Volume = .2
-					Speed = 1
-					MaxConcurrent = 1
-					MaxConcurrentVolume = .4
-					IgnoreIntensity = true
-				}
-			]
-		}
-
-		LeftShieldOperationEffects
-		{
-			Type = ToggleEffects
-			ChainedTo = LeftArcShield
-			Location = [&~/Part/Components/LeftArcShield/Radius, 0]
-			Toggle = LeftIsOperational
-			ToggledOnMediaEffects
-			[
-				: /BASE_SOUNDS/AudioExterior
-				{
-					Sound = "activate.wav"
-					Volume = .5
-					Speed = 1
-					IgnoreIntensity = true
-				}
-			]
-			ToggledOffMediaEffects
-			[
-				: /BASE_SOUNDS/AudioExterior
-				{
-					Sound = "deactivate.wav"
-					Volume = .5
-					Speed = 1
-					IgnoreIntensity = true
-				}
-			]
-		}
+		
 		//
 		// Rightshield
 		//
@@ -1085,7 +1704,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 16000
-			ToggleOnResources = 15001
+			ToggleOnResources = 14000
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -1095,7 +1714,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = RightBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 500
+			ResupplyThreshold = 1000
 			OperationalToggle = PowerToggle
 		}
 
@@ -1108,264 +1727,54 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			MinFromQuantityForConversion = 1
 			Interval = 1
 		}
-		RightArcShield
+		
+		//
+		// Crew
+		//
+		
+		CrewLocation1
 		{
-			Type = ArcShield
-			Radius = &~/Part/ShieldRadius
-			Arc = 90d
-			OperationalToggle = RightIsOperational
-			PenetrationResistance = [25, 0]
-			DrainResourcesFrom = RightBatteryStorage
-			ResourceDrainPerDamage = .3
+			Type = CrewLocation
+			Location = [2, 0.9]
+			Rotation = 180d
+		}
+		CrewLocation2
+		{
+			Type = CrewLocation
+			Location = [2, 3.1]
 			Rotation = 0d
-			Location = [2, 2]
-
-			BlueprintArcSprite
-			{
-				Texture
-				{
-					File = "shield_energy.png"
-					SampleMode = Linear
-					MipLevels = 1
-				}
-				Size = [0, 1.5]
-				Color = [0, 0, 255, 127]
-			}
-			BlueprintArcSpriteSegments = 64
-
-			CoverageArcSprite
-			{
-				Texture
-				{
-					File = "shield_energy.png"
-					SampleMode = Linear
-					MipLevels = 1
-				}
-				Size = [0, 1.5]
-				Color = [255, 255, 255, 127]
-			}
-			CoverageArcSpriteSegments = 64
-
-			ShieldMediaEffects
-			[
-				{
-					Type = ArcShield
-					Radius = &~/Part/Components/RightArcShield/Radius
-					Arc = &~/Part/Components/RightArcShield/Arc
-					FadeInTime = .25
-					FadeOutTime = .25
-					FadeFromScale = .8
-					ArcSprite
-					{
-						Texture
-						{
-							File = "shield_energy.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						Shader = "shield.shader"
-						_waveTex
-						{
-							File = "shield_energy_wave.png"
-							UVMode = Wrap
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_maskTex
-						{
-							File = "shield_mask.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						_waveSpeed = 1
-						_waveAlpha = 1
-						_waveCurveInterval = .5
-						_waveCurveMagnitude = .35
-						_waveCurveUOffsetPerSecond = .2
-						_fullPowerColor1 = [54, 0, 91, 127]
-						_lowPowerColor1 = [54, 0, 91, 127]
-						_fullPowerColor2 = [0, 0, 255, 127]
-						_lowPowerColor2 = [255, 0, 0, 127]
-						_lowPowerThicknessExponent = .6
-						_xScale = 1
-						TargetBlendMode = Add
-						Size = [0, 1.5]
-					}
-					ArcSpriteSegments = 64
-					Bucket = Lower1
-				}
-
-				: /BASE_SOUNDS/AudioExteriorDetail
-				{
-					Sound = "shield_loop.wav"
-					Volume = .15
-					Speed = .5
-					MaxConcurrent = 1
-					MaxConcurrentVolume = .3
-					DynamicVolume : ^/0/DynamicVolume
-					{
-						MinDistance = .75
-						MaxDistance = 1.5
-					}
-					IgnoreIntensity = true
-				}
-			]
-
-			HitMediaEffects
-			[
-				{
-					Type = ArcShield
-					FadeInTime = .1
-					FadeOutTime = .5
-					Radius = &~/Part/Components/RightArcShield/Radius
-					Arc = 20d
-					ArcSprite
-					{
-						Texture
-						{
-							File = "shield_energy_original.png"
-							SampleMode = Linear
-							MipLevels = max
-						}
-						Shader = "shield.shader"
-						_waveTex
-						{
-							File = "shield_energy_wave.png"
-							UVMode = Wrap
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_maskTex
-						{
-							File = "shield_energy_original.png"
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_waveSpeed = -2
-						_waveAlpha = .75
-						_waveCurveInterval = 1
-						_waveCurveMagnitude = .25
-						_waveCurveUOffsetPerSecond = 0
-						//TargetBlendMode = Add
-						_fullPowerColor1 = [0, 0, 255, 127]
-						_lowPowerColor1 = [255, 0, 0, 200]
-						_fullPowerColor2 = [154, 98, 238, 127]
-						_lowPowerColor2 = [236, 150, 234, 127]
-						_lowPowerThicknessExponent = .6
-						_xScale = 1
-						TargetBlendMode = Add
-						Size = [0, 3]
-					}
-					ArcSpriteSegments = 6
-					Bucket = Upper3
-				}
-
-				: /BASE_SOUNDS/AudioExterior
-				{
-					Sound = "shield_hit.wav"
-					Volume = 1
-					Speed = 1
-					IgnoreIntensity = true
-					SpeedVariation = .25
-					MaxConcurrent = 10
-				}
-			]
 		}
-
-		RightEmitterEffect
+		CrewLocation3
 		{
-			Type = ContinuousEffects
-			ChainedTo = RightArcShield
-			FactorMediaEffectsIntensityWith = RightBatteryStorage
-			Location = [2.2, 0]
-			OperationalToggle = RightIsOperational
-			ParentToShip = true
-			MediaEffects
-			[
-				{
-					Type = ArcShield
-					Radius = 2.2
-					Arc = 90d
-					FadeInTime = .25
-					FadeOutTime = .25
-					ArcSprite
-					{
-						Texture
-						{
-							File = "shield_energy.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						UVRect = [0, 1, 1, -1]
-						Shader = "shield.shader"
-						_waveTex
-						{
-							File = "shield_energy_wave.png"
-							UVMode = Wrap
-							SampleMode = Linear
-							MipLevels = max
-						}
-						_maskTex
-						{
-							File = "shield_mask.png"
-							SampleMode = Linear
-							MipLevels = 1
-						}
-						_waveSpeed = -1
-						_waveAlpha = 1
-						_waveCurveInterval = .5
-						_waveCurveMagnitude = .35
-						_waveCurveUOffsetPerSecond = .2
-						_fullPowerColor1 = [54, 0, 91, 127]
-						_lowPowerColor1 = [54, 0, 91, 127]
-						_fullPowerColor2 = [0, 0, 255, 127]
-						_lowPowerColor2 = [255, 0, 0, 127]
-						_lowPowerThicknessExponent = .6
-						TargetBlendMode = Add
-						_xScale = 0.5
-						Size = [0, 1.0]
-					}
-					ArcSpriteSegments = 12
-					Bucket = Upper1
-				}
-
-				: /BASE_SOUNDS/AudioExteriorDetail
-				{
-					Sound = "shield_emitter_loop.wav"
-					Volume = .2
-					Speed = 1
-					MaxConcurrent = 1
-					MaxConcurrentVolume = .4
-					IgnoreIntensity = true
-				}
-			]
+			Type = CrewLocation
+			Location = [0.9, 2]
+			Rotation = 90d
 		}
-
-		RightShieldOperationEffects
+		CrewLocation4
 		{
-			Type = ToggleEffects
-			ChainedTo = RightArcShield
-			Location = [&~/Part/Components/RightArcShield/Radius, 0]
-			Toggle = RightIsOperational
-			ToggledOnMediaEffects
+			Type = CrewLocation
+			Location = [3.1, 2]
+			Rotation = 270d
+		}
+		PartCrew
+		{
+			Type = PartCrew
+			Crew = 2
+			DefaultPriority = &/PRIORITIES/ControlRoom_Crew
+			PrerequisitesBeforeCrewing = [PowerToggle]
+			CrewDestinations
 			[
-				: /BASE_SOUNDS/AudioExterior
-				{
-					Sound = "activate.wav"
-					Volume = .5
-					Speed = 1
-					IgnoreIntensity = true
-				}
+				[2, 1.2]
+				[2, 3.4]
+				[0.6, 2]
+				[3.4, 2]
 			]
-			ToggledOffMediaEffects
+			CrewLocations
 			[
-				: /BASE_SOUNDS/AudioExterior
-				{
-					Sound = "deactivate.wav"
-					Volume = .5
-					Speed = 1
-					IgnoreIntensity = true
-				}
+				CrewLocation1
+				CrewLocation2
+				CrewLocation3
+				CrewLocation4
 			]
 		}
 		
@@ -1400,7 +1809,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OperationalDoodad
 			{
 				Layer = "doodads_high"
-				Offset = [0, -0.375]
+				Offset = [0, 0]
 				DamageLevels
 				[
 					{
@@ -1414,39 +1823,25 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 							"doodads_on6.png"
 							"doodads_on7.png"
 							"doodads_on8.png"
+							"doodads_on9.png"
+							"doodads_on10.png"
+							"doodads_on11.png"
+							"doodads_on12.png"
+							"doodads_on13.png"
+							"doodads_on2.png"
+							"doodads_on3.png"
+							"doodads_on4.png"
+							"doodads_on5.png"
+							"doodads_on6.png"
+							"doodads_on7.png"
+							"doodads_on8.png"
+							"doodads_on9.png"
+							"doodads_on10.png"
+							"doodads_on11.png"
+							"doodads_on12.png"
 						]
 						Size = [2, 2]
-						AnimationInterval = 0.1
-					}
-					{
-						AnimationFiles
-						[
-							"doodads_on1_33.png"
-							"doodads_on2_33.png"
-							"doodads_on3_33.png"
-							"doodads_on4_33.png"
-							"doodads_on5_33.png"
-							"doodads_on6_33.png"
-							"doodads_on7_33.png"
-							"doodads_on8_33.png"
-						]
-						Size = [2, 2]
-						AnimationInterval = 0.1
-					}
-					{
-						AnimationFiles
-						[
-							"doodads_on1_66.png"
-							"doodads_on2_66.png"
-							"doodads_on3_66.png"
-							"doodads_on4_66.png"
-							"doodads_on5_66.png"
-							"doodads_on6_66.png"
-							"doodads_on7_66.png"
-							"doodads_on8_66.png"
-						]
-						Size = [2, 2]
-						AnimationInterval = 0.1
+						AnimationInterval = 0.075
 					}
 				]
 			}
@@ -1536,103 +1931,75 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			}
 		}
 
-		External_Doodad_Graphics
-		{
-			Type = Graphics
-			Location = [1, 0.5]
-			OperationalDoodad
-			{
-				Layer = "weapons"
-				DamageLevels
-				[
-					{
-						File = "doodad_external.png"
-						NormalsFile = "doodad_external_normals.png"
-						Size = [2, 1]
-					}
-					{
-						File = "doodad_external_33.png"
-						NormalsFile = "doodad_external_normals_33.png"
-						Size = [2, 1]
-					}
-					{
-						File = "doodad_external_66.png"
-						NormalsFile = "doodad_external_normals_66.png"
-						Size = [2, 1]
-					}
-				]
-			}
-		}
-
-		BatterySprites
-		{
-			Type = ResourceSprites
-			Location = [1, 1.59375]
-			ResourceStorage = FrontBatteryStorage
-			Layer = "doodads_low"
-			ResourceLevels
-			[
-				{
-					File = "batteries1.png"
-					Size = [2, 1]
-				}
-				{
-					File = "batteries2.png"
-					Size = [2, 1]
-				}
-				{
-					File = "batteries3.png"
-					Size = [2, 1]
-				}
-				{
-					File = "batteries4.png"
-					Size = [2, 1]
-				}
-				{
-					File = "batteries5.png"
-					Size = [2, 1]
-				}
-				{
-					File = "batteries6.png"
-					Size = [2, 1]
-				}
-			]
-		}
-		RoofBatterySprites
-		{
-			Type = ResourceSprites
-			Location = [1, 1.6875]
-			ResourceStorage = FrontBatteryStorage
-			Layer = "roof_doodads"
-			ResourceLevels
-			[
-				{
-					File = "roof_batteries1.png"
-					Offset = [-0.5, 0]
-					Size = [1, 1]
-				}
-				{
-					File = "roof_batteries2.png"
-					Size = [2, 1]
-				}
-				{
-					File = "roof_batteries3.png"
-					Size = [2, 1]
-				}
-				{
-					File = "roof_batteries4.png"
-					Size = [2, 1]
-				}
-				{
-					File = "roof_batteries5.png"
-					Size = [2, 1]
-				}
-				{
-					File = "roof_batteries6.png"
-					Size = [2, 1]
-				}
-			]
-		}
+//		BatterySprites
+//		{
+//			Type = ResourceSprites
+//			Location = [1, 1.59375]
+//			ResourceStorage = FrontBatteryStorage
+//			Layer = "doodads_low"
+//			ResourceLevels
+//			[
+//				{
+//					File = "batteries1.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "batteries2.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "batteries3.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "batteries4.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "batteries5.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "batteries6.png"
+//					Size = [2, 1]
+//				}
+//			]
+//		}
+//		RoofBatterySprites
+//		{
+//			Type = ResourceSprites
+//			Location = [1, 1.6875]
+//			ResourceStorage = FrontBatteryStorage
+//			Layer = "roof_doodads"
+//			ResourceLevels
+//			[
+//				{
+//					File = "roof_batteries1.png"
+//					Offset = [-0.5, 0]
+//					Size = [1, 1]
+//				}
+//				{
+//					File = "roof_batteries2.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "roof_batteries3.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "roof_batteries4.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "roof_batteries5.png"
+//					Size = [2, 1]
+//				}
+//				{
+//					File = "roof_batteries6.png"
+//					Size = [2, 1]
+//				}
+//			]
+//		}
 
 		OperationEffects
 		{
@@ -1646,13 +2013,13 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		{
 			Type = DeathEffects
 			MediaEffects = &/COMMON_EFFECTS/MedPartDestroyed
-			Location = [1, 1.5]
+			Location = [2, 2]
 		}
 
 		Indicators
 		{
 			Type = IndicatorSprites
-			Location = [1, 1.5]
+			Location = [2, 2]
 			Layer = "indicators"
 			Indicators
 			[
@@ -1675,6 +2042,15 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 						Size = [1, 1]
 					}
 				}
+				// No crew.
+				{
+					Toggle = PartCrew
+					AtlasSprite
+					{
+						File = &/INDICATORS/NoCrew
+						Size = [1, 1]
+					}
+				}
 			]
 		}
 
@@ -1688,10 +2064,10 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 
 	Stats
 	{
-		ShieldHP = (&~/Part/Components/FrontBatteryStorage/MaxResources) / (&~/Part/Components/FrontArcShield/ResourceDrainPerDamage)
-		ShieldPenResist = &~/Part/Components/FrontArcShield/PenetrationResistance/0
-		ShieldArc = deg(&~/Part/Components/FrontArcShield/Arc)
-		ShieldDist = (&~/Part/Components/FrontArcShield/Radius) - (&~/Part/Components/FrontArcShield/Location/1)
+		ShieldHP = (&~/Part/Components/FrontBatteryStorage/MaxResources) / (&<BaseShield.rules>/Part/Components/BaseArcShield/ResourceDrainPerDamage)
+		ShieldPenResist = &<BaseShield.rules>/Part/Components/BaseArcShield/PenetrationResistance/0
+		ShieldArc = deg(&<BaseShield.rules>/Part/Components/BaseArcShield/Arc)
+		ShieldDist = (&<BaseShield.rules>/Part/Components/BaseArcShield/Radius) - (&<BaseShield.rules>/Part/Components/BaseArcShield/Location/1)
 		PowerUsageContinuous = (&~/Part/Components/FrontPowerDrain/FromQuantity) / (&~/Part/Components/FrontPowerDrain/Interval) / 1000
 		PowerCapacity = (&~/Part/Components/FrontBatteryStorage/MaxResources) / 1000
 

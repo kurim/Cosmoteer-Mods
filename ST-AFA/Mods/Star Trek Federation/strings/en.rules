@@ -67,6 +67,12 @@ PartToggles
 	TorpedoType_Photon = "Photon torpedo launcher"
 	TorpedoType_Quantum = "Quantum torpedo launcher"
 	TorpedoType_Tricobalt = "Tricobalt torpedo launcher"
+
+	btt_CoreShield_XS = "Small shield, best suited for ships like Nova classes"
+	btt_CoreShield_S = "Small shield, best suited for ships like Miranda classes"
+	btt_CoreShield_M = "Medium shield, best suited for ships like Intrepid classes"
+	btt_CoreShield_L = "Big shield, best suited for ships like Excelsior classes"
+	btt_CoreShield_XL = "Huge shield, best suited for ships like Galaxy classes"
 }
 
 Stats
