@@ -24,10 +24,10 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	ProhibitRects
 	[
 		[default, [-2, -3, 1, 1]]	// top
-		[default, [3, -3, 1, 1]]	// top
-		[default, [4, -2, 1, 4]]	// top right
+		[default, [2, -3, 1, 1]]	// top
+		[default, [2, -2, 1, 4]]	// top right
 		[default, [-3, -2, 1, 4]]	// top left
-		[default, [4, 4, 1, 4]]		// bottom right
+		[default, [2, 4, 1, 4]]		// bottom right
 		[default, [-3, 4, 1, 4]]	// bottom left
 		[default, [-2, 8, 5, 1]]	// bottom
 	]
