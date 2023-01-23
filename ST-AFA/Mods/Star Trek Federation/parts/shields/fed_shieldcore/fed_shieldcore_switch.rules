@@ -1728,6 +1728,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Interval = 1
 		}
 		
+		
 		//
 		// Crew
 		//
@@ -1764,7 +1765,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			PrerequisitesBeforeCrewing = [PowerToggle]
 			CrewDestinations
 			[
-				[2, 1.2]
+				[2, 0.6]
 				[2, 3.4]
 				[0.6, 2]
 				[3.4, 2]
@@ -1776,6 +1777,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				CrewLocation3
 				CrewLocation4
 			]
+			SwitchLocationInterval = [5, 10]
 		}
 		
 		//
