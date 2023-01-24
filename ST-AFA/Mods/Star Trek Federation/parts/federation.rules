@@ -21,4 +21,6 @@ Parts
 	// Shields
 	//&<shields/fed_shieldcore/fed_shieldcore.rules>/Part
 	&<shields/fed_shieldcore/fed_shieldcore_switch.rules>/Part
+	// Misc
+	&<misc/ai_airlock/ai_airlock.rules>/Part
 ]

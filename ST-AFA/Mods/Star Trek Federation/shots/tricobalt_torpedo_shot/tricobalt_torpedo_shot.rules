@@ -68,11 +68,11 @@ Components
 
 	Hit
 	{
-		Type = PenetratingHit
+		Type = SimpleHit
 		SourcePartCollisionDelay = 1.5/30
-		FactorEffectsWith = Targetable
-		Penetration = 25
-		PenetratesCrew = true
+		// FactorEffectsWith = Targetable
+		// Penetration = 25
+		// PenetratesCrew = true
 		CrewCollisions = {Enemies=true; Junk=true}
 		HitCrew = &HitOperational
 
@@ -98,13 +98,41 @@ Components
 			HitEffects
 			[
 				{
-					Type = Damage
-					Damage = 4500
-					Radius = 8
+					// Type = Damage
+					// Damage = 4500
+					// Radius = 8
+					Type = ExplosiveDamage
+					TotalDamage = 150000
+					Radius = 10
+					ExpandDuration = .8
+					ExpandStartRadius = 2
+					ExpandLoss = 100%
+					ImpulsePerNDamage = 10
+					NDamage = 1000
+					Filter
+					{
+						OperationalHealth = true
+						StructuralHealth = false
+						Friendlies = true
+					}
 				}
 				{
-					Type = Impulse;
-					Impulse = 600;
+					// Type = Impulse;
+					// Impulse = 600;
+					Type = ExplosiveDamage
+					TotalDamage = 45000
+					Radius = 8
+					ExpandDuration = .8
+					ExpandStartRadius = 2
+					ExpandLoss = 100%
+					ImpulsePerNDamage = 5
+					NDamage = 1000
+					Filter
+					{
+						OperationalHealth = false
+						StructuralHealth = true
+						Friendlies = true
+					}
 				}
 			]
 
@@ -129,34 +157,35 @@ Components
 				}
 			]
 		}
-		HitStructural
-		{
-			HitEffects
-			[
-				{
-					Type = Damage
-					Damage = 1500
-				}
-				{
-					Type = Impulse;
-					Impulse = 2.5;
-				}
-			]
+		HitStructural = &HitOperational
+		// HitStructural
+		// {
+			// HitEffects
+			// [
+				// {
+					// Type = Damage
+					// Damage = 1500
+				// }
+				// {
+					// Type = Impulse;
+					// Impulse = 2.5;
+				// }
+			// ]
 
-			MediaEffects
-			[
-				&<particles/tricobalt_torpedo_hit_struct.rules>
-				&<particles/tricobalt_torpedo_flash.rules>
-				&<particles/tricobalt_torpedo_sparks_struct.rules>
+			// MediaEffects
+			// [
+				// &<particles/tricobalt_torpedo_hit_struct.rules>
+				// &<particles/tricobalt_torpedo_flash.rules>
+				// &<particles/tricobalt_torpedo_sparks_struct.rules>
 
-				: /BASE_SOUNDS/AudioExterior
-				{
-					Sound = "tricobalt_torpedo_hit.wav"
-					Volume = .3
-					SpeedVariation = .4
-				}
-			]
-		}
+				// : /BASE_SOUNDS/AudioExterior
+				// {
+					// Sound = "tricobalt_torpedo_hit.wav"
+					// Volume = .3
+					// SpeedVariation = .4
+				// }
+			// ]
+		// }
 		PenetratingOperational
 		{
 			// No effect.

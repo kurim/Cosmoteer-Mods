@@ -84,12 +84,12 @@ Components
 			[
 				{
 					Type = Damage
-					Damage = 3000
-					Radius = 2
+					Damage = 11250
+					Radius = 4
 				}
 				{
 					Type = Impulse;
-					Impulse = 5;
+					Impulse = 25;
 				}
 			]
 

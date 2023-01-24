@@ -19,7 +19,6 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	TypeCategories = [defense, uses_power]
 	ReceivableBuffs : ^/0/ReceivableBuffs [AntimatterPower]
 	PenetrationRectType = Normal
-	ShieldRadius = 0.01
 	Radius_XS = 15
 	Radius_S = 25
 	Radius_M = 35
@@ -32,6 +31,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		[2, 1]
 		[2, 2]
 	]
+	ForceManhattanPathInPart = true
 	AllowedDoorLocations
 	[
 		[-1, 0]
@@ -101,7 +101,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		BaseArcShield
 		{
 			Type = ArcShield
-			Radius = &~/Part/ShieldRadius
+			Radius = 0.01
 			Arc = 0.01d
 			OperationalToggle = FrontIsOperational
 			PenetrationResistance = [75, 0]
@@ -341,9 +341,9 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			[
 				: /BASE_SOUNDS/AudioExterior
 				{
-					Sound = "activate.wav"
+					Sound = "shieldraise.wav"
 					Volume = .5
-					Speed = 1
+					Speed = 1.5
 					IgnoreIntensity = true
 				}
 			]
@@ -351,9 +351,9 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			[
 				: /BASE_SOUNDS/AudioExterior
 				{
-					Sound = "deactivate.wav"
+					Sound = "shieldlower.wav"
 					Volume = .5
-					Speed = 1
+					Speed = 1.5
 					IgnoreIntensity = true
 				}
 			]
@@ -1590,7 +1590,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 24000
-			ToggleOnResources = 20000
+			ToggleOnResources = 23001
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -1600,7 +1600,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = FrontBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 2000
+			ResupplyThreshold = 500
 			OperationalToggle = PowerToggle
 		}
 
@@ -1628,7 +1628,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 12000
-			ToggleOnResources = 10000
+			ToggleOnResources = 11001
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -1638,7 +1638,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = BackBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 1000
+			ResupplyThreshold = 500
 			OperationalToggle = PowerToggle
 		}
 
@@ -1666,7 +1666,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 16000
-			ToggleOnResources = 14000
+			ToggleOnResources = 15001
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -1676,7 +1676,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = LeftBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 1000
+			ResupplyThreshold = 500
 			OperationalToggle = PowerToggle
 		}
 
@@ -1704,7 +1704,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			Type = ResourceStorage
 			ResourceType = battery
 			MaxResources = 16000
-			ToggleOnResources = 14000
+			ToggleOnResources = 15001
 			DrainOnFtlJump = true
 			ReceiveResourceMediaEffects = &/COMMON_EFFECTS/PowerDeliver
 		}
@@ -1714,7 +1714,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			ResourceType = battery
 			Storage = RightBatteryStorage
 			DefaultPriority = &/PRIORITIES/Defense_Supply
-			ResupplyThreshold = 1000
+			ResupplyThreshold = 500
 			OperationalToggle = PowerToggle
 		}
 
@@ -1727,7 +1727,6 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			MinFromQuantityForConversion = 1
 			Interval = 1
 		}
-		
 		
 		//
 		// Crew
@@ -1933,6 +1932,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			}
 		}
 
+// Bis es neue gibts auskommentiert.
 //		BatterySprites
 //		{
 //			Type = ResourceSprites
