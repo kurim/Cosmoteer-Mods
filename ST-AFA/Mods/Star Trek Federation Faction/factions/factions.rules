@@ -1,0 +1,21 @@
+Factions
+[
+	// Starfleet and the United Federation of Planets
+	{
+		ID = stafa.federation
+		NameKey = "Factions/Federation"
+		Icon
+		{
+			Texture
+			{
+				File = "Federation.png"
+				SampleMode = Linear
+				MipLevels = max
+			}
+		}
+		BorderColor = [30, 144, 255]
+		MilitaryPlayerIndex = 500
+		CivilianPlayerIndex = 501
+	}
+	
+]

@@ -1,0 +1,13 @@
+Faction = stafa.federation
+IDPrefix = "Senfdeckels.Galactic_Empire"
+Tags = [defense]
+
+Ships
+[
+	// Platforms
+	:~{ File="Small Phaser Platform.ship.png";     Tier=2; Difficulty=2; }
+	:~{ File="Small Point Defense Platform.ship.png"; Tier=2; Difficulty=2; }
+	:~{ File="Small Torpedo Platform.ship.png";       Tier=2; Difficulty=2; }
+	// :~{ File="Small Quantentorpedo Platform.ship.png";       Tier=5; Difficulty=2; }
+	// :~{ File="Small Tricobalttorpedo Platform.ship.png";       Tier=8; Difficulty=3; }
+]

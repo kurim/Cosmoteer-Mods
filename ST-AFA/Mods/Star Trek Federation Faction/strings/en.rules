@@ -1,0 +1,20 @@
+__Name = "English"
+__DebugOnly = false
+
+Factions
+{
+	Federation = "United Federation of Planets"
+}
+
+Lore
+{
+	Federation
+	{
+		Title = "United Federation of Planets"
+		Lore1 = "1"
+		Lore2 = "2"
+		Lore3 = "3"
+		Lore4 = "4"
+		Lore5 = "5"
+	}
+}

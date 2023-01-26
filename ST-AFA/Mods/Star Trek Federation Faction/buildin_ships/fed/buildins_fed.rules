@@ -1,0 +1,8 @@
+Ships :
+	<Combat/buildins_fed_combat.rules>/Ships
+	<Defense/buildins_fed_defense.rules>/Ships
+	<Civilian/buildins_fed_civilian.rules>/Ships
+	<Stations/buildins_fed_stations.rules>/Ships
+[
+
+]

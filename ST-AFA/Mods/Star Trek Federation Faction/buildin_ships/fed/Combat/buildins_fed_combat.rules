@@ -1,0 +1,27 @@
+Faction = stafa.federation
+Tags = [combat]
+
+Ships
+[
+
+	:~{ File="Federation-Nova-Class.ship.png";			Tier=1;  Difficulty=1; }
+	:~{ File="Federation-Miranda-Class.ship.png";		Tier=2;  Difficulty=1; }
+	:~{ File="Federation-Centaur-Class.ship.png";		Tier=3;  Difficulty=1; }
+	:~{ File="Federation-Intrepid-Class.ship.png";		Tier=4;  Difficulty=1; }
+	:~{ File="Federation-Sabre-Class.ship.png";			Tier=5;  Difficulty=1; }
+	:~{ File="Federation-Defiant-Class.ship.png";		Tier=6;  Difficulty=1; }
+	:~{ File="Federation-Norway-Class.ship.png";		Tier=7;  Difficulty=1; }
+	:~{ File="Federation-Excelsior-Class.ship.png";		Tier=8;  Difficulty=1; }
+	:~{ File="Federation-California-Class.ship.png";	Tier=8;  Difficulty=2; }
+	:~{ File="Federation-Akira-Class.ship.png";			Tier=9;  Difficulty=2; }
+	:~{ File="Federation-Nebula-Class.ship.png";		Tier=10;  Difficulty=1; }
+	:~{ File="Federation-Steamrunner-Class.ship.png";	Tier=11;  Difficulty=3; }
+	:~{ File="Federation-Titan-Class.ship.png";			Tier=12;  Difficulty=2; }
+	:~{ File="Federation-Galaxy-Class-b.ship.png";		Tier=13;  Difficulty=2; }
+	:~{ File="Federation-Obena-Class.ship.png";			Tier=14;  Difficulty=2; }
+	:~{ File="Federation-Parliament-Class.ship.png";	Tier=14;  Difficulty=3; }
+	:~{ File="Federation-Inquiry-Class.ship.png";		Tier=15;  Difficulty=3; }
+	:~{ File="Federation-Ross-Class.ship.png";			Tier=16;  Difficulty=3; }
+	:~{ File="Federation-Sovereign-Class.ship.png";		Tier=17;  Difficulty=3; }
+	:~{ File="Federation-Odyssey-Class.ship.png";		Tier=18;  Difficulty=3; }
+]

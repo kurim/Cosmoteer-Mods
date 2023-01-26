@@ -1,0 +1,15 @@
+Faction = stafa.federation
+Tags = [station]
+
+Ships
+[
+	// Civilian stations
+	:~{ File="Small Federation Trade Station.ship.png"; Tier=4;  Tags : ~/Tags [trade_station]; StasisIcon="Small Federation Trade Station.png" }
+	:~{ File="Med Federation Trade Station.ship.png";   Tier=8; Tags : ~/Tags [trade_station]; StasisIcon="Med Federation Trade Station.png" }
+	:~{ File="Large Federation Trade Station.ship.png"; Tier=14; Tags : ~/Tags [trade_station]; StasisIcon="Large Federation Trade Station.png" }
+
+	// Military stations
+	:~{ File="Small Federation Arms Depot.ship.png";     Tier=6;  SpawnTier=3;  Tags : ~/Tags [military_station]; StasisIcon="Small Federation Arms Depot.png";  FlightDirection=UpRight }
+	:~{ File="Med Federation Arms Depot.ship.png";    Tier=9;  SpawnTier=7;  Tags : ~/Tags [military_station]; StasisIcon="Med Federation Arms Depot.png"; FlightDirection=UpRight }
+	:~{ File="Large Federation Arms Depot.ship.png";      Tier=12; SpawnTier=11; Tags : ~/Tags [military_station]; StasisIcon="Large Federation Arms Depot.png";   FlightDirection=UpRight }
+]
