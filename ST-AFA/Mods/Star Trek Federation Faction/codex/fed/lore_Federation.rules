@@ -1,0 +1,30 @@
+ID = United_Federation_of_Planets
+TitleKey = "Lore/Federation/Title"
+TabNameKey = "Codex/Lore"
+Entries
+[
+	{
+		TextKey = "Lore/Federation/Lore1"
+		Image
+		{
+			Texture
+			{
+				File = "Federation.png"
+				SampleMode = Linear
+				MipLevels = max
+			}
+		}
+	}
+	{
+		TextKey = "Lore/Federation/Lore2"
+	}
+	{
+		TextKey = "Lore/Federation/Lore3"
+	}
+	{
+		TextKey = "Lore/Federation/Lore4"
+	}
+	{
+		TextKey = "Lore/Federation/Lore5"
+	}
+]

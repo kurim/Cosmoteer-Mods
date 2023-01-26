@@ -1,0 +1,13 @@
+Faction = stafa.federation
+Tags = [civilian]
+
+Ships
+[
+	// Trade ships
+	:~{ File="Transport Drone.ship.png";  Tier=3;  Tags : ~/Tags [trade] }
+	:~{ File="Small Transport.ship.png";        Tier=5;  Tags : ~/Tags [trade] }
+	:~{ File="Medium Transport.ship.png";    Tier=7;  Tags : ~/Tags [trade] }
+	// :~{ File="Big Transport.ship.png"; Tier=9;  Tags : ~/Tags [trade] }
+	:~{ File="Large Transport.ship.png";    Tier=11;  Tags : ~/Tags [trade] }
+	// :~{ File="Huge Transport.ship.png";     Tier=13;  Tags : ~/Tags [trade] }
+]
