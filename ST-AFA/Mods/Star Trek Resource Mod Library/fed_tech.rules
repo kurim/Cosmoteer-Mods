@@ -1,0 +1,24 @@
+Techs
+[
+	// Techtree
+	{
+		Name = factory_antimatter
+		ID = stafa.factory_antimatter
+		NameKey = &<parts/Factories/factory_antimatter/factory_antimatter.rules>/Part/NameKey
+		DescriptionKey = &<parts/Factories/factory_antimatter/factory_antimatter.rules>/Part/DescriptionKey
+		Icon = &<parts/Factories/factory_antimatter/factory_antimatter.rules>/Part/EditorIcon
+		EditorGroup = &<parts/Factories/factory_antimatter/factory_antimatter.rules>/Part/EditorGroup
+		PartsUnlocked = [&&<parts/Factories/factory_antimatter/factory_antimatter.rules>/Part/ID]
+		Cost = 20000
+	}
+	{
+		Name = factory_torpedo
+		ID = stafa.factory_torpedo_parts
+		NameKey = &<parts/Factories/factory_torpedo/factory_torpedo_parts.rules>/Part/NameKey
+		DescriptionKey = &<parts/Factories/factory_torpedo/factory_torpedo_parts.rules>/Part/DescriptionKey
+		Icon = &<parts/Factories/factory_torpedo/factory_torpedo_parts.rules>/Part/EditorIcon
+		EditorGroup = &<parts/Factories/factory_torpedo/factory_torpedo_parts.rules>/Part/EditorGroup
+		PartsUnlocked = [&<parts/Factories/factory_torpedo/factory_torpedo_parts.rules>/Part/ID]
+		Cost = 10000
+	}
+]

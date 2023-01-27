@@ -36,6 +36,19 @@ Actions
         ManyToAdd = &<galaxy_map/map_generators/base_galaxy.rules>/FactionTiers/Factions
 	}
 	
+	// Add faction to StartingNodePicker
+	{
+		Action = Replace
+		Replace = "<galaxy_map/map_generators/base_galaxy.rules>/StartingNodePicker/CandidatesClosestToFactions"
+		With = [1, [stafa.federation, monolith, cabal]]
+	}
+	// Allow spawn in federation space
+	// {
+		// Action = Replace
+		// Replace = "<galaxy_map/map_generators/base_galaxy.rules>/StartingNodePicker/AllowedFactions"
+		// With = [fringe, stafa.federation]
+	// }
+	
 	// Add Starfleet and Federation codex lore
 	{
 		Action = AddMany
@@ -64,18 +77,18 @@ Actions
 	// }
 
 	//Starfleet Trade Ship
-	// {
-		// Action = AddBase
-		// AddBaseTo = "<modes/career/career.rules>/TradeRoutes/TradeShips"
-		// BaseToAdd = 	{
-					 	// Federation_1  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Cargo Transporter Tiny Empire";     Faction=stafa.federation;   TierRange=[1, 3];   StasisSpeed=40; StasisTradeTime=35;}
-					 	// Federation_2  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Cargo Transporter Small Empire";     Faction=stafa.federation;   TierRange=[1, 5];   StasisSpeed=55; StasisTradeTime=48;}
-						// Federation_3  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Cargo Transporter Medium Empire";     Faction=stafa.federation;   TierRange=[1, 7];   StasisSpeed=60; StasisTradeTime=55;}
-						// Federation_4  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Cargo Transporter Large Empire";     Faction=stafa.federation;   TierRange=[1, 10];   StasisSpeed=65; StasisTradeTime=60;}
-						// Federation_5  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Cargo Transporter Huge Empire";     Faction=stafa.federation;   TierRange=[1, 18];   StasisSpeed=70; StasisTradeTime=65;}
-						// Federation_6  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Cargo Transporter Extra Huge Emp";     Faction=stafa.federation;   TierRange=[10, 18];   StasisSpeed=75; StasisTradeTime=70;}
-					// }
-	// }
+	{
+		Action = AddBase
+		AddBaseTo = "<modes/career/career.rules>/TradeRoutes/TradeShips"
+		BaseToAdd = 	{
+					 	Federation_1  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Transport Drone";     Faction=stafa.federation;   TierRange=[1, 3];   StasisSpeed=40; StasisTradeTime=35;}
+					 	Federation_2  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Small Transport";     Faction=stafa.federation;   TierRange=[1, 5];   StasisSpeed=55; StasisTradeTime=48;}
+						Federation_3  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Medium Transport";     Faction=stafa.federation;   TierRange=[1, 7];   StasisSpeed=60; StasisTradeTime=55;}
+						// Federation_4  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Big Transport";     Faction=stafa.federation;   TierRange=[1, 10];   StasisSpeed=65; StasisTradeTime=60;}
+						Federation_5  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Large Transport";     Faction=stafa.federation;   TierRange=[1, 18];   StasisSpeed=70; StasisTradeTime=65;}
+						// Federation_6  : <./Data/modes/career/career.rules>/BaseTradeShip  {ShipID="Huge Transport";     Faction=stafa.federation;   TierRange=[10, 18];   StasisSpeed=75; StasisTradeTime=70;}
+					}
+	}
 
 	//Starfleet conversion main screen ship
 	{

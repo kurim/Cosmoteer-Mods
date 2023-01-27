@@ -24,6 +24,14 @@ Actions
 	}
 	//******************** SOUNDS ********************
 
+
+	//******************** TECHS ********************
+	{
+		Action = AddMany
+		AddTo = "<modes/career/techs.rules>/Techs"
+		ManyToAdd = &<fed_tech.rules>/Techs
+	}
+
 	//******************** RESOURCES ********************
 	{
 		Action = AddMany
@@ -34,6 +42,26 @@ Actions
 		Action = AddMany
 		AddTo = "<doodads/doodads.rules>/Doodads"
 		ManyToAdd = &<doodads/doodads.rules>/Doodads
+	}
+	{
+		Action = AddMany
+		AddTo = "<modes/career/career.rules>/TradeRoutes/StationResourceTradeDeltas"
+		ManyToAdd
+		[
+			{ ResourceType=antimatter;  		DesiredDelta=[-10, 10]; }
+			{ ResourceType=dilithium; 			DesiredDelta=[-10, 10]; }
+			{ ResourceType=torpedo_part;        DesiredDelta=[-25, 25]; }
+		]
+	}
+	{
+		Action = AddMany
+		AddTo = "<modes/career/career.rules>/BaseTradeShip/ResourcesCarried"
+		ManyToAdd
+		[
+			{ ResourceType=antimatter;              RandomWeight=5;  RandomQuantity=[50%, 100%]; }
+			{ ResourceType=dilithium;           	RandomWeight=5;  RandomQuantity=[50%, 100%]; }
+			{ ResourceType=torpedo_part;   			RandomWeight=5;  RandomQuantity=[75%, 100%]; }
+		]
 	}
 	//******************** UI ********************
 
