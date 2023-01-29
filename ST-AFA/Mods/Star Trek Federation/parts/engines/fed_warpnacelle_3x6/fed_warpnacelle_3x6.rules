@@ -10,7 +10,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		[steel, 150]
 		[coil, 150]
 	]
-	TypeCategories = [thruster, uses_power]
+	TypeCategories = [thruster, uses_power, nacelle]
 	Size = [3, 6]
 	IsRotateable = false
 	PhysicalRect = [0, 0, 3, 6]
@@ -23,13 +23,13 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	MaxHealth = 4500
 	ProhibitRects
 	[
-		[default, [-1, -4, 1, 1]]	// top
-		[default, [3, -4, 1, 1]]	// top
-		[default, [4, -3, 1, 3]]	// top right
-		[default, [-2, -3, 1, 3]]	// top left
-		[default, [4, 3, 1, 5]]		// bottom right
-		[default, [-2, 3, 1, 5]]	// bottom left
-		[default, [-1, 8, 5, 1]]	// bottom
+		// [default, [-1, -4, 1, 1]]	// top
+		// [default, [3, -4, 1, 1]]	// top
+		// [default, [4, -3, 1, 3]]	// top right
+		// [default, [-2, -3, 1, 3]]	// top left
+		[default, [4, 4, 1, 5]]		// bottom right
+		[default, [-2, 4, 1, 5]]	// bottom left
+		[default, [-1, 9, 5, 1]]	// bottom
 	]
 	ThrusterForce = 12000
 	ThrustIncreaseTime = 5

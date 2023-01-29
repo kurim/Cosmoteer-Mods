@@ -16,7 +16,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	SelectionTypeID = "shield_gen"
 	SelectionTypeByRotation = true
 	MaxHealth = 6000
-	TypeCategories = [defense, uses_power]
+	TypeCategories = [defense, uses_power, shieldcore]
 	ReceivableBuffs : ^/0/ReceivableBuffs [AntimatterPower]
 	PenetrationRectType = Normal
 	Radius_XS = 15
