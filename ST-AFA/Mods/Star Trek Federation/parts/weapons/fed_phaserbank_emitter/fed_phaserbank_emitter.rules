@@ -1,24 +1,28 @@
 Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
-	NameKey = "Parts/Phaser_Bank"
-	IconNameKey = "Parts/Phaser_Bank_Icon"
-	ID = "stafa.phaserbank_floor"
+	NameKey = "Parts/Phaser_Bank_Modular"
+	IconNameKey = "Parts/Phaser_Bank_Modular_Icon"
+	ID = "stafa.phaserbank_emitter"
 	EditorGroup = "Starfleet"
-	DescriptionKey = "Parts/Phaser_Bank_Desc"
+	DescriptionKey = "Parts/Phaser_Bank_Modular_Desc"
 	Resources
 	[
 		[steel, 88]
 		[coil2, 30]
 		[coil2, 6]
 	]
-	TypeCategories = [weapon, turret, uses_power, phaserbank, phaserbank_power]
-	ReceivableBuffs : ^/0/ReceivableBuffs [CaptainsRoomBuff, Phaser]
-	Size = [1, 5]
-	SelectionPriority = 1
-	SelectionTypeByRotation = true
-	MaxHealth = 5000
-	InitialPenetrationResistance = 3
-	PenetrationRectType = Normal
+	Size = [1, 1]
+	MaxHealth = 1000
+	CreatePartPerTileWhenGrabbed = ""
+	CrewSpeedFactor = 1
+	CrewCongestedSpeedFactor = .5
+	TypeCategories = [corridor, uses_power, phaserbank, phaserbank_power, phaserbank_power_modular]
+	ReceivableBuffs : ^/0/ReceivableBuffs [Phaser]
+	IsRotateable = false
+	IsWalled = false
+	IsSelfDestructible = false
+	GeneratorRequiresDoor = false
+	IgnoreRotationForMirroredSelection = true
 	EditorIcon
 	{
 		Texture
@@ -26,10 +30,17 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			File = "icon.png"
 			SampleMode = Linear
 		}
-		Size = [64, 64]
+		Size = [32, 32]
 	}
 	Components : ^/0/Components
 	{
+		WallsBlend : <./Data/ships/terran/walls/walls.rules>
+		{
+			Type = BlendSprite
+			Location = [.5, .5]
+			BlendsWithCategories = [corridor, phaserbank_power_modular]
+		}
+
 		IsOperational
 		{
 			Type = MultiToggle
@@ -72,28 +83,17 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 			OnMode = 2
 		}
 
-		ReverseOperationLeft
+		ReverseOperation
 		{
 			Type = AreaBuffProvider
 			BuffType = PhaserReverseOperation
-			BuffArea = [-1, 0, 1, 5]
+			BuffArea = [0, -1, 1, 1]
 			OperationalToggle = IsOperational
 			Criteria
 			{
 				Rot = 0
-				Category = phaserbank_controller
-			}
-		}
-		ReverseOperationRight
-		{
-			Type = AreaBuffProvider
-			BuffType = PhaserReverseOperation
-			BuffArea = [1, 0, 1, 5]
-			OperationalToggle = IsOperational
-			Criteria
-			{
-				Rot = 0
-				Category = phaserbank_controller
+				Right = 1
+				Category = phaserbank_power_modular
 			}
 		}
 
@@ -108,7 +108,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		Graphics
 		{
 			Type = Graphics
-			Location = [0.5, 2.5]
+			Location = [0.5, 0.5]
 			OperationalToggle = IsOperational
 			Floor
 			{
@@ -117,47 +117,15 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				[
 					{
 						File = "floor.png"
-						Size = [1, 5]
+						Size = [1, 1]
 					}
 					{
 						File = "floor_33.png"
-						Size = [1, 5]
+						Size = [1, 1]
 					}
 					{
 						File = "floor_66.png"
-						Size = [1, 5]
-					}
-				]
-			}
-			//OperationalLighting
-			//{
-			//	Layer = "lights_add"
-			//	DamageLevels
-			//	[
-			//		{
-			//			File = "lights.png"
-			//			Size = [1, 5]
-			//		}
-			//	]
-			//}
-			//NonOperationalDoodad = &OperationalDoodad
-			Walls
-			{
-				Layer = "walls"
-				Offset = [0, 0]
-				DamageLevels
-				[
-					{
-						File = "walls.png"
-						Size = [1, 5]
-					}
-					{
-						File = "walls_33.png"
-						Size = [1, 5]
-					}
-					{
-						File = "walls_66.png"
-						Size = [1, 5]
+						Size = [1, 1]
 					}
 				]
 			}
@@ -170,17 +138,17 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					{
 						File = "roof.png"
 						NormalsFile = "roof_normals.png"
-						Size = [1, 5]
+						Size = [1, 1]
 					}
 					{
 						File = "roof_33.png"
 						NormalsFile = "roof_normals_33.png"
-						Size = [1, 5]
+						Size = [1, 1]
 					}
 					{
 						File = "roof_66.png"
 						NormalsFile = "roof_normals_66.png"
-						Size = [1, 5]
+						Size = [1, 1]
 					}
 				]
 			}
@@ -362,7 +330,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 		{
 			Type = BlueprintSprite
 			File = "blueprints.png"
-			Size = [1, 5]
+			Size = [1, 1]
 		}
 	}
 
