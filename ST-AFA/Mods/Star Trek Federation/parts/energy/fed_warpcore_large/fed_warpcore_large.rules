@@ -19,7 +19,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 	SelectionTypeID = "reactors"
 	MaxHealth = 4000 // Deliberately not increasing this for med/large reactors to make them extra-fragile.
 	AutoDoorMaxPathLength = 5
-	TypeCategories = [reactor, ftl, is_crewed, uses_antimatter]
+	TypeCategories = [reactor, ftl, is_crewed, uses_antimatter, warpcore]
 	ReceivableBuffs : ^/0/ReceivableBuffs []
 	CreatePartPerTileWhenDestroyed = ""
 	IgnoreRotationForMirroredSelection = true

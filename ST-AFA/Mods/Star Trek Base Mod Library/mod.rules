@@ -52,6 +52,33 @@ Actions
         AddTo = "<ships/terran/terran.rules>/Terran/CategoryLimits"
         ToAdd
         {
+            Category = "warpcore"
+            Max = 1
+        }
+    }
+	{
+        Action = Add
+        AddTo = "<ships/terran/terran.rules>/Terran/CategoryLimits"
+        ToAdd
+        {
+            Category = "shieldcore"
+            Max = 1
+        }
+    }
+	{
+        Action = Add
+        AddTo = "<ships/terran/terran.rules>/Terran/CategoryLimits"
+        ToAdd
+        {
+            Category = "nacelle"
+            Max = 2
+        }
+    }
+	{
+        Action = Add
+        AddTo = "<ships/terran/terran.rules>/Terran/CategoryLimits"
+        ToAdd
+        {
             Category = "readyroom"
             Max = 1
         }
