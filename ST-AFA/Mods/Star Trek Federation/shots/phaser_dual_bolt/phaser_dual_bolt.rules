@@ -1,4 +1,4 @@
-ID = "nexusmods.100_phaser_dual_bolt"
+ID = "stafa.fed_phaser_dual_bolt"
 OtherIDs = ["phaser_dual_bolt"]
 Range = { BaseValue=260; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=360; }
 IdealRange

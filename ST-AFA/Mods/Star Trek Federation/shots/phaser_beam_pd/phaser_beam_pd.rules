@@ -1,5 +1,4 @@
-ID = "nexusmods.100_phaser_beam_pd"
-OtherIDs = ["phaser_beam_pd"]
+ID = "stafa.fed_phaser_beam_pd"
 Range = { BaseValue=180; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=220; }
 IdealRange
 [

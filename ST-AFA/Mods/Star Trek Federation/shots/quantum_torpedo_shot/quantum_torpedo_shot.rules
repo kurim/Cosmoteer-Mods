@@ -1,4 +1,4 @@
-ID = "nexusmods.quantum_torpedo_shot"  // originals by kurim
+ID = "stafa.fed_quantum_torpedo_shot"  // originals by kurim
 Range = { BaseValue=320; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=360; }
 IdealRange
 [
