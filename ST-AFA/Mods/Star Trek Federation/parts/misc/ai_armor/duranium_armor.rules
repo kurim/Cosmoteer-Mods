@@ -1,6 +1,7 @@
 Part : <./Data/ships/terran/armor/armor.rules>/Part
 {
 	ID = stafa.duranium_armor
+	OtherIDs = []
 	EditorGroup = "Starfleet"
 	//IsBuildable = false
 	MaxHealth = 12000
