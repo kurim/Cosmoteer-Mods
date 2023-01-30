@@ -84,6 +84,15 @@ Actions
         }
     }
 	{
+        Action = Add
+        AddTo = "<ships/terran/terran.rules>/Terran/CategoryLimits"
+        ToAdd
+        {
+            Category = "uses_torpedos"
+            Max = 4
+        }
+    }
+	{
 		Action = Add
 		AddTo = "<./Data/gui/game/parts/part_stats.rules>/PartStats"
 		ToAdd 
