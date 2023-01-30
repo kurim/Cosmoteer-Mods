@@ -22,6 +22,9 @@ Parts
 	Phaser_Bank = "Phaser Bank"
 	Phaser_Bank_Icon = "Phaser Bank"
 	Phaser_Bank_Desc = "Phaser Bank beam weapon with numerous emitters that allows it to fire in a 360° arc."
+	Phaser_Bank_Modular = "Phaser Bank"
+	Phaser_Bank_Modular_Icon = "Phaser Bank"
+	Phaser_Bank_Modular_Desc = "Phaser Bank beam weapon with numerous emitters that allows it to fire in a 360° arc."	
 	// Rooms
 	Captains_Room = "Captain's ready room"
 	Captains_Room_Icon = "Ready room"
