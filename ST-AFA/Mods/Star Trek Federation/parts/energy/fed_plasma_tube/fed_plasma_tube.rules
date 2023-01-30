@@ -1,11 +1,11 @@
 Part : <./Data/ships/terran/base_part_terran.rules>/Part
 {
-	NameKey = "Parts/PowerStorage"
-	IconNameKey = "Parts/PowerStorageIcon"
+	NameKey = "Parts/Plasma_Tube"
+	IconNameKey = "Parts/Plasma_Tube_Icon"
 	ID = "stafa.plasma_tube"
 	OtherIDs = [plasma_tube]
 	EditorGroup = "Starfleet"
-	DescriptionKey = "Parts/PowerStorageDesc"
+	DescriptionKey = "Parts/Plasma_Tube_Desc"
 	Resources
 	[
 		[steel, 32]

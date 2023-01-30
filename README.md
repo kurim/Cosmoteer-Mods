@@ -6,7 +6,7 @@
 - Bigger Crew Quarters
 - Bigger Crew Quarters for TechTree
 - Kurims TechTree
-- Experimaental Stuff
+- Experimental Stuff
 
 ## StarTrek - A Final Assault 
 [Folder](https://github.com/kurim/Cosmoteer-Mods/tree/main/ST-AFA)

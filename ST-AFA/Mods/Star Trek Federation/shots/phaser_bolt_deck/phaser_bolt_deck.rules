@@ -1,4 +1,4 @@
-ID = "nexusmods.100_phaser_bolt_deck"
+ID = "stafa.fed_phaser_bolt_deck"
 OtherIDs = ["phaser_bolt_deck"]
 Range = { BaseValue=260; BuffType=CaptainsRoomBuff; BuffMode=Multiply; MaxValue=360; }
 IdealRange
