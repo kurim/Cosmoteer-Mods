@@ -415,6 +415,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = -90d
 					OperationalToggle = FrontIsOperational
 					DrainResourcesFrom = FrontBatteryStorage
+					ResourceDrainPerDamage = .2
 					ShieldMediaEffects
 					[
 						{
@@ -471,6 +472,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 90d
 					OperationalToggle = BackIsOperational
 					DrainResourcesFrom = BackBatteryStorage
+					ResourceDrainPerDamage = .4
 					ShieldMediaEffects
 					[
 						{
@@ -528,6 +530,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 180d
 					OperationalToggle = LeftIsOperational
 					DrainResourcesFrom = LeftBatteryStorage
+					ResourceDrainPerDamage = .3
 					ShieldMediaEffects
 					[
 						{
@@ -585,6 +588,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 0d
 					OperationalToggle = RightIsOperational
 					DrainResourcesFrom = RightBatteryStorage
+					ResourceDrainPerDamage = .3
 					ShieldMediaEffects
 					[
 						{
@@ -650,6 +654,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = -90d
 					OperationalToggle = FrontIsOperational
 					DrainResourcesFrom = FrontBatteryStorage
+					ResourceDrainPerDamage = .2
 					ShieldMediaEffects
 					[
 						{
@@ -706,6 +711,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 90d
 					OperationalToggle = BackIsOperational
 					DrainResourcesFrom = BackBatteryStorage
+					ResourceDrainPerDamage = .4
 					ShieldMediaEffects
 					[
 						{
@@ -762,6 +768,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 180d
 					OperationalToggle = LeftIsOperational
 					DrainResourcesFrom = LeftBatteryStorage
+					ResourceDrainPerDamage = .3
 					ShieldMediaEffects
 					[
 						{
@@ -819,6 +826,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 0d
 					OperationalToggle = RightIsOperational
 					DrainResourcesFrom = RightBatteryStorage
+					ResourceDrainPerDamage = .3
 					ShieldMediaEffects
 					[
 						{
@@ -884,6 +892,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = -90d
 					OperationalToggle = FrontIsOperational
 					DrainResourcesFrom = FrontBatteryStorage
+					ResourceDrainPerDamage = .15
 					ShieldMediaEffects
 					[
 						{
@@ -940,6 +949,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 90d
 					OperationalToggle = BackIsOperational
 					DrainResourcesFrom = BackBatteryStorage
+					ResourceDrainPerDamage = .35
 					ShieldMediaEffects
 					[
 						{
@@ -997,6 +1007,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 180d
 					OperationalToggle = LeftIsOperational
 					DrainResourcesFrom = LeftBatteryStorage
+					ResourceDrainPerDamage = .25
 					ShieldMediaEffects
 					[
 						{
@@ -1054,6 +1065,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 0d
 					OperationalToggle = RightIsOperational
 					DrainResourcesFrom = RightBatteryStorage
+					ResourceDrainPerDamage = .25
 					ShieldMediaEffects
 					[
 						{
@@ -1119,6 +1131,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = -90d
 					OperationalToggle = FrontIsOperational
 					DrainResourcesFrom = FrontBatteryStorage
+					ResourceDrainPerDamage = .1
 					ShieldMediaEffects
 					[
 						{
@@ -1175,6 +1188,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 90d
 					OperationalToggle = BackIsOperational
 					DrainResourcesFrom = BackBatteryStorage
+					ResourceDrainPerDamage = .3
 					ShieldMediaEffects
 					[
 						{
@@ -1232,6 +1246,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 180d
 					OperationalToggle = LeftIsOperational
 					DrainResourcesFrom = LeftBatteryStorage
+					ResourceDrainPerDamage = .2
 					ShieldMediaEffects
 					[
 						{
@@ -1289,6 +1304,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 0d
 					OperationalToggle = RightIsOperational
 					DrainResourcesFrom = RightBatteryStorage
+					ResourceDrainPerDamage = .2
 					ShieldMediaEffects
 					[
 						{
@@ -1354,6 +1370,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = -90d
 					OperationalToggle = FrontIsOperational
 					DrainResourcesFrom = FrontBatteryStorage
+					ResourceDrainPerDamage = .05
 					ShieldMediaEffects
 					[
 						{
@@ -1410,6 +1427,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 90d
 					OperationalToggle = BackIsOperational
 					DrainResourcesFrom = BackBatteryStorage
+					ResourceDrainPerDamage = .25
 					ShieldMediaEffects
 					[
 						{
@@ -1461,11 +1479,12 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 				// LEFT
 				ArcShield_XL_Left : &~/Part/Components/BaseArcShield
 				{
-					Radius = 240 //&~/Part/Radius_XL
-					Arc = 20d // 90d
+					Radius = &~/Part/Radius_XL
+					Arc = 90d
 					Rotation = 180d
 					OperationalToggle = LeftIsOperational
 					DrainResourcesFrom = LeftBatteryStorage
+					ResourceDrainPerDamage = .15
 					Location = [130, 2]
 					ShieldMediaEffects
 					[
@@ -1525,6 +1544,7 @@ Part : <./Data/ships/terran/base_part_terran.rules>/Part
 					Rotation = 0d
 					OperationalToggle = RightIsOperational
 					DrainResourcesFrom = RightBatteryStorage
+					ResourceDrainPerDamage = .15
 					ShieldMediaEffects
 					[
 						{
