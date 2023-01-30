@@ -35,4 +35,10 @@ Parts
 	&<misc/ai_armor/duranium_armor1x2_wedge.rules>/Part
 	&<misc/ai_armor/duranium_armor1x3_wedge.rules>/Part
 	&<misc/ai_armor/duranium_armor2x1.rules>/Part
+	&<misc/ai_armor/tritanium_armor.rules>/Part
+	&<misc/ai_armor/tritanium_armor_tri.rules>/Part
+	&<misc/ai_armor/tritanium_armor_wedge.rules>/Part
+	&<misc/ai_armor/tritanium_armor1x2_wedge.rules>/Part
+	&<misc/ai_armor/tritanium_armor1x3_wedge.rules>/Part
+	&<misc/ai_armor/tritanium_armor2x1.rules>/Part
 ]
